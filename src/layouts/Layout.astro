@@ -103,20 +103,24 @@ const imageURL = ogImage || `${Astro.site}favicon.svg`;
     </script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&family=Pridi:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Global Language-Aware Styling -->
     <style>
-      /* Font system based on language */
+      /* Font system based on language - comprehensive coverage */
       html[lang="th"] .block-title,
       html[lang="th"] h1, html[lang="th"] h2, html[lang="th"] h3, html[lang="th"] h4, html[lang="th"] h5, html[lang="th"] h6,
-      html[lang="th"] p, html[lang="th"] .fs-16, html[lang="th"] .hint-text {
+      html[lang="th"] p, html[lang="th"] .fs-16, html[lang="th"] .hint-text,
+      html[lang="th"] .font-montserrat, html[lang="th"] span, html[lang="th"] a,
+      html[lang="th"] .fs-11, html[lang="th"] .fs-12, html[lang="th"] .fs-14 {
         font-family: 'Noto Sans Thai', sans-serif !important;
       }
 
       html[lang="en"] .block-title,
       html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] h4, html[lang="en"] h5, html[lang="en"] h6,
-      html[lang="en"] p, html[lang="en"] .fs-16, html[lang="en"] .hint-text {
+      html[lang="en"] p, html[lang="en"] .fs-16, html[lang="en"] .hint-text,
+      html[lang="en"] .font-montserrat, html[lang="en"] span, html[lang="en"] a,
+      html[lang="en"] .fs-11, html[lang="en"] .fs-12, html[lang="en"] .fs-14 {
         font-family: 'Noto Sans', sans-serif !important;
       }
 

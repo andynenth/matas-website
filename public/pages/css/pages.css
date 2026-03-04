@@ -441,7 +441,7 @@ body.pace-white .pace .pace-progress {
 .header .menu > li > a {
   position: relative;
   text-transform: uppercase;
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans Thai';
   padding-right: 21px;
   display: block;
 }
@@ -637,7 +637,7 @@ body.pace-white .pace .pace-progress {
 .header .menu > li > .classic ul > li a {
   color: #000000;
   text-transform: uppercase;
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans Thai';
   opacity: 0.5;
   font-size: 11px;
   line-height: 30px;
@@ -692,7 +692,7 @@ body.pace-white .pace .pace-progress {
   color: #000000;
   opacity: 0.5;
   text-transform: uppercase;
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans Thai';
   line-height: 35px;
   font-size: 11px;
 }
@@ -735,7 +735,7 @@ body.pace-white .pace .pace-progress {
 .header .menu > li > .mega .container ul.sub-menu > li a {
   color: #000000;
   text-transform: uppercase;
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans Thai';
   opacity: 0.5;
   font-size: 11px;
   line-height: 30px;
@@ -759,7 +759,7 @@ body.pace-white .pace .pace-progress {
   color: #000000;
   font-size: 12px;
   text-transform: uppercase;
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans Thai';
   margin: 0;
   padding-bottom: 5px;
 }
@@ -1213,7 +1213,7 @@ body.pace-white .pace .pace-progress {
   height: calc(100% - 50px);
 }
 .panel .panel-heading .panel-title {
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans Thai';
   text-transform: uppercase;
   display: inline-block;
   letter-spacing: 0.02em;
@@ -1298,7 +1298,7 @@ body.pace-white .pace .pace-progress {
   float: right;
 }
 .panel.panel-featured .panel-title h4 {
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans Thai';
   font-size: 16px;
   text-transform: uppercase;
   color: #f0f0f0;
@@ -1641,7 +1641,7 @@ html {
 }
 body {
   color: #626262;
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: 'Pridi', serif;
   font-size: 14px;
   font-weight: 300;
   letter-spacing: 0.01em;
@@ -1661,7 +1661,7 @@ h4,
 h5,
 h6 {
   margin: 10px 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Noto Sans Thai', sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -1709,7 +1709,7 @@ h6.block {
   padding-bottom: 10px;
 }
 .block-title {
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans Thai';
   font-weight: 400;
   font-size: 15px;
   text-transform: uppercase;
@@ -2317,7 +2317,7 @@ hr.dotted {
 [Buttons Base Styles]
 */
 .btn {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Noto Sans Thai', sans-serif;
   font-size: 14px;
   font-weight: normal;
   letter-spacing: 0.01em;
@@ -4002,7 +4002,7 @@ Misc buttons
   border-radius: 0;
   padding: 15px 20px;
   margin-right: 0;
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans Thai';
   font-weight: 400;
   color: rgba(98, 98, 98, 0.7);
   font-size: 12px;
@@ -4938,7 +4938,7 @@ fieldset[disabled] .form-control {
   margin-bottom: 10px;
 }
 .form-group label:not(.error) {
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans Thai';
   font-size: 11px;
   text-transform: uppercase;
   font-weight: 600;
@@ -6833,7 +6833,7 @@ input.error:-webkit-autofill:focus,
   transition: all 0.1s ease-in-out;
 }
 .error-number {
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans Thai';
   font-size: 90px;
   line-height: 90px;
 }
