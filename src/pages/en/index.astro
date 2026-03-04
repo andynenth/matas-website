@@ -1,0 +1,190 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const pageTitle = 'Home';
+const pageDescription = 'MS Law Office - Professional legal services in Chonburi with transparent, accessible, and professional standards';
+
+const services = [
+  {
+    title: 'Court Litigation Services',
+    description: 'Legal consultation and litigation in all court levels with expertise and experience',
+    icon: 'fa-balance-scale'
+  },
+  {
+    title: 'Legal Consultation',
+    description: 'Legal advice in various fields with knowledge and real experience',
+    icon: 'fa-briefcase'
+  },
+  {
+    title: 'Will Preparation',
+    description: 'Draft and prepare legal wills for family peace of mind',
+    icon: 'fa-file-text'
+  },
+  {
+    title: 'Estate Administration',
+    description: 'Assistance in estate administrator appointment and legal procedures',
+    icon: 'fa-users'
+  },
+  {
+    title: 'Company Registration',
+    description: 'Complete company registration services, fast, accurate, and legal',
+    icon: 'fa-building'
+  },
+  {
+    title: 'Document Translation (Express)',
+    description: 'Legal and official document translation with accuracy certification',
+    icon: 'fa-language'
+  },
+  {
+    title: 'Document Certification by Attorney',
+    description: 'Document and signature certification by certified attorney',
+    icon: 'fa-certificate'
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} lang="en">
+  <Header lang="en" currentPath="/en/" />
+
+  <div class="m-t-60">
+    <!-- Hero Section -->
+    <section class="p-t-85 p-b-85" style="position: relative; background-image: url('/assets/images/lawyer-hero-bg.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+      <!-- Blur overlay -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); background: rgba(255,255,255,0.8);"></div>
+      <div class="container" style="position: relative; z-index: 1;">
+        <div class="text-center">
+          <h5 class="block-title hint-text no-margin">Law Office</h5>
+          <h1 class="light">MS Law Office</h1>
+          <p class="fs-16 m-t-30 m-b-30">
+            Welcome to MS Law Office<br>
+            We are committed to providing legal services to people in Chonburi and foreigners residing in Thailand<br>
+            With transparent and professional working standards to ensure your confidence in every step of legal proceedings
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="container container-fixed-lg p-t-75 p-b-85">
+      <div class="text-center m-b-60">
+        <h5 class="block-title hint-text no-margin">Our Services</h5>
+        <h1 class="m-t-5 m-b-30">Comprehensive Legal Services</h1>
+        <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
+          We provide comprehensive legal services with expertise and experience of more than 10 years
+          Ready to provide transparent and professional consultation
+        </p>
+        <p class="hint-text col-md-6 col-md-offset-3 no-padding m-t-15">
+          We prioritize friendliness and understanding of customer problems as important
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="container p-t-40">
+        <div class="row">
+          {services.map((service, index) => (
+            <div class="col-md-4 col-sm-6 m-b-30">
+              <div class="bg-white padding-20 text-center hover-lift">
+                <div class="m-b-20">
+                  <i class={`fa ${service.icon} text-primary`} style="font-size: 48px;"></i>
+                </div>
+                <h4 class="text-black m-b-15">{service.title}</h4>
+                <p class="hint-text">{service.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center m-t-40" style="display: none;">
+          <a href="/en/services" class="btn btn-primary btn-lg">
+            View All Services
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section class="bg-master-lightest p-t-75 p-b-85">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5 class="block-title hint-text no-margin">Principal Attorney</h5>
+            <h1 class="m-t-5 m-b-30">Metas Srisukcharoen</h1>
+
+            <div class="m-b-30">
+              <h6 class="font-montserrat text-uppercase fs-14 text-black p-b-10">Education</h6>
+              <ul class="no-style">
+                <li class="m-b-5 no-padding">• Junior High: Chulabhorn Royal Academy, Pathum Thani</li>
+                <li class="m-b-5 no-padding">• Senior High: Triam Udom Suksa School</li>
+                <li class="m-b-5 no-padding">• <strong>Bachelor's Degree: Law, Thammasat University</strong></li>
+                <li class="m-b-5 no-padding">• Attorney and Certified Document Attorney</li>
+              </ul>
+            </div>
+
+            <div class="m-b-30">
+              <h6 class="font-montserrat text-uppercase fs-14 text-black p-b-10">Working Approach</h6>
+              <p class="hint-text">Transparent, Accessible, Fast</p>
+            </div>
+
+            <div class="m-b-30">
+              <h6 class="font-montserrat text-uppercase fs-14 text-black p-b-10">Work Philosophy</h6>
+              <h3 class="text-primary">"Service with Friendliness"</h3>
+            </div>
+
+            <a href="/en/about" class="btn btn-white btn-cons">Learn More</a>
+          </div>
+
+          <div class="col-md-6 text-center">
+            <div class="bg-white padding-40 m-t-20">
+              <div style="width: 200px; height: 200px; background: #e6e6e6; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                <i class="fa fa-user" style="font-size: 80px; color: #626262;"></i>
+              </div>
+              <p class="hint-text">Attorney Metas Srisukcharoen</p>
+              <p class="fs-12 hint-text">Law Graduate, Thammasat University</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="container container-fixed-lg p-t-75 p-b-85">
+      <div class="text-center">
+        <h5 class="block-title hint-text no-margin">Client Testimonials</h5>
+        <h1 class="m-t-5 m-b-40">Experience and Satisfaction from Our Clients</h1>
+
+        <div class="bg-master-lightest padding-40">
+          <p class="fs-16 hint-text">
+            This section is ready for future client testimonials and experiences
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="bg-master-darker p-t-75 p-b-85">
+      <div class="container text-center">
+        <h1 class="light text-white m-b-20">Need Legal Consultation?</h1>
+        <p class="fs-16 text-white m-b-40 col-md-8 col-md-offset-2 no-padding">
+          Contact us today for free initial consultation and action plan that suits your needs
+        </p>
+
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-2 m-b-15">
+            <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-white btn-lg btn-block">
+              <i class="fa fa-phone p-r-10"></i> Call 081-514-4783
+            </a>
+          </div>
+          <div class="col-sm-4 m-b-15">
+            <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg btn-block">
+              <i class="fa fa-comments p-r-10"></i> LINE Chat
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <Footer lang="en" />
+</Layout>

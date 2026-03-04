@@ -51,11 +51,13 @@ const services = [
   <div class="m-t-60">
 
     <!-- Hero Section -->
-    <section class="bg-master-lightest p-t-85 p-b-85">
-      <div class="container">
+    <section class="p-t-85 p-b-85" style="position: relative; background-image: url('/assets/images/lawyer-hero-bg.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+      <!-- Blur overlay -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); background: rgba(255,255,255,0.8);"></div>
+      <div class="container" style="position: relative; z-index: 1;">
         <div class="text-center">
           <h5 class="block-title hint-text no-margin">สำนักกฎหมาย</h5>
-          <h1 class="light">บริการใกล้ตัว<br>มาตรฐานระดับสากล</h1>
+          <h1 class="light">สำนักกฎหมายมิตรแสนสุข</h1>
           <p class="fs-16 m-t-30 m-b-30">
             ยินดีต้อนรับสู่ สำนักกฎหมายมิตรแสนสุข (MS Law Office)<br>
             เรามุ่งมั่นให้บริการด้านกฎหมายแก่ประชาชนในจังหวัดชลบุรีและชาวต่างชาติที่อาศัยอยู่ในประเทศไทย<br>
@@ -67,19 +69,16 @@ const services = [
 
     <!-- Services Section -->
     <section class="container container-fixed-lg p-t-75 p-b-85">
-      <div class="md-p-l-20 md-p-r-20 xs-no-padding">
+      <div class="text-center m-b-60">
         <h5 class="block-title hint-text no-margin">บริการของเรา</h5>
-        <div class="row">
-          <div class="col-sm-5 col-md-4">
-            <h1 class="m-t-5">บริการด้านกฎหมายครบวงจร</h1>
-          </div>
-          <div class="col-sm-7 col-md-8 no-padding xs-p-l-15 xs-p-r-15">
-            <div class="p-t-20 p-l-35 md-p-l-5 md-p-t-15">
-              <p>ให้บริการด้านกฎหมายครบวงจร ด้วยความเชียวชาญและประสบการณ์มากกว่า 10 ปี พร้อมให้คำปรึกษาที่โปร่งใสและเป็นมืออาชีพ</p>
-              <p class="hint-text font-arial small-text col-md-7 no-padding">เราให้ความสำคัญกับความเป็นมิตรและความเข้าใจในปัญหาของลูกค้าเป็นสำคัญ</p>
-            </div>
-          </div>
-        </div>
+        <h1 class="m-t-5 m-b-30">บริการด้านกฎหมายครบวงจร</h1>
+        <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
+          ให้บริการด้านกฎหมายครบวงจร ด้วยความเชียวชาญและประสบการณ์มากกว่า 10 ปี
+          พร้อมให้คำปรึกษาที่โปร่งใสและเป็นมืออาชีพ
+        </p>
+        <p class="hint-text col-md-6 col-md-offset-3 no-padding m-t-15">
+          เราให้ความสำคัญกับความเป็นมิตรและความเข้าใจในปัญหาของลูกค้าเป็นสำคัญ
+        </p>
       </div>
 
       <!-- Services Grid -->
@@ -98,7 +97,7 @@ const services = [
           ))}
         </div>
 
-        <div class="text-center m-t-40">
+        <div class="text-center m-t-40" style="display: none;">
           <a href="/services" class="btn btn-primary btn-lg">
             ดูบริการทั้งหมด
           </a>

@@ -36,7 +36,7 @@ const isActive = (path: string) => {
 ---
 
 <!-- BEGIN HEADER -->
-<nav class="header bg-white" data-pages="header" data-pages-header="autoresize" data-pages-resize-class="dark">
+<nav class="header bg-white" data-pages="header">
   <div class="container relative">
     <!-- BEGIN LEFT CONTENT -->
     <div class="pull-left">
@@ -45,8 +45,7 @@ const isActive = (path: string) => {
         <!-- BEGIN LOGO -->
         <div class="logo">
           <a href={lang === 'en' ? '/en/' : '/'}>
-            <h3 class="text-black no-margin font-montserrat">{siteName}</h3>
-            <p class="hint-text fs-12 no-margin">{siteTagline}</p>
+            <h3 class="text-black font-montserrat" style="margin: 10px 0;">{siteName}</h3>
           </a>
         </div>
       </div>
@@ -102,12 +101,12 @@ const isActive = (path: string) => {
               <span class="arrow"></span>
               <ul>
                 <li>
-                  <a href={lang === 'en' ? currentPath.replace('/en', '') || '/' : currentPath}>
+                  <a href={lang === 'en' ? (currentPath === '/en/' ? '/' : currentPath.replace('/en', '')) : currentPath}>
                     ไทย {lang === 'th' ? '✓' : ''}
                   </a>
                 </li>
                 <li>
-                  <a href={lang === 'th' ? `/en${currentPath === '/' ? '' : currentPath}` : currentPath}>
+                  <a href={lang === 'th' ? (currentPath === '/' ? '/en/' : `/en${currentPath}`) : currentPath}>
                     English {lang === 'en' ? '✓' : ''}
                   </a>
                 </li>
