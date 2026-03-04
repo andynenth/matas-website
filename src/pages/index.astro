@@ -45,6 +45,21 @@ const services = [
 ];
 ---
 
+<style>
+  .hero-subtitle {
+    font-family: 'Noto Sans Thai', sans-serif !important;
+  }
+
+  .block-title,
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans Thai', sans-serif !important;
+  }
+
+  p, .fs-16, .hint-text {
+    font-family: 'Noto Sans Thai', sans-serif !important;
+  }
+</style>
+
 <Layout title={pageTitle} description={pageDescription} lang="th">
   <Header lang="th" currentPath="/" />
 
@@ -56,7 +71,7 @@ const services = [
       <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); background: rgba(255,255,255,0.8);"></div>
       <div class="container" style="position: relative; z-index: 1;">
         <div class="text-center">
-          <h5 class="block-title hint-text no-margin">สำนักกฎหมาย</h5>
+          <h5 class="block-title hint-text no-margin hero-subtitle" style="font-size: 18px; font-weight: bold;">สำนักกฎหมาย</h5>
           <h1 class="light">สำนักกฎหมายมิตรแสนสุข</h1>
           <p class="fs-16 m-t-30 m-b-30">
             ยินดีต้อนรับสู่ สำนักกฎหมายมิตรแสนสุข (MS Law Office)<br>
@@ -105,46 +120,53 @@ const services = [
       </div>
     </section>
 
-    <!-- About Preview Section -->
+    <!-- Why Choose Us Section -->
     <section class="bg-master-lightest p-t-75 p-b-85">
       <div class="container">
+        <div class="text-center m-b-60">
+          <h5 class="block-title hint-text no-margin">ทำไมต้องเลือกเรา</h5>
+          <h1 class="m-t-5 m-b-30">ความเชี่ยวชาญที่คุณไว้วางใจได้</h1>
+          <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
+            ด้วยประสบการณ์และความเชี่ยวชาญ เราพร้อมให้บริการที่โปร่งใส เข้าถึงได้ และเป็นมืออาชีพ
+          </p>
+        </div>
+
         <div class="row">
-          <div class="col-md-6">
-            <h5 class="block-title hint-text no-margin">ทนายความหลัก</h5>
-            <h1 class="m-t-5 m-b-30">เมธัส ศรีศุกร์เจริญ</h1>
-
-            <div class="m-b-30">
-              <h6 class="font-montserrat text-uppercase fs-14 text-black p-b-10">ประวัติการศึกษา</h6>
-              <ul class="no-style">
-                <li class="m-b-5 no-padding">• มัธยมต้น: โรงเรียนจุฬาภรณ์ราชวิทยาลัย จังหวัดปทุมธานี</li>
-                <li class="m-b-5 no-padding">• มัธยมปลาย: โรงเรียนเตรียมอุดมศึกษา</li>
-                <li class="m-b-5 no-padding">• <strong>ปริญญาตรี: นิติศาสตร์บัณฑิต มหาวิทยาลัยธรรมศาสตร์</strong></li>
-                <li class="m-b-5 no-padding">• ทนายความ และทนายความผู้รับรองเอกสารและลายมือชื่อ</li>
-              </ul>
-            </div>
-
-            <div class="m-b-30">
-              <h6 class="font-montserrat text-uppercase fs-14 text-black p-b-10">แนวทางการทำงาน</h6>
-              <p class="hint-text">โปร่งใส เข้าถึงง่าย รวดเร็ว</p>
-            </div>
-
-            <div class="m-b-30">
-              <h6 class="font-montserrat text-uppercase fs-14 text-black p-b-10">ปรัชญาการทำงาน</h6>
-              <h3 class="text-primary">"บริการด้วยความเป็นมิตร"</h3>
-            </div>
-
-            <a href="/about" class="btn btn-white btn-cons">เรียนรู้เพิ่มเติม</a>
-          </div>
-
-          <div class="col-md-6 text-center">
-            <div class="bg-white padding-40 m-t-20">
-              <div style="width: 200px; height: 200px; background: #e6e6e6; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
-                <i class="fa fa-user" style="font-size: 80px; color: #626262;"></i>
+          <div class="col-md-4 text-center m-b-40">
+            <div class="bg-white padding-40 hover-lift">
+              <div class="bg-primary" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                <i class="fa fa-university text-white" style="font-size: 36px;"></i>
               </div>
-              <p class="hint-text">ทนายความเมธัส ศรีศุกร์เจริญ</p>
-              <p class="fs-12 hint-text">นิติศาสตร์บัณฑิต มหาวิทยาลัยธรรมศาสตร์</p>
+              <h4 class="text-black m-b-15">การศึกษาระดับสูง</h4>
+              <p class="hint-text">นิติศาสตร์บัณฑิต<br>มหาวิทยาลัยธรรมศาสตร์</p>
             </div>
           </div>
+
+          <div class="col-md-4 text-center m-b-40">
+            <div class="bg-white padding-40 hover-lift">
+              <div class="bg-success" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                <i class="fa fa-certificate text-white" style="font-size: 36px;"></i>
+              </div>
+              <h4 class="text-black m-b-15">ใบอนุญาตครบถ้วน</h4>
+              <p class="hint-text">ทนายความและทนายความ<br>ผู้รับรองเอกสาร</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 text-center m-b-40">
+            <div class="bg-white padding-40 hover-lift">
+              <div class="bg-complete" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                <i class="fa fa-users text-white" style="font-size: 36px;"></i>
+              </div>
+              <h4 class="text-black m-b-15">บริการเป็นมิตร</h4>
+              <p class="hint-text">เข้าใจปัญหา ให้คำปรึกษา<br>ด้วยความเป็นมิตร</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center m-t-40">
+          <a href="/about" class="btn btn-primary btn-lg">
+            <i class="fa fa-user p-r-10"></i> เรียนรู้เกี่ยวกับทนายความ
+          </a>
         </div>
       </div>
     </section>

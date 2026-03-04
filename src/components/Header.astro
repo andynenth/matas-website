@@ -36,38 +36,44 @@ const isActive = (path: string) => {
 ---
 
 <style>
-.language-toggle a {
-  text-decoration: none;
-  transition: color 0.3s ease;
+/* Updated hover styles - cache bust 2026-03-04-v3 */
+nav.header.bg-master-darker a {
+  transition: all 0.3s ease !important;
 }
 
-.language-toggle a:hover {
-  color: #007bff !important;
-  text-decoration: none;
+/* Menu navigation links */
+nav.header.bg-master-darker .menu li a {
+  color: #ffffff !important;
+  transition: all 0.3s ease !important;
 }
 
-.language-toggle-mobile a {
-  text-decoration: none;
-  transition: color 0.3s ease;
+nav.header.bg-master-darker .menu li a:hover {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-decoration: none !important;
 }
 
-.language-toggle-mobile a:hover {
-  color: #007bff !important;
-  text-decoration: none;
+/* Contact and language toggle links */
+nav.header.bg-master-darker a:hover,
+nav.header.bg-master-darker .language-toggle a:hover,
+nav.header.bg-master-darker .header-inner a:hover,
+nav.header.bg-master-darker div a:hover {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-decoration: none !important;
+  transform: none !important;
 }
 </style>
 
 <!-- BEGIN HEADER -->
-<nav class="header bg-white" data-pages="header">
+<nav class="header bg-master-darker" data-pages="header">
   <div class="container relative">
     <!-- BEGIN LEFT CONTENT -->
     <div class="pull-left">
       <!-- .header-inner Allows to vertically Align elements to the Center-->
-      <div class="header-inner">
+      <div class="header-inner" style="display: flex; align-items: center; height: 60px;">
         <!-- BEGIN LOGO -->
-        <div class="logo" style="display: flex; align-items: center; height: 60px;">
+        <div class="logo">
           <a href={lang === 'en' ? '/en/' : '/'}>
-            <h3 class="text-black font-montserrat" style="margin: 0; line-height: 1.2;">{siteName}</h3>
+            <h3 class="text-white font-montserrat" style="margin: 0; line-height: 1.2;">{siteName}</h3>
           </a>
         </div>
       </div>
@@ -78,7 +84,7 @@ const isActive = (path: string) => {
       <div class="header-inner" style="display: flex; align-items: center; height: 60px;">
         <!-- Contact Info for Desktop -->
         <div class="visible-lg-inline visible-md-inline p-r-20" style="display: inline-flex; align-items: center; gap: 15px;">
-          <a href="tel:+66815144783" onclick="trackPhoneClick()" class="text-black fs-12" style="display: inline-flex; align-items: center; vertical-align: middle;">
+          <a href="tel:+66815144783" onclick="trackPhoneClick()" class="text-white fs-12" style="display: inline-flex; align-items: center; vertical-align: middle;">
             <i class="fa fa-phone" style="margin-right: 5px; vertical-align: middle;"></i> 081-514-4783
           </a>
 
@@ -90,19 +96,19 @@ const isActive = (path: string) => {
           <div class="language-toggle fs-12" style="display: inline-flex; align-items: center;">
             {lang === 'th' ? (
               <div style="display: inline-flex; align-items: center;">
-                <span class="text-primary font-montserrat bold">🇹🇭 TH</span>
-                <span class="hint-text" style="margin: 0 5px;">|</span>
-                <a href={currentPath === '/' ? '/en/' : `/en${currentPath}`} class="text-black hover-primary">
+                <span class="text-white font-montserrat bold">🇹🇭 TH</span>
+                <span class="text-white-50" style="margin: 0 5px;">|</span>
+                <a href={currentPath === '/' ? '/en/' : `/en${currentPath}`} class="text-white">
                   🇺🇸 EN
                 </a>
               </div>
             ) : (
               <div style="display: inline-flex; align-items: center;">
-                <a href={currentPath === '/en/' ? '/' : currentPath.replace('/en', '')} class="text-black hover-primary">
+                <a href={currentPath === '/en/' ? '/' : currentPath.replace('/en', '')} class="text-white">
                   🇹🇭 TH
                 </a>
-                <span class="hint-text" style="margin: 0 5px;">|</span>
-                <span class="text-primary font-montserrat bold">🇺🇸 EN</span>
+                <span class="text-white-50" style="margin: 0 5px;">|</span>
+                <span class="text-white font-montserrat bold">🇺🇸 EN</span>
               </div>
             )}
           </div>
@@ -153,7 +159,7 @@ const isActive = (path: string) => {
               <div class="language-toggle-mobile">
                 {lang === 'th' ? (
                   <div>
-                    <span class="text-primary font-montserrat bold fs-14">🇹🇭 ไทย</span>
+                    <span class="text-white font-montserrat bold fs-14">🇹🇭 ไทย</span>
                     <span class="hint-text p-l-10 p-r-10">|</span>
                     <a href={currentPath === '/' ? '/en/' : `/en${currentPath}`} class="text-black fs-14">
                       🇺🇸 English
@@ -165,7 +171,7 @@ const isActive = (path: string) => {
                       🇹🇭 ไทย
                     </a>
                     <span class="hint-text p-l-10 p-r-10">|</span>
-                    <span class="text-primary font-montserrat bold fs-14">🇺🇸 English</span>
+                    <span class="text-white font-montserrat bold fs-14">🇺🇸 English</span>
                   </div>
                 )}
               </div>

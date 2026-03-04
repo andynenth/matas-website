@@ -45,6 +45,21 @@ const services = [
 ];
 ---
 
+<style>
+  .hero-subtitle {
+    font-family: 'Noto Sans', sans-serif !important;
+  }
+
+  .block-title,
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans', sans-serif !important;
+  }
+
+  p, .fs-16, .hint-text {
+    font-family: 'Noto Sans', sans-serif !important;
+  }
+</style>
+
 <Layout title={pageTitle} description={pageDescription} lang="en">
   <Header lang="en" currentPath="/en/" />
 
@@ -55,7 +70,7 @@ const services = [
       <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); background: rgba(255,255,255,0.8);"></div>
       <div class="container" style="position: relative; z-index: 1;">
         <div class="text-center">
-          <h5 class="block-title hint-text no-margin">Law Office</h5>
+          <h5 class="block-title hint-text no-margin hero-subtitle" style="font-size: 18px; font-weight: bold;">Law Office</h5>
           <h1 class="light">MS Law Office</h1>
           <p class="fs-16 m-t-30 m-b-30">
             Welcome to MS Law Office<br>
@@ -104,46 +119,53 @@ const services = [
       </div>
     </section>
 
-    <!-- About Preview Section -->
+    <!-- Why Choose Us Section -->
     <section class="bg-master-lightest p-t-75 p-b-85">
       <div class="container">
+        <div class="text-center m-b-60">
+          <h5 class="block-title hint-text no-margin">Why Choose Us</h5>
+          <h1 class="m-t-5 m-b-30">Expertise You Can Trust</h1>
+          <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
+            With experience and expertise, we provide transparent, accessible, and professional services
+          </p>
+        </div>
+
         <div class="row">
-          <div class="col-md-6">
-            <h5 class="block-title hint-text no-margin">Principal Attorney</h5>
-            <h1 class="m-t-5 m-b-30">Metas Srisukcharoen</h1>
-
-            <div class="m-b-30">
-              <h6 class="font-montserrat text-uppercase fs-14 text-black p-b-10">Education</h6>
-              <ul class="no-style">
-                <li class="m-b-5 no-padding">• Junior High: Chulabhorn Royal Academy, Pathum Thani</li>
-                <li class="m-b-5 no-padding">• Senior High: Triam Udom Suksa School</li>
-                <li class="m-b-5 no-padding">• <strong>Bachelor's Degree: Law, Thammasat University</strong></li>
-                <li class="m-b-5 no-padding">• Attorney and Certified Document Attorney</li>
-              </ul>
-            </div>
-
-            <div class="m-b-30">
-              <h6 class="font-montserrat text-uppercase fs-14 text-black p-b-10">Working Approach</h6>
-              <p class="hint-text">Transparent, Accessible, Fast</p>
-            </div>
-
-            <div class="m-b-30">
-              <h6 class="font-montserrat text-uppercase fs-14 text-black p-b-10">Work Philosophy</h6>
-              <h3 class="text-primary">"Service with Friendliness"</h3>
-            </div>
-
-            <a href="/en/about" class="btn btn-white btn-cons">Learn More</a>
-          </div>
-
-          <div class="col-md-6 text-center">
-            <div class="bg-white padding-40 m-t-20">
-              <div style="width: 200px; height: 200px; background: #e6e6e6; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
-                <i class="fa fa-user" style="font-size: 80px; color: #626262;"></i>
+          <div class="col-md-4 text-center m-b-40">
+            <div class="bg-white padding-40 hover-lift">
+              <div class="bg-primary" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                <i class="fa fa-university text-white" style="font-size: 36px;"></i>
               </div>
-              <p class="hint-text">Attorney Metas Srisukcharoen</p>
-              <p class="fs-12 hint-text">Law Graduate, Thammasat University</p>
+              <h4 class="text-black m-b-15">Higher Education</h4>
+              <p class="hint-text">Bachelor of Laws<br>Thammasat University</p>
             </div>
           </div>
+
+          <div class="col-md-4 text-center m-b-40">
+            <div class="bg-white padding-40 hover-lift">
+              <div class="bg-success" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                <i class="fa fa-certificate text-white" style="font-size: 36px;"></i>
+              </div>
+              <h4 class="text-black m-b-15">Full Licensing</h4>
+              <p class="hint-text">Attorney and Certified<br>Document Attorney</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 text-center m-b-40">
+            <div class="bg-white padding-40 hover-lift">
+              <div class="bg-complete" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                <i class="fa fa-users text-white" style="font-size: 36px;"></i>
+              </div>
+              <h4 class="text-black m-b-15">Friendly Service</h4>
+              <p class="hint-text">Understanding problems,<br>consulting with friendliness</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center m-t-40">
+          <a href="/en/about" class="btn btn-primary btn-lg">
+            <i class="fa fa-user p-r-10"></i> Learn About Our Attorney
+          </a>
         </div>
       </div>
     </section>
