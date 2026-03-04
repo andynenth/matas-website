@@ -113,6 +113,21 @@ nav.header.bg-master-darker .menu-toggler .two,
 nav.header.bg-master-darker .menu-toggler .three {
   background-color: #ffffff !important;
 }
+
+/* Hide hamburger button on desktop */
+@media (min-width: 992px) {
+  nav.header.bg-master-darker .menu-toggler {
+    display: none !important;
+  }
+}
+
+/* Mobile navigation text sizing */
+@media (max-width: 767px) {
+  nav.header.bg-master-darker .menu li a {
+    font-size: 20px !important;
+  }
+}
+
 </style>
 
 <!-- BEGIN HEADER -->
@@ -125,7 +140,7 @@ nav.header.bg-master-darker .menu-toggler .three {
         <!-- BEGIN LOGO -->
         <div class="logo">
           <a href={lang === 'en' ? '/en/' : '/'}>
-            <h3 class="text-white font-montserrat" style="margin: 0; line-height: 1.2;">{siteName}</h3>
+            <h3 class="text-white bold" style="margin: 0; line-height: 1.2;">{siteName}</h3>
           </a>
         </div>
       </div>
@@ -190,7 +205,7 @@ nav.header.bg-master-darker .menu-toggler .three {
           </div>
         </div>
 
-        <div class="visible-sm-inline visible-xs-inline menu-toggler pull-right p-l-10" data-pages="header-toggle" data-pages-element="#header">
+        <div class="visible-sm-inline visible-xs-inline hidden-lg hidden-md menu-toggler pull-right p-l-10" data-pages="header-toggle" data-pages-element="#header">
           <div class="one"></div>
           <div class="two"></div>
           <div class="three"></div>
@@ -235,19 +250,19 @@ nav.header.bg-master-darker .menu-toggler .three {
               <div class="language-toggle-mobile">
                 {lang === 'th' ? (
                   <div>
-                    <span class="text-white font-montserrat bold fs-14">🇹🇭 ไทย</span>
+                    <span class="text-white bold fs-14">🇹🇭 ไทย</span>
                     <span class="hint-text p-l-10 p-r-10">|</span>
-                    <a href={currentPath === '/' ? '/en/' : `/en${currentPath}`} class="text-black fs-14">
+                    <a href={currentPath === '/' ? '/en/' : `/en${currentPath}`} class="text-white-50 fs-14">
                       🇺🇸 English
                     </a>
                   </div>
                 ) : (
                   <div>
-                    <a href={currentPath === '/en/' ? '/' : currentPath.replace('/en', '')} class="text-black fs-14">
+                    <a href={currentPath === '/en/' ? '/' : currentPath.replace('/en', '')} class="text-white-50 fs-14">
                       🇹🇭 ไทย
                     </a>
                     <span class="hint-text p-l-10 p-r-10">|</span>
-                    <span class="text-white font-montserrat bold fs-14">🇺🇸 English</span>
+                    <span class="text-white bold fs-14">🇺🇸 English</span>
                   </div>
                 )}
               </div>
@@ -261,7 +276,7 @@ nav.header.bg-master-darker .menu-toggler .three {
 <!-- END HEADER -->
 
 <!-- Mobile Sticky Contact Bar -->
-<div class="visible-xs-block visible-sm-block" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; padding: 10px; background: #fff; border-top: 1px solid #e6e6e6;">
+<div class="visible-xs-block visible-sm-block" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; padding: 10px;">
   <div class="row no-padding">
     <div class="col-xs-6 no-padding p-r-5">
       <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-success btn-block">

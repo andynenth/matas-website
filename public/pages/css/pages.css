@@ -1720,7 +1720,7 @@ h6.block {
 */
 a {
   text-shadow: none !important;
-  color: #3a8fc8;
+  color: #ffffff;
   transition: color 0.1s linear 0s, background-color 0.1s linear 0s, opacity 0.2s linear 0s !important;
 }
 a:focus,
@@ -7966,7 +7966,7 @@ sup.dollar {
     background-color: #f0f0f0;
   }
   .menu-content.mobile-dark {
-    background-color: #2b303b !important;
+    background-color: #313131 !important;
   }
   .menu-content.mobile-dark .menu > li.classic > nav ul,
   .menu-content.mobile-dark .menu > li.horizontal > nav,
