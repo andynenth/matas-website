@@ -1,0 +1,47 @@
+---
+import type { MobileStickyProps } from './types';
+
+export interface Props extends MobileStickyProps {}
+
+const { contact, lang } = Astro.props;
+
+const callText = lang === 'th' ? 'โทร' : 'Call';
+---
+
+<style>
+.mobile-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--mobile-sticky-z);
+  padding: var(--mobile-padding);
+}
+
+.button-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-sizing-mobile {
+  width: 20px;
+  height: 20px;
+}
+</style>
+
+<!-- Mobile Sticky Contact Bar -->
+<div class="visible-xs-block visible-sm-block mobile-sticky-bar">
+  <div class="row no-padding">
+    <div class="col-xs-6 no-padding p-r-5">
+      <a href={`tel:${contact.phone.number}`} onclick={contact.phone.trackingFunction} class="btn btn-success btn-block">
+        <i class="fa fa-phone"></i> {callText}
+      </a>
+    </div>
+    <div class="col-xs-6 no-padding p-l-5">
+      <a href={contact.line.url} onclick={contact.line.trackingFunction} target="_blank" rel="noopener noreferrer" class="btn btn-complete btn-block button-flex-center">
+        <img src={contact.line.logo} alt="LINE" class="logo-sizing-mobile" />
+      </a>
+    </div>
+  </div>
+</div>

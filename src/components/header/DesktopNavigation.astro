@@ -1,0 +1,28 @@
+---
+import type { NavigationProps } from './types';
+
+export interface Props extends NavigationProps {}
+
+const { navigation, currentPath, isActive } = Astro.props;
+---
+
+<style>
+/* Desktop navigation styling */
+nav.header.bg-master-darker .menu li a {
+  color: #ffffff !important;
+  transition: all 0.3s ease !important;
+}
+
+nav.header.bg-master-darker .menu li a:hover {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-decoration: none !important;
+}
+</style>
+
+<ul class="menu">
+  {navigation.map((item) => (
+    <li>
+      <a href={item.href} class={isActive(item.href) ? 'active' : ''}>{item.name}</a>
+    </li>
+  ))}
+</ul>

@@ -1,0 +1,39 @@
+---
+import type { LanguageToggleProps } from './types';
+
+export interface Props extends LanguageToggleProps {}
+
+const { languageToggle, size = 'large' } = Astro.props;
+
+// Size-specific classes
+const sizeClasses = {
+  large: 'fs-12',
+  medium: 'fs-11',
+  small: 'fs-14'
+};
+
+const separatorClasses = {
+  large: 'separator-spacing',
+  medium: 'separator-spacing-small',
+  small: 'p-l-10 p-r-10'
+};
+
+const containerClasses = size === 'small' ? 'language-toggle-mobile' : 'language-toggle';
+const displayMode = size === 'small' ? 'block' : 'inline';
+---
+
+<div class={`${containerClasses} ${sizeClasses[size]} contact-link`}>
+  <div class="contact-link">
+    <span class="text-white font-montserrat bold">
+      {languageToggle.current.flag}
+      {size === 'large' && ` ${languageToggle.current.code}`}
+      {size === 'small' && ` ${languageToggle.current.name}`}
+    </span>
+    <span class={`text-white-50 ${separatorClasses[size]}${size === 'small' ? ' hint-text' : ''}`}>|</span>
+    <a href={languageToggle.other.url} class={size === 'small' ? 'text-white-50' : 'text-white'}>
+      {languageToggle.other.flag}
+      {size === 'large' && ` ${languageToggle.other.code}`}
+      {size === 'small' && ` ${languageToggle.other.name}`}
+    </a>
+  </div>
+</div>

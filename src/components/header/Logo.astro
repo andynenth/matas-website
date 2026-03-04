@@ -1,0 +1,36 @@
+---
+import type { LogoProps } from './types';
+
+export interface Props extends LogoProps {}
+
+const { lang, siteName } = Astro.props;
+
+const logoUrl = lang === 'en' ? '/en/' : '/';
+---
+
+<style>
+.logo-title {
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  .logo h3 {
+    font-size: 16px !important;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 991px) {
+  .logo h3 {
+    font-size: 18px !important;
+  }
+}
+</style>
+
+<div class="logo">
+  <a href={logoUrl}>
+    <h3 class="text-white bold logo-title">{siteName}</h3>
+  </a>
+</div>

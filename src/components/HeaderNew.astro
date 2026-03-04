@@ -1,22 +1,112 @@
 ---
 // ===============================
-// COMPONENT-BASED HEADER v2.0
-// Clean, modular, maintainable
+// NEW COMPONENT-BASED HEADER
 // ===============================
 
 import type { HeaderProps } from './header/types';
 import Logo from './header/Logo.astro';
 import ContactInfo from './header/ContactInfo.astro';
 import LanguageToggle from './header/LanguageToggle.astro';
+import DesktopNavigation from './header/DesktopNavigation.astro';
 import MobileNavigation from './header/MobileNavigation.astro';
 import MobileSticky from './header/MobileSticky.astro';
-
-import { SITE_CONFIG, NAVIGATION_CONFIG, CONTACT_CONFIG } from './header/constants';
-import { getLanguageToggleData, createIsActiveFunction } from './header/utils';
 
 export interface Props extends HeaderProps {}
 
 const { lang = 'th', currentPath = '/' } = Astro.props;
+
+// ===============================
+// EXTRACTED CONSTANTS & CONFIG
+// ===============================
+
+// Site Configuration
+const SITE_CONFIG = {
+  th: {
+    name: 'สำนักกฎหมายมิตรแสนสุข',
+    tagline: 'บริการใกล้ตัว มาตรฐานระดับสากล'
+  },
+  en: {
+    name: 'MS Law Office',
+    tagline: 'Local Care, International Confidence'
+  }
+} as const;
+
+// Navigation Configuration
+const NAVIGATION_CONFIG = {
+  th: [
+    { name: 'หน้าแรก', href: '/' },
+    { name: 'เกี่ยวกับเรา', href: '/about' },
+    { name: 'บริการ', href: '/services' },
+    { name: 'คำถามที่พบบ่อย', href: '/faq' },
+    { name: 'ติดต่อเรา', href: '/contact' }
+  ],
+  en: [
+    { name: 'Home', href: '/en/' },
+    { name: 'About Us', href: '/en/about' },
+    { name: 'Services', href: '/en/services' },
+    { name: 'FAQ', href: '/en/faq' },
+    { name: 'Contact', href: '/en/contact' }
+  ]
+} as const;
+
+// Contact Configuration
+const CONTACT_CONFIG = {
+  phone: {
+    number: '+66815144783',
+    display: '081-514-4783',
+    trackingFunction: 'trackPhoneClick()'
+  },
+  line: {
+    url: 'https://line.me/ti/p/~Matas.s',
+    trackingFunction: 'trackLineClick()',
+    logo: '/assets/images/line-logo.png'
+  }
+} as const;
+
+// Language Configuration
+const LANGUAGE_CONFIG = {
+  th: { flag: '🇹🇭', code: 'TH', name: 'ไทย' },
+  en: { flag: '🇺🇸', code: 'EN', name: 'English' }
+} as const;
+
+// ===============================
+// EXTRACTED HELPER FUNCTIONS
+// ===============================
+
+// Language Toggle Helper
+const getLanguageToggleData = (currentLang: 'th' | 'en', path: string) => {
+  const currentConfig = LANGUAGE_CONFIG[currentLang];
+  const otherLang = currentLang === 'th' ? 'en' : 'th';
+  const otherConfig = LANGUAGE_CONFIG[otherLang];
+
+  const getToggleUrl = () => {
+    if (currentLang === 'th') {
+      return path === '/' ? '/en/' : `/en${path}`;
+    } else {
+      return path === '/en/' ? '/' : path.replace('/en', '');
+    }
+  };
+
+  return {
+    current: {
+      ...currentConfig,
+      isActive: true
+    },
+    other: {
+      ...otherConfig,
+      isActive: false,
+      url: getToggleUrl()
+    }
+  };
+};
+
+// Navigation Helper
+const isActive = (path: string) => {
+  if (lang === 'en') {
+    return currentPath === path || currentPath === path.replace('/en', '');
+  }
+  return currentPath === path;
+};
 
 // ===============================
 // COMPUTED VALUES
@@ -24,8 +114,8 @@ const { lang = 'th', currentPath = '/' } = Astro.props;
 
 const navigation = NAVIGATION_CONFIG[lang];
 const siteName = SITE_CONFIG[lang].name;
+const siteTagline = SITE_CONFIG[lang].tagline;
 const languageToggle = getLanguageToggleData(lang, currentPath);
-const isActive = createIsActiveFunction(lang, currentPath);
 ---
 
 <style>
@@ -42,6 +132,38 @@ nav.header.bg-master-darker div a:hover {
   color: rgba(255, 255, 255, 0.7) !important;
   text-decoration: none !important;
   transform: none !important;
+}
+
+/* Mobile Responsive Styles (max-width: 767px) */
+@media (max-width: 767px) {
+  /* Mobile optimizations */
+  .logo h3 {
+    font-size: 16px !important;
+  }
+
+  /* Mobile navigation text sizing */
+  nav.header.bg-master-darker .menu li a {
+    font-size: 20px !important;
+  }
+}
+
+/* Tablet Responsive Styles (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Ensure proper spacing on tablet */
+  .header-inner {
+    justify-content: space-between !important;
+  }
+
+  /* Optimize logo area for tablets */
+  .logo h3 {
+    font-size: 18px !important;
+  }
+
+  /* Prevent overflow on tablet */
+  .pull-right .header-inner {
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+  }
 }
 
 /* Desktop Responsive Styles (min-width: 992px) */
@@ -149,7 +271,9 @@ nav.header.bg-master-darker .menu-toggler .three {
   <div class="container relative">
     <!-- BEGIN LEFT CONTENT -->
     <div class="pull-left">
+      <!-- .header-inner Allows to vertically Align elements to the Center-->
       <div class="header-inner header-inner-flex">
+        <!-- BEGIN LOGO -->
         <Logo lang={lang} siteName={siteName} />
       </div>
     </div>

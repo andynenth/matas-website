@@ -1,0 +1,64 @@
+---
+import type { NavigationProps, ContactInfo, Language, LanguageToggleData } from './types';
+import LanguageToggle from './LanguageToggle.astro';
+
+export interface Props extends NavigationProps {
+  contact: ContactInfo;
+  lang: Language;
+  languageToggle: LanguageToggleData;
+}
+
+const { navigation, currentPath, isActive, contact, lang, languageToggle } = Astro.props;
+---
+
+<style>
+/* Mobile navigation text sizing */
+@media (max-width: 767px) {
+  nav.header.bg-master-darker .menu li a {
+    font-size: 20px !important;
+  }
+}
+
+.hidden-element {
+  display: none;
+}
+</style>
+
+<!-- BEGIN RIGHT CONTENT -->
+<div class="menu-content mobile-dark pull-right clearfix" data-pages-direction="slideRight" id="header">
+  <!-- BEGIN HEADER CLOSE TOGGLE FOR MOBILE -->
+  <div class="pull-right">
+    <a href="#" class="padding-10 visible-xs-inline visible-sm-inline pull-right m-t-10 m-b-10 m-r-10" data-pages="header-toggle" data-pages-element="#header">
+      <i class="pg-close_line"></i>
+    </a>
+  </div>
+  <!-- END HEADER CLOSE TOGGLE FOR MOBILE -->
+
+  <!-- BEGIN MENU ITEMS -->
+  <div class="header-inner">
+    <ul class="menu">
+      {navigation.map((item) => (
+        <li>
+          <a href={item.href} class={isActive(item.href) ? 'active' : ''}>{item.name}</a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile Contact Info -->
+    <div class="visible-xs-block visible-sm-block m-t-20">
+      <div class="b-b b-grey-light p-b-10 m-b-10">
+        <a href={`tel:${contact.phone.number}`} onclick={contact.phone.trackingFunction} class="btn btn-block btn-success m-b-5 hidden-element">
+          <i class="fa fa-phone"></i> {lang === 'th' ? 'โทรศัพท์' : 'Call'} {contact.phone.display}
+        </a>
+        <a href={contact.line.url} onclick={contact.line.trackingFunction} target="_blank" rel="noopener noreferrer" class="btn btn-block btn-complete m-b-10 hidden-element">
+          <img src={contact.line.logo} alt="LINE" style="width: 24px; height: 24px;" />
+        </a>
+
+        <!-- Mobile Language Toggle -->
+        <div class="text-center p-t-10">
+          <LanguageToggle languageToggle={languageToggle} size="small" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

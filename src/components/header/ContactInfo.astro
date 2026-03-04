@@ -1,0 +1,52 @@
+---
+import type { ContactInfoProps } from './types';
+
+export interface Props extends ContactInfoProps {}
+
+const { contact, size = 'large', showPhone = true, showLine = true } = Astro.props;
+
+// Size-specific classes
+const containerClasses = {
+  large: 'contact-container-large',
+  medium: 'contact-container-medium'
+};
+
+const linkClasses = {
+  large: 'contact-link',
+  medium: 'contact-link'
+};
+
+const fontSizes = {
+  large: 'fs-12',
+  medium: 'fs-11'
+};
+
+const responsiveClasses = {
+  large: 'visible-lg-inline hidden-xs hidden-sm p-r-20',
+  medium: 'visible-md-inline hidden-lg hidden-xs hidden-sm p-r-15'
+};
+---
+
+<div class={`${responsiveClasses[size]} ${containerClasses[size]}`}>
+  {showPhone && (
+    <a
+      href={`tel:${contact.phone.number}`}
+      onclick={contact.phone.trackingFunction}
+      class={`text-white ${fontSizes[size]} ${linkClasses[size]}`}
+    >
+      <i class="fa fa-phone icon-with-spacing"></i> {contact.phone.display}
+    </a>
+  )}
+
+  {showLine && (
+    <a
+      href={contact.line.url}
+      onclick={contact.line.trackingFunction}
+      target="_blank"
+      rel="noopener noreferrer"
+      class={`text-success ${fontSizes[size]} contact-link-padded`}
+    >
+      <img src={contact.line.logo} alt="LINE" class="logo-sizing" />
+    </a>
+  )}
+</div>
