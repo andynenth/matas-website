@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Noto Sans Thai', 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply text-corporate-800 bg-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    @apply text-navy-900 font-semibold;
+  }
+
+  h1 {
+    @apply text-display;
+  }
+
+  h2 {
+    @apply text-headline;
+  }
+
+  h3 {
+    @apply text-title;
+  }
+
+  h4 {
+    @apply text-subtitle;
+  }
+
+  p {
+    @apply text-body leading-relaxed;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-navy-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-navy-800 transition-all duration-200 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-navy-700 text-navy-700 px-6 py-3 rounded-lg font-medium hover:bg-navy-700 hover:text-white transition-all duration-200;
+  }
+
+  .contact-link {
+    @apply text-navy-700 hover:text-navy-900 font-medium transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .corporate-card {
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .hero-section {
+    @apply bg-gradient-to-br from-navy-50 to-white;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-navy-700 to-navy-900 bg-clip-text text-transparent;
+  }
+}

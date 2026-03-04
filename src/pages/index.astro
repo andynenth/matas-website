@@ -1,17 +1,192 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
+const pageTitle = 'หน้าแรก';
+const pageDescription = 'สำนักกฎหมายมิตรแสนสุข - บริการด้านกฎหมายในจังหวัดชลบุรี ด้วยมาตรฐานการทำงานที่โปร่งใสและเป็นมืออาชีพ';
+
+const services = [
+  {
+    title: 'การระงับข้อพิพาททางศาล',
+    description: 'ให้คำปรึกษาและดำเนินคดีในศาลทุกชั้นด้วยความเชียวชาญและประสบการณ์',
+    icon: 'fa-balance-scale'
+  },
+  {
+    title: 'การให้คำปรึกษากฎหมาย',
+    description: 'คำปรึกษาทางกฎหมายในหลากหลายสาขา ด้วยความรู้และประสบการณ์จริง',
+    icon: 'fa-briefcase'
+  },
+  {
+    title: 'การจัดทำพินัยกรรม',
+    description: 'ร่างและจัดทำพินัยกรรมที่ถูกต้องตามกฎหมายเพื่อความมั่นใจของครอบครัว',
+    icon: 'fa-file-text'
+  },
+  {
+    title: 'การแต่งตั้งผู้จัดการมรดก',
+    description: 'ช่วยเหลือในการแต่งตั้งผู้จัดการมรดกและดำเนินการตามกฎหมาย',
+    icon: 'fa-users'
+  },
+  {
+    title: 'การจดทะเบียนบริษัท',
+    description: 'บริการจดทะเบียนบริษัทครบวงจร รวดเร็ว ถูกต้อง และเป็นไปตามกฎหมาย',
+    icon: 'fa-building'
+  },
+  {
+    title: 'การแปลเอกสาร (เร่งด่วน)',
+    description: 'บริการแปลเอกสารทางกฎหมายและเอกสารราชการ พร้อมรับรองความถูกต้อง',
+    icon: 'fa-language'
+  },
+  {
+    title: 'การรับรองเอกสารโดยทนายความ',
+    description: 'รับรองเอกสารและลายมือชื่อโดยทนายความผู้รับรองเอกสารและลายมือชื่อ',
+    icon: 'fa-certificate'
+  }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title={pageTitle} description={pageDescription} lang="th">
+  <Header lang="th" currentPath="/" />
+
+  <div class="m-t-60">
+
+    <!-- Hero Section -->
+    <section class="bg-master-lightest p-t-85 p-b-85">
+      <div class="container">
+        <div class="text-center">
+          <h5 class="block-title hint-text no-margin">สำนักกฎหมาย</h5>
+          <h1 class="light">บริการใกล้ตัว<br>มาตรฐานระดับสากล</h1>
+          <p class="fs-16 m-t-30 m-b-30">
+            ยินดีต้อนรับสู่ สำนักกฎหมายมิตรแสนสุข (MS Law Office)<br>
+            เรามุ่งมั่นให้บริการด้านกฎหมายแก่ประชาชนในจังหวัดชลบุรีและชาวต่างชาติที่อาศัยอยู่ในประเทศไทย<br>
+            ด้วยมาตรฐานการทำงานที่โปร่งใสและเป็นมืออาชีพ เพื่อให้คุณมั่นใจได้ในทุกขั้นตอนของการดำเนินงานทางกฎหมาย
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="container container-fixed-lg p-t-75 p-b-85">
+      <div class="md-p-l-20 md-p-r-20 xs-no-padding">
+        <h5 class="block-title hint-text no-margin">บริการของเรา</h5>
+        <div class="row">
+          <div class="col-sm-5 col-md-4">
+            <h1 class="m-t-5">บริการด้านกฎหมายครบวงจร</h1>
+          </div>
+          <div class="col-sm-7 col-md-8 no-padding xs-p-l-15 xs-p-r-15">
+            <div class="p-t-20 p-l-35 md-p-l-5 md-p-t-15">
+              <p>ให้บริการด้านกฎหมายครบวงจร ด้วยความเชียวชาญและประสบการณ์มากกว่า 10 ปี พร้อมให้คำปรึกษาที่โปร่งใสและเป็นมืออาชีพ</p>
+              <p class="hint-text font-arial small-text col-md-7 no-padding">เราให้ความสำคัญกับความเป็นมิตรและความเข้าใจในปัญหาของลูกค้าเป็นสำคัญ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="container p-t-40">
+        <div class="row">
+          {services.map((service, index) => (
+            <div class="col-md-4 col-sm-6 m-b-30">
+              <div class="bg-white padding-20 text-center hover-lift">
+                <div class="m-b-20">
+                  <i class={`fa ${service.icon} text-primary`} style="font-size: 48px;"></i>
+                </div>
+                <h4 class="text-black m-b-15">{service.title}</h4>
+                <p class="hint-text">{service.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center m-t-40">
+          <a href="/services" class="btn btn-primary btn-lg">
+            ดูบริการทั้งหมด
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section class="bg-master-lightest p-t-75 p-b-85">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5 class="block-title hint-text no-margin">ทนายความหลัก</h5>
+            <h1 class="m-t-5 m-b-30">เมธัส ศรีศุกร์เจริญ</h1>
+
+            <div class="m-b-30">
+              <h6 class="font-montserrat text-uppercase fs-14 text-black p-b-10">ประวัติการศึกษา</h6>
+              <ul class="no-style">
+                <li class="m-b-5 no-padding">• มัธยมต้น: โรงเรียนจุฬาภรณ์ราชวิทยาลัย จังหวัดปทุมธานี</li>
+                <li class="m-b-5 no-padding">• มัธยมปลาย: โรงเรียนเตรียมอุดมศึกษา</li>
+                <li class="m-b-5 no-padding">• <strong>ปริญญาตรี: นิติศาสตร์บัณฑิต มหาวิทยาลัยธรรมศาสตร์</strong></li>
+                <li class="m-b-5 no-padding">• ทนายความ และทนายความผู้รับรองเอกสารและลายมือชื่อ</li>
+              </ul>
+            </div>
+
+            <div class="m-b-30">
+              <h6 class="font-montserrat text-uppercase fs-14 text-black p-b-10">แนวทางการทำงาน</h6>
+              <p class="hint-text">โปร่งใส เข้าถึงง่าย รวดเร็ว</p>
+            </div>
+
+            <div class="m-b-30">
+              <h6 class="font-montserrat text-uppercase fs-14 text-black p-b-10">ปรัชญาการทำงาน</h6>
+              <h3 class="text-primary">"บริการด้วยความเป็นมิตร"</h3>
+            </div>
+
+            <a href="/about" class="btn btn-white btn-cons">เรียนรู้เพิ่มเติม</a>
+          </div>
+
+          <div class="col-md-6 text-center">
+            <div class="bg-white padding-40 m-t-20">
+              <div style="width: 200px; height: 200px; background: #e6e6e6; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                <i class="fa fa-user" style="font-size: 80px; color: #626262;"></i>
+              </div>
+              <p class="hint-text">ทนายความเมธัส ศรีศุกร์เจริญ</p>
+              <p class="fs-12 hint-text">นิติศาสตร์บัณฑิต มหาวิทยาลัยธรรมศาสตร์</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="container container-fixed-lg p-t-75 p-b-85">
+      <div class="text-center">
+        <h5 class="block-title hint-text no-margin">ความเห็นจากลูกค้า</h5>
+        <h1 class="m-t-5 m-b-40">ประสบการณ์และความพึงพอใจจากผู้ใช้บริการ</h1>
+
+        <div class="bg-master-lightest padding-40">
+          <p class="fs-16 hint-text">
+            ส่วนนี้พร้อมสำหรับเพิ่มความเห็นและประสบการณ์จากลูกค้าในอนาคต
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="bg-master-darker p-t-75 p-b-85">
+      <div class="container text-center">
+        <h1 class="light text-white m-b-20">ต้องการคำปรึกษาทางกฎหมาย?</h1>
+        <p class="fs-16 text-white m-b-40 col-md-8 col-md-offset-2 no-padding">
+          ติดต่อเราวันนี้เพื่อรับคำปรึกษาเบื้องต้นฟรี และแผนการดำเนินงานที่เหมาะสมกับคุณ
+        </p>
+
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-2 m-b-15">
+            <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-white btn-lg btn-block">
+              <i class="fa fa-phone p-r-10"></i> โทร 081-514-4783
+            </a>
+          </div>
+          <div class="col-sm-4 m-b-15">
+            <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg btn-block">
+              <i class="fa fa-comments p-r-10"></i> แชท LINE
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <Footer lang="th" />
+</Layout>

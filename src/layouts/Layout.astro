@@ -1,0 +1,152 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  lang?: 'th' | 'en';
+  ogImage?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title,
+  description = '',
+  lang = 'th',
+  ogImage,
+  canonicalURL
+} = Astro.props;
+
+const siteName = lang === 'th' ? 'สำนักกฎหมายมิตรแสนสุข' : 'MS Law Office';
+const defaultDescription = lang === 'th'
+  ? 'บริการด้านกฎหมายในจังหวัดชลบุรี ด้วยมาตรฐานการทำงานที่โปร่งใสและเป็นมืออาชีพ'
+  : 'Professional legal services in Chonburi with transparent and professional standards';
+
+const fullTitle = `${title} | ${siteName}`;
+const metaDescription = description || defaultDescription;
+const currentURL = canonicalURL || Astro.url;
+const imageURL = ogImage || `${Astro.site}logo.png`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={metaDescription} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={currentURL} />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={currentURL} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content={lang === 'th' ? 'th_TH' : 'en_US'} />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={imageURL} />
+
+    <!-- Structured Data for Local Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "MS Law Office",
+        "alternateName": "สำนักกฎหมายมิตรแสนสุข",
+        "url": "https://mataslawoffice.com",
+        "telephone": "+66815144783",
+        "email": "info@mitsansuklaw.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "52/4 Mit Samphan Road",
+          "addressLocality": "Ban Puek",
+          "addressRegion": "Mueang Chonburi",
+          "postalCode": "20130",
+          "addressCountry": "TH"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "13.3611",
+          "longitude": "100.9842"
+        },
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Chonburi, Thailand"
+        },
+        "attorney": {
+          "@type": "Person",
+          "name": "Matas Srisookcharoen",
+          "jobTitle": "Attorney",
+          "alumniOf": "Thammasat University",
+          "hasCredential": "Licensed Attorney, Notarial Services Attorney"
+        },
+        "serviceType": [
+          "Legal Consultation",
+          "Court Dispute Resolution",
+          "Will Drafting",
+          "Company Registration",
+          "Document Translation",
+          "Notarial Services"
+        ]
+      }
+    </script>
+
+    <!-- BEGIN PLUGINS -->
+    <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <!-- END PLUGINS -->
+
+    <!-- BEGIN PAGES CSS -->
+    <link href="/pages/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="/pages/css/pages-icons.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGES CSS -->
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+
+      // Custom events for contact tracking
+      function trackPhoneClick() {
+        gtag('event', 'click_phone', {
+          event_category: 'Contact',
+          event_label: 'Phone Click'
+        });
+      }
+
+      function trackLineClick() {
+        gtag('event', 'click_line', {
+          event_category: 'Contact',
+          event_label: 'LINE Click'
+        });
+      }
+
+      // Make functions globally available
+      window.trackPhoneClick = trackPhoneClick;
+      window.trackLineClick = trackLineClick;
+    </script>
+  </head>
+  <body>
+    <slot />
+
+    <!-- BEGIN CORE FRAMEWORK -->
+    <script type="text/javascript" src="/assets/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/pages/js/pages.frontend.js"></script>
+    <!-- END FRAMEWORK -->
+  </body>
+</html>

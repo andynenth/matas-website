@@ -1,0 +1,119 @@
+---
+export interface Props {
+  lang?: 'th' | 'en';
+}
+
+const { lang = 'th' } = Astro.props;
+
+const currentYear = new Date().getFullYear();
+const copyright = lang === 'th'
+  ? `© ${currentYear} สำนักกฎหมายมิตรแสนสุข สงวนลิขสิทธิ์`
+  : `© ${currentYear} MS Law Office. All Rights Reserved.`;
+
+const quickLinks = lang === 'th'
+  ? [
+      { name: 'หน้าแรก', href: '/' },
+      { name: 'เกี่ยวกับเรา', href: '/about' },
+      { name: 'บริการ', href: '/services' },
+      { name: 'ติดต่อเรา', href: '/contact' }
+    ]
+  : [
+      { name: 'Home', href: '/en/' },
+      { name: 'About', href: '/en/about' },
+      { name: 'Services', href: '/en/services' },
+      { name: 'Contact', href: '/en/contact' }
+    ];
+
+const legalLinks = lang === 'th'
+  ? [
+      { name: 'นโยบายความเป็นส่วนตัว', href: '/privacy' },
+      { name: 'ข้อกำหนดการใช้งาน', href: '/terms' }
+    ]
+  : [
+      { name: 'Privacy Policy', href: '/en/privacy' },
+      { name: 'Terms of Service', href: '/en/terms' }
+    ];
+
+const siteName = lang === 'th' ? 'สำนักกฎหมายมิตรแสนสุข' : 'MS Law Office';
+---
+
+<!-- BEGIN FOOTER -->
+<section class="p-b-55 p-t-75 xs-p-b-20 bg-master-darker">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-xs-12 xs-m-b-40">
+        <h3 class="text-white font-montserrat">{siteName}</h3>
+        <p class="text-white fs-12 m-t-10">
+          {lang === 'th'
+            ? 'บริการด้านกฎหมายที่โปร่งใส เข้าถึงง่าย และเป็นมืออาชีพ เพื่อให้คุณมั่นใจในทุกขั้นตอนของการดำเนินงานทางกฎหมาย'
+            : 'Transparent, accessible, and professional legal services to ensure your confidence in every step of legal proceedings.'
+          }
+        </p>
+      </div>
+
+      <div class="col-sm-2 col-xs-6 xs-m-b-20">
+        <h6 class="font-montserrat text-uppercase fs-14 text-white p-b-10">
+          {lang === 'th' ? 'ลิงก์ด่วน' : 'Quick Links'}
+        </h6>
+        <ul class="no-style">
+          {quickLinks.map((link) => (
+            <li class="m-b-5 no-padding">
+              <a href={link.href} class="link text-white">{link.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="col-sm-3 col-xs-6 xs-m-b-20">
+        <h6 class="font-montserrat text-uppercase fs-14 text-white p-b-10">
+          {lang === 'th' ? 'ติดต่อเรา' : 'Contact Us'}
+        </h6>
+        <ul class="no-style">
+          <li class="m-b-5 no-padding">
+            <span class="fs-12 font-montserrat bold all-caps p-r-10 text-white">{lang === 'th' ? 'โทร' : 'Tel'}</span>
+            <a href="tel:+66815144783" onclick="trackPhoneClick()" class="fs-14 text-white link">081-514-4783</a>
+          </li>
+          <li class="m-b-5 no-padding">
+            <span class="fs-12 font-montserrat bold all-caps p-r-10 text-white">LINE</span>
+            <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="fs-14 text-white link">Matas.s</a>
+          </li>
+          <li class="m-b-5 no-padding">
+            <span class="fs-12 font-montserrat bold all-caps p-r-10 text-white">{lang === 'th' ? 'อีเมล' : 'Email'}</span>
+            <a href="mailto:info@mitsansuklaw.com" class="fs-14 text-white link">info@mitsansuklaw.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-3 col-xs-12 xs-m-b-20">
+        <h6 class="font-montserrat text-uppercase fs-14 text-white p-b-10">
+          {lang === 'th' ? 'ที่อยู่สำนักงาน' : 'Office Address'}
+        </h6>
+        <address class="text-white fs-12">
+          52/4 {lang === 'th' ? 'ถนนมิตรสัมพันธ์' : 'Mit Samphan Road'}<br>
+          {lang === 'th' ? 'ตำบลบ้านปึก อำเภอเมืองชลบุรี' : 'Ban Puek, Mueang Chonburi'}<br>
+          {lang === 'th' ? 'จังหวัดชลบุรี 20130' : 'Chonburi 20130'}<br>
+          {lang === 'th' ? 'ประเทศไทย' : 'Thailand'}
+        </address>
+        <p class="text-white fs-12 m-t-10">
+          <span class="fs-12 font-montserrat bold all-caps p-r-10">{lang === 'th' ? 'เวลาทำการ' : 'Hours'}</span><br>
+          {lang === 'th' ? 'จันทร์ - ศุกร์: 9:00 - 18:00 น.' : 'Monday - Friday: 9:00 AM - 6:00 PM'}
+        </p>
+      </div>
+    </div>
+
+    <div class="row m-t-40">
+      <div class="col-sm-6">
+        <p class="fs-12 hint-text text-white">{copyright}</p>
+      </div>
+      <div class="col-sm-6 text-right xs-text-left">
+        {legalLinks.map((link, index) => (
+          <span>
+            <a href={link.href} class="link text-white fs-12">{link.name}</a>
+            {index < legalLinks.length - 1 && <span class="text-white p-l-5 p-r-5">|</span>}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END FOOTER -->

@@ -1,0 +1,150 @@
+---
+export interface Props {
+  lang?: 'th' | 'en';
+  currentPath?: string;
+}
+
+const { lang = 'th', currentPath = '/' } = Astro.props;
+
+const navigation = lang === 'th'
+  ? [
+      { name: 'หน้าแรก', href: '/' },
+      { name: 'เกี่ยวกับเรา', href: '/about' },
+      { name: 'บริการ', href: '/services' },
+      { name: 'คำถามที่พบบ่อย', href: '/faq' },
+      { name: 'ติดต่อเรา', href: '/contact' }
+    ]
+  : [
+      { name: 'Home', href: '/en/' },
+      { name: 'About Us', href: '/en/about' },
+      { name: 'Services', href: '/en/services' },
+      { name: 'FAQ', href: '/en/faq' },
+      { name: 'Contact', href: '/en/contact' }
+    ];
+
+const siteName = lang === 'th' ? 'สำนักกฎหมายมิตรแสนสุข' : 'MS Law Office';
+const siteTagline = lang === 'th'
+  ? 'บริการใกล้ตัว มาตรฐานระดับสากล'
+  : 'Local Care, International Confidence';
+
+const isActive = (path: string) => {
+  if (lang === 'en') {
+    return currentPath === path || currentPath === path.replace('/en', '');
+  }
+  return currentPath === path;
+};
+---
+
+<!-- BEGIN HEADER -->
+<nav class="header bg-white" data-pages="header" data-pages-header="autoresize" data-pages-resize-class="dark">
+  <div class="container relative">
+    <!-- BEGIN LEFT CONTENT -->
+    <div class="pull-left">
+      <!-- .header-inner Allows to vertically Align elements to the Center-->
+      <div class="header-inner">
+        <!-- BEGIN LOGO -->
+        <div class="logo">
+          <a href={lang === 'en' ? '/en/' : '/'}>
+            <h3 class="text-black no-margin font-montserrat">{siteName}</h3>
+            <p class="hint-text fs-12 no-margin">{siteTagline}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BEGIN HEADER TOGGLE FOR MOBILE & TABLET -->
+    <div class="pull-right">
+      <div class="header-inner">
+        <!-- Contact Info for Desktop -->
+        <div class="visible-lg-inline visible-md-inline p-r-20">
+          <a href="tel:+66815144783" onclick="trackPhoneClick()" class="text-black fs-12 p-r-15">
+            <i class="fa fa-phone"></i> 081-514-4783
+          </a>
+          <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="text-success fs-12">
+            <i class="fa fa-comments"></i> LINE Chat
+          </a>
+        </div>
+
+        <div class="visible-sm-inline visible-xs-inline menu-toggler pull-right p-l-10" data-pages="header-toggle" data-pages-element="#header">
+          <div class="one"></div>
+          <div class="two"></div>
+          <div class="three"></div>
+        </div>
+      </div>
+    </div>
+    <!-- END HEADER TOGGLE FOR MOBILE & TABLET -->
+
+    <!-- BEGIN RIGHT CONTENT -->
+    <div class="menu-content mobile-dark pull-right clearfix" data-pages-direction="slideRight" id="header">
+      <!-- BEGIN HEADER CLOSE TOGGLE FOR MOBILE -->
+      <div class="pull-right">
+        <a href="#" class="padding-10 visible-xs-inline visible-sm-inline pull-right m-t-10 m-b-10 m-r-10" data-pages="header-toggle" data-pages-element="#header">
+          <i class="pg-close_line"></i>
+        </a>
+      </div>
+      <!-- END HEADER CLOSE TOGGLE FOR MOBILE -->
+
+      <!-- BEGIN MENU ITEMS -->
+      <div class="header-inner">
+        <ul class="menu">
+          {navigation.map((item) => (
+            <li>
+              <a href={item.href} class={isActive(item.href) ? 'active' : ''}>{item.name}</a>
+            </li>
+          ))}
+
+          <!-- Language Switcher -->
+          <li class="classic">
+            <a href="javascript:;">
+              {lang === 'th' ? 'ภาษา' : 'Language'} <i class="pg-arrow_minimize m-l-5"></i>
+            </a>
+            <nav class="classic">
+              <span class="arrow"></span>
+              <ul>
+                <li>
+                  <a href={lang === 'en' ? currentPath.replace('/en', '') || '/' : currentPath}>
+                    ไทย {lang === 'th' ? '✓' : ''}
+                  </a>
+                </li>
+                <li>
+                  <a href={lang === 'th' ? `/en${currentPath === '/' ? '' : currentPath}` : currentPath}>
+                    English {lang === 'en' ? '✓' : ''}
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </li>
+        </ul>
+
+        <!-- Mobile Contact Info -->
+        <div class="visible-xs-block visible-sm-block m-t-20">
+          <div class="b-b b-grey-light p-b-10 m-b-10">
+            <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-block btn-success m-b-5">
+              <i class="fa fa-phone"></i> {lang === 'th' ? 'โทรศัพท์' : 'Call'} 081-514-4783
+            </a>
+            <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-block btn-complete">
+              <i class="fa fa-comments"></i> LINE Chat
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- END HEADER -->
+
+<!-- Mobile Sticky Contact Bar -->
+<div class="visible-xs-block visible-sm-block" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; padding: 10px; background: #fff; border-top: 1px solid #e6e6e6;">
+  <div class="row no-padding">
+    <div class="col-xs-6 no-padding p-r-5">
+      <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-success btn-block">
+        <i class="fa fa-phone"></i> {lang === 'th' ? 'โทร' : 'Call'}
+      </a>
+    </div>
+    <div class="col-xs-6 no-padding p-l-5">
+      <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-complete btn-block">
+        <i class="fa fa-comments"></i> LINE
+      </a>
+    </div>
+  </div>
+</div>

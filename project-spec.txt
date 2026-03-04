@@ -1,0 +1,197 @@
+PROJECT SPECIFICATION
+MS Law Office (Matas Law Office)
+Domain: https://mataslawoffice.com
+Primary Language: Thai
+Secondary Language: English
+1. Project Objective
+Build a fast, authoritative, SEO-optimized bilingual law office website.
+Primary goal:
+→ Generate phone calls and LINE contacts from Thai users in Chonburi.
+Secondary goal:
+→ Establish credibility and professional authority.
+No blog.
+No contact form.
+No booking system.
+Mobile-first design required.
+2. Target Audience
+Primary:
+Thai individuals in Chonburi seeking legal services
+Secondary:
+Foreign nationals residing in Thailand
+3. Conversion Strategy (CRITICAL REQUIREMENT)
+The website must prioritize direct contact.
+Required:
+Phone number displayed at the very top of the homepage
+LINE contact displayed next to phone
+Both visible above the fold
+Clickable phone link: tel:+66815144783
+LINE link: https://line.me/ti/p/~Matas.s
+Sticky bottom bar on mobile with:
+Call button
+LINE button
+Primary action = Call or LINE
+All other content is secondary.
+4. Homepage Structure (MANDATORY ORDER)
+Top contact bar (Phone + LINE)
+Headline / Motto
+Short introduction paragraph
+Services overview
+About preview
+Call-to-action block (Call / LINE again)
+Footer
+Do NOT place long introduction text before contact visibility.
+5. Design & Brand Positioning
+The website must appear:
+Prestigious
+Authoritative
+Professional
+Trustworthy
+Stable
+Established
+Avoid:
+Startup-style visuals
+Playful design
+Excessive animation
+Trendy gradients
+Loud colors
+Visual Direction:
+Primary color: Navy / Deep blue
+Neutral white background
+Strong typography hierarchy
+Elegant spacing
+Minimal but powerful layout
+Headings may use a refined serif or semi-serif style.
+Body font must be highly readable in Thai and English.
+6. Site Structure
+Main Navigation:
+Home
+About Us
+Services
+FAQ
+Contact
+Language Switch (TH | EN)
+No blog page.
+7. URL Structure
+Thai (default):
+/
+/about
+/services
+/faq
+/contact
+English:
+/en/
+/en/about
+/en/services
+/en/faq
+/en/contact
+Do NOT auto-redirect based on IP.
+Language switching must be manual.
+8. Content (Provided)
+Homepage Tagline
+Thai:
+“บริการใกล้ตัว มาตรฐานระดับสากล”
+English:
+“Local Care, International Confidence”
+Introduction (Thai Primary)
+ยินดีต้อนรับสู่ สำนักกฎหมายมิตรแสนสุข (MS Law Office)
+เรามุ่งมั่นให้บริการด้านกฎหมายแก่ประชาชนในจังหวัดชลบุรีและชาวต่างชาติที่อาศัยอยู่ในประเทศไทย ด้วยมาตรฐานการทำงานที่โปร่งใสและเป็นมืออาชีพ เพื่อให้คุณมั่นใจได้ในทุกขั้นตอนของการดำเนินงานทางกฎหมาย
+English version provided.
+9. About Page
+Lead Attorney:
+Matas Srisookcharoen
+Education:
+Princess Chulabhorn’s College, Pathum Thani
+Triam Udom Suksa School
+LL.B., Thammasat University
+Licensed Attorney
+Notarial Services Attorney
+Philosophy:
+“Service with Friendliness”
+Working Approach:
+Transparent, Accessible, Efficient
+Credentials must be clearly visible.
+10. Services Page
+Include:
+Court Dispute Resolution
+Legal Consultation
+Will Drafting
+Estate Administrator Appointment
+Company Registration
+Document Translation (Urgent)
+Notarial Services Attorney
+Each service requires a short professional description.
+Focus SEO on Thai keywords:
+ทนาย ชลบุรี
+รับรองเอกสาร ชลบุรี
+จดทะเบียนบริษัท ชลบุรี
+11. FAQ Page
+Include provided 3 questions (TH + EN).
+12. Contact Page
+Display prominently:
+Address:
+52/4 Mit Samphan Road
+Ban Puek
+Mueang Chonburi 20130
+Thailand
+Phone:
++66 81-514-4783
+LINE ID:
+Matas.s
+Email:
+info@mitsansuklaw.com
+Business Hours:
+Monday – Friday
+9:00 AM – 6:00 PM
+Google Map Integration (Required)
+Embed official Google Maps iframe of the office location.
+Must be responsive
+Place directly under contact information
+Add “Open in Google Maps” link
+Map reference:
+https://maps.app.goo.gl/QwdyjZqbYySGo3JeA
+13. SEO Requirements
+Primary ranking language: Thai
+Must include:
+Proper title tags
+Meta descriptions
+Open Graph tags
+Clean semantic HTML
+H1–H3 structure
+Fast loading performance
+14. Structured Data (JSON-LD Required)
+Implement:
+Types:
+LegalService
+LocalBusiness
+Person
+Business Data:
+Name: MS Law Office
+URL: https://mataslawoffice.com
+Phone: +66815144783
+Address: 52/4 Mit Samphan Road, Ban Puek, Mueang Chonburi 20130, Thailand
+Area Served: Chonburi, Thailand
+Opening Hours: Mo-Fr 09:00-18:00
+Logo URL: https://mataslawoffice.com/logo.png
+15. Google Analytics
+Install Google Analytics 4.
+Track events:
+click_phone
+click_line
+16. Performance Requirements
+Lighthouse score 90+
+Optimized images
+Minimal JavaScript
+No heavy libraries
+Static optimized output
+17. Legal Pages Required
+Create:
+Privacy Policy
+Website Disclaimer
+Standard professional legal text acceptable.
+FINAL SUMMARY
+This is a prestigious, conversion-focused local law office website designed to:
+Rank in Thai search results
+Build trust and authority
+Encourage immediate phone and LINE contact
+Present strong professional credibility
+Maintain minimal, elegant, authoritative design
