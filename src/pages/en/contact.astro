@@ -1,0 +1,187 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const pageTitle = 'Contact';
+const pageDescription = 'Contact MS Law Office in Chonburi for legal consultation - Phone 081-514-4783 or LINE @Matas.s';
+---
+
+<Layout title={pageTitle} description={pageDescription} lang="en">
+  <Header lang="en" currentPath="/en/contact" />
+
+  <div class="m-t-60">
+    <!-- Contact Section -->
+    <section class="container container-fixed-lg p-t-65 p-b-100 sm-p-b-30 sm-m-b-30">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Contact Our Law Office</h2>
+          <div class="p-r-40 sm-p-r-0">
+            <p>We are pleased to provide legal consultation and help solve various problems with friendliness and excellent service standards</p>
+            <br>
+
+            <!-- Prominent Contact Buttons -->
+            <div class="row m-b-30">
+              <div class="col-sm-6 m-b-15">
+                <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-success btn-block btn-lg">
+                  <i class="fa fa-phone p-r-10"></i> Phone
+                  <br><span class="fs-16">081-514-4783</span>
+                </a>
+              </div>
+              <div class="col-sm-6 m-b-15">
+                <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-complete btn-block btn-lg">
+                  <i class="fa fa-comments p-r-10"></i> LINE Chat
+                  <br><span class="fs-16">Matas.s</span>
+                </a>
+              </div>
+            </div>
+
+            <br>
+            <div class="panel bg-master-lightest" id="contact-panel">
+              <div class="panel-body padding-30">
+                <p class="semi-bold no-margin m-b-20">Other Contact Methods</p>
+
+                <div class="row">
+                  <div class="col-sm-12 m-b-20">
+                    <div class="flex-row">
+                      <i class="fa fa-envelope text-primary p-r-15" style="font-size: 20px; width: 30px;"></i>
+                      <div>
+                        <p class="font-montserrat bold all-caps fs-12 text-black no-margin">Email</p>
+                        <a href="mailto:info@mitsansuklaw.com" class="fs-14 text-black">info@mitsansuklaw.com</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 m-b-20">
+                    <div class="flex-row">
+                      <i class="fa fa-clock-o text-primary p-r-15" style="font-size: 20px; width: 30px;"></i>
+                      <div>
+                        <p class="font-montserrat bold all-caps fs-12 text-black no-margin">Office Hours</p>
+                        <p class="fs-14 text-black no-margin">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p class="fs-12 hint-text">For urgent matters, contact via LINE anytime</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="visible-xs visible-sm b-b b-grey-light m-t-35 m-b-30"></div>
+          <div class="p-l-40 sm-p-l-0 sm-p-t-10">
+            <h3>Office Information<br>and Special Services</h3>
+            <p>Located in a convenient location for travel, with a variety of services for both Thai and foreign clients</p>
+            <br>
+
+            <div class="row">
+              <div class="col-sm-12 m-b-30">
+                <h5 class="block-title hint-text m-b-10">Office Address</h5>
+                <address class="m-t-10">
+                  <strong>MS Law Office</strong><br>
+                  52/4 Mit Samphan Road<br>
+                  Ban Puek Sub-district, Mueang Chonburi District<br>
+                  Chonburi Province 20130<br>
+                  Thailand
+                </address>
+                <br>
+                <p class="hint-text no-margin">
+                  <span class="fs-12 font-montserrat bold all-caps p-r-10">Transportation</span><br>
+                  <span class="fs-14">🚗 Parking available in front of office</span><br>
+                  <span class="fs-14">🚌 Bus routes 3, 7, 15</span><br>
+                  <span class="fs-14">📍 Near Ban Puek Market and Chonburi Hospital</span>
+                </p>
+              </div>
+            </div>
+
+            <br>
+            <h5 class="block-title hint-text m-b-10">Special Services</h5>
+            <br>
+            <div class="row">
+              <div class="col-sm-6 m-b-20">
+                <div class="bg-white padding-15 text-center">
+                  <i class="fa fa-clock-o text-success" style="font-size: 24px;"></i>
+                  <p class="fs-12 m-t-10 no-margin"><strong>Free Consultation</strong></p>
+                  <p class="fs-11 hint-text">Initial 15-30 minutes</p>
+                </div>
+              </div>
+              <div class="col-sm-6 m-b-20">
+                <div class="bg-white padding-15 text-center">
+                  <i class="fa fa-language text-complete" style="font-size: 24px;"></i>
+                  <p class="fs-12 m-t-10 no-margin"><strong>Bilingual Service</strong></p>
+                  <p class="fs-11 hint-text">Thai and English</p>
+                </div>
+              </div>
+              <div class="col-sm-6 m-b-20">
+                <div class="bg-white padding-15 text-center">
+                  <i class="fa fa-rocket text-primary" style="font-size: 24px;"></i>
+                  <p class="fs-12 m-t-10 no-margin"><strong>Express Service</strong></p>
+                  <p class="fs-11 hint-text">Same-day document processing</p>
+                </div>
+              </div>
+              <div class="col-sm-6 m-b-20">
+                <div class="bg-white padding-15 text-center">
+                  <i class="fa fa-mobile text-info" style="font-size: 24px;"></i>
+                  <p class="fs-12 m-t-10 no-margin"><strong>Digital Services</strong></p>
+                  <p class="fs-11 hint-text">Online consultation via LINE</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Maps Section -->
+    <section class="bg-master-lightest p-t-60 p-b-60">
+      <div class="container">
+        <h3 class="text-center m-b-40">Office Location</h3>
+
+        <!-- Full Width Google Maps -->
+        <div id="google-map" class="full-width no-overflow" style="height: 400px; position: relative;">
+          <iframe
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.5431234567!2d100.98420!3d13.36111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDIxJzQwLjAiTiAxMDHCsDU5JzAzLjEiRQ!5e0!3m2!1sen!2sth!4v1234567890123!5m2!1sen!2sth">
+          </iframe>
+        </div>
+
+        <div class="text-center m-t-20">
+          <a href="https://goo.gl/maps/your-google-maps-link" target="_blank" rel="noopener noreferrer" class="btn btn-success">
+            <i class="fa fa-external-link p-r-5"></i> Open in Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="bg-master-darker p-t-75 p-b-85">
+      <div class="container text-center">
+        <h1 class="light text-white m-b-20">Ready to Discuss Your Legal Needs?</h1>
+        <p class="fs-16 text-white m-b-40 col-md-8 col-md-offset-2 no-padding">
+          Get in touch today for professional legal consultation and personalized solutions
+        </p>
+
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-2 m-b-15">
+            <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-white btn-lg btn-block">
+              <i class="fa fa-phone p-r-10"></i> Call Now
+            </a>
+          </div>
+          <div class="col-sm-4 m-b-15">
+            <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg btn-block">
+              <i class="fa fa-comments p-r-10"></i> Chat on LINE
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <Footer lang="en" />
+</Layout>

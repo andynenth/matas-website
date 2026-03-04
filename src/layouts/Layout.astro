@@ -23,7 +23,7 @@ const defaultDescription = lang === 'th'
 const fullTitle = `${title} | ${siteName}`;
 const metaDescription = description || defaultDescription;
 const currentURL = canonicalURL || Astro.url;
-const imageURL = ogImage || `${Astro.site}logo.png`;
+const imageURL = ogImage || `${Astro.site}favicon.svg`;
 ---
 
 <!doctype html>
@@ -105,6 +105,28 @@ const imageURL = ogImage || `${Astro.site}logo.png`;
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    <!-- Global Language-Aware Styling -->
+    <style>
+      /* Font system based on language */
+      html[lang="th"] .block-title,
+      html[lang="th"] h1, html[lang="th"] h2, html[lang="th"] h3, html[lang="th"] h4, html[lang="th"] h5, html[lang="th"] h6,
+      html[lang="th"] p, html[lang="th"] .fs-16, html[lang="th"] .hint-text {
+        font-family: 'Noto Sans Thai', sans-serif !important;
+      }
+
+      html[lang="en"] .block-title,
+      html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] h4, html[lang="en"] h5, html[lang="en"] h6,
+      html[lang="en"] p, html[lang="en"] .fs-16, html[lang="en"] .hint-text {
+        font-family: 'Noto Sans', sans-serif !important;
+      }
+
+      /* Hero subtitle styling */
+      .hero-subtitle {
+        font-size: 18px !important;
+        font-weight: bold !important;
+      }
+    </style>
+
     <!-- BEGIN PLUGINS -->
     <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
@@ -115,13 +137,13 @@ const imageURL = ogImage || `${Astro.site}logo.png`;
     <link href="/pages/css/pages-icons.css" rel="stylesheet" type="text/css" />
     <!-- END PAGES CSS -->
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <!-- Google Analytics 4 - Replace YOUR_GA_MEASUREMENT_ID with your actual GA4 tracking ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_MEASUREMENT_ID"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
+      gtag('config', 'YOUR_GA_MEASUREMENT_ID');
 
       // Custom events for contact tracking
       function trackPhoneClick() {

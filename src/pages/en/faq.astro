@@ -1,0 +1,202 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const pageTitle = 'FAQ';
+const pageDescription = 'Frequently asked questions about legal services at MS Law Office - costs, procedures, and general information';
+
+const faqs = [
+  {
+    question: 'What are the costs for legal services? Are there any hidden fees?',
+    answer: 'We prioritize transparency in service fees. Before starting work, we clearly inform you of all costs. Service fees depend on the complexity of each type of work. The first 15-30 minutes of initial consultation are free of charge. For other services, we always agree on prices in advance before proceeding. There are no hidden fees whatsoever.',
+    category: 'Costs'
+  },
+  {
+    question: 'How long does court litigation take and what are the procedures?',
+    answer: 'The duration of litigation depends on the type and complexity of the case. Generally, civil cases may take 6-18 months. The process includes: 1) Filing the lawsuit 2) Court consideration 3) Evidence examination 4) Judgment. We will keep you informed of progress and provide consultation throughout the process, including preparing complete documents and evidence.',
+    category: 'Litigation Process'
+  },
+  {
+    question: 'How long do document translation and certification services take?',
+    answer: 'Standard document translation takes 2-3 working days, depending on the volume and complexity of documents. For urgent work, it can be completed within 1 day (with 50% surcharge). Document certification by attorney can be done immediately without waiting. Certified documents are effective immediately and accepted by government agencies.',
+    category: 'Documents'
+  }
+];
+
+const additionalTopics = [
+  {
+    title: 'Company Registration',
+    items: [
+      'Steps for limited company registration',
+      'Minimum registered capital',
+      'Processing timeframe',
+      'Required registration documents'
+    ]
+  },
+  {
+    title: 'Wills and Inheritance',
+    items: [
+      'How to make a legal will',
+      'Difference between wills and gift documents',
+      'Estate administrator appointment',
+      'Inheritance procedures'
+    ]
+  },
+  {
+    title: 'Services for Foreigners',
+    items: [
+      'Various types of visa applications',
+      'English document translation and certification',
+      'Marriage registration with Thai nationals',
+      'Land and property purchase procedures'
+    ]
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} lang="en">
+  <Header lang="en" currentPath="/en/faq" />
+
+  <div class="m-t-60">
+
+    <!-- Hero Section -->
+    <section class="bg-master-lightest p-t-85 p-b-85">
+      <div class="container text-center">
+        <h5 class="block-title hint-text no-margin">FAQ</h5>
+        <h1 class="light m-t-5 m-b-30">Frequently Asked Questions</h1>
+        <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
+          Find answers to common questions about our legal services, procedures, and costs
+        </p>
+        <p class="hint-text col-md-6 col-md-offset-3 no-padding m-t-15">
+          Can't find what you're looking for? Feel free to contact us directly
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="container container-fixed-lg p-t-75 p-b-85">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h3 class="text-center m-b-40">Common Questions & Answers</h3>
+
+          {faqs.map((faq, index) => (
+            <div class="panel panel-transparent">
+              <div class="panel-heading">
+                <div class="panel-title">
+                  <a href={`#faq${index + 1}`} data-toggle="collapse" data-parent="#accordion" class="collapsed">
+                    <span class="bg-primary text-white fs-11 font-montserrat bold all-caps padding-5" style="border-radius: 3px;">
+                      {faq.category}
+                    </span>
+                    <span class="p-l-10 fs-16">{faq.question}</span>
+                  </a>
+                </div>
+              </div>
+              <div id={`faq${index + 1}`} class="panel-collapse collapse">
+                <div class="panel-body">
+                  <p class="hint-text">{faq.answer}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Topics Section -->
+    <section class="bg-master-lightest p-t-75 p-b-85">
+      <div class="container">
+        <div class="text-center m-b-60">
+          <h5 class="block-title hint-text no-margin">Need More Information?</h5>
+          <h1 class="m-t-5 m-b-30">Additional Topics We Can Help With</h1>
+          <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
+            Our expertise covers a wide range of legal services for both individuals and businesses
+          </p>
+        </div>
+
+        <div class="row">
+          {additionalTopics.map((topic, index) => (
+            <div class="col-md-4 m-b-40">
+              <div class="bg-white padding-30 hover-lift full-height">
+                <h4 class="text-black m-b-20">{topic.title}</h4>
+                <ul class="no-style">
+                  {topic.items.map((item) => (
+                    <li class="m-b-10">
+                      <i class="fa fa-check-circle text-success p-r-10"></i>
+                      <span class="fs-14">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div class="m-t-20">
+                  <a href="/en/contact" class="text-primary font-montserrat bold">
+                    Learn More <i class="fa fa-arrow-right p-l-5"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Contact Section -->
+    <section class="container container-fixed-lg p-t-75 p-b-85">
+      <div class="text-center">
+        <h3 class="m-b-30">Still Have Questions?</h3>
+        <p class="fs-16 col-md-6 col-md-offset-3 no-padding m-b-40">
+          Our experienced attorney is ready to provide personalized answers to your specific legal questions
+        </p>
+
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <div class="row">
+              <div class="col-sm-6 m-b-15">
+                <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-primary btn-block">
+                  <i class="fa fa-phone p-r-10"></i> Call Now
+                </a>
+              </div>
+              <div class="col-sm-6 m-b-15">
+                <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block">
+                  <i class="fa fa-comments p-r-10"></i> LINE Chat
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-t-30">
+          <p class="fs-14 hint-text">
+            <i class="fa fa-clock-o text-success p-r-5"></i>
+            <strong>Free 15-30 minute initial consultation</strong> - No obligation
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="bg-master-darker p-t-75 p-b-85">
+      <div class="container text-center">
+        <h1 class="light text-white m-b-20">Ready to Get Professional Legal Help?</h1>
+        <p class="fs-16 text-white m-b-40 col-md-8 col-md-offset-2 no-padding">
+          Contact us today for comprehensive legal consultation and professional solutions
+        </p>
+
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-2 m-b-15">
+            <a href="/en/contact" class="btn btn-white btn-lg btn-block">
+              <i class="fa fa-map-marker p-r-10"></i> Visit Our Office
+            </a>
+          </div>
+          <div class="col-sm-4 m-b-15">
+            <a href="/en/services" class="btn btn-success btn-lg btn-block">
+              <i class="fa fa-list p-r-10"></i> View All Services
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <Footer lang="en" />
+</Layout>
