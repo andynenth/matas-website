@@ -35,6 +35,28 @@ const isActive = (path: string) => {
 };
 ---
 
+<style>
+.language-toggle a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.language-toggle a:hover {
+  color: #007bff !important;
+  text-decoration: none;
+}
+
+.language-toggle-mobile a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.language-toggle-mobile a:hover {
+  color: #007bff !important;
+  text-decoration: none;
+}
+</style>
+
 <!-- BEGIN HEADER -->
 <nav class="header bg-white" data-pages="header">
   <div class="container relative">
@@ -43,9 +65,9 @@ const isActive = (path: string) => {
       <!-- .header-inner Allows to vertically Align elements to the Center-->
       <div class="header-inner">
         <!-- BEGIN LOGO -->
-        <div class="logo">
+        <div class="logo" style="display: flex; align-items: center; height: 60px;">
           <a href={lang === 'en' ? '/en/' : '/'}>
-            <h3 class="text-black font-montserrat" style="margin: 10px 0;">{siteName}</h3>
+            <h3 class="text-black font-montserrat" style="margin: 0; line-height: 1.2;">{siteName}</h3>
           </a>
         </div>
       </div>
@@ -53,15 +75,37 @@ const isActive = (path: string) => {
 
     <!-- BEGIN HEADER TOGGLE FOR MOBILE & TABLET -->
     <div class="pull-right">
-      <div class="header-inner">
+      <div class="header-inner" style="display: flex; align-items: center; height: 60px;">
         <!-- Contact Info for Desktop -->
-        <div class="visible-lg-inline visible-md-inline p-r-20">
-          <a href="tel:+66815144783" onclick="trackPhoneClick()" class="text-black fs-12 p-r-15">
-            <i class="fa fa-phone"></i> 081-514-4783
+        <div class="visible-lg-inline visible-md-inline p-r-20" style="display: inline-flex; align-items: center; gap: 15px;">
+          <a href="tel:+66815144783" onclick="trackPhoneClick()" class="text-black fs-12" style="display: inline-flex; align-items: center; vertical-align: middle;">
+            <i class="fa fa-phone" style="margin-right: 5px; vertical-align: middle;"></i> 081-514-4783
           </a>
-          <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="text-success fs-12">
-            <i class="fa fa-comments"></i> LINE Chat
+
+          <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="text-success fs-12" style="display: inline-flex; align-items: center; vertical-align: middle; padding: 2px 4px;">
+            <img src="/assets/images/line-logo.png" alt="LINE" style="width: 18px; height: 18px; vertical-align: middle;" />
           </a>
+
+          <!-- Language Toggle -->
+          <div class="language-toggle fs-12" style="display: inline-flex; align-items: center;">
+            {lang === 'th' ? (
+              <div style="display: inline-flex; align-items: center;">
+                <span class="text-primary font-montserrat bold">🇹🇭 TH</span>
+                <span class="hint-text" style="margin: 0 5px;">|</span>
+                <a href={currentPath === '/' ? '/en/' : `/en${currentPath}`} class="text-black hover-primary">
+                  🇺🇸 EN
+                </a>
+              </div>
+            ) : (
+              <div style="display: inline-flex; align-items: center;">
+                <a href={currentPath === '/en/' ? '/' : currentPath.replace('/en', '')} class="text-black hover-primary">
+                  🇹🇭 TH
+                </a>
+                <span class="hint-text" style="margin: 0 5px;">|</span>
+                <span class="text-primary font-montserrat bold">🇺🇸 EN</span>
+              </div>
+            )}
+          </div>
         </div>
 
         <div class="visible-sm-inline visible-xs-inline menu-toggler pull-right p-l-10" data-pages="header-toggle" data-pages-element="#header">
@@ -92,27 +136,6 @@ const isActive = (path: string) => {
             </li>
           ))}
 
-          <!-- Language Switcher -->
-          <li class="classic">
-            <a href="javascript:;">
-              {lang === 'th' ? 'ภาษา' : 'Language'} <i class="pg-arrow_minimize m-l-5"></i>
-            </a>
-            <nav class="classic">
-              <span class="arrow"></span>
-              <ul>
-                <li>
-                  <a href={lang === 'en' ? (currentPath === '/en/' ? '/' : currentPath.replace('/en', '')) : currentPath}>
-                    ไทย {lang === 'th' ? '✓' : ''}
-                  </a>
-                </li>
-                <li>
-                  <a href={lang === 'th' ? (currentPath === '/' ? '/en/' : `/en${currentPath}`) : currentPath}>
-                    English {lang === 'en' ? '✓' : ''}
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </li>
         </ul>
 
         <!-- Mobile Contact Info -->
@@ -121,9 +144,32 @@ const isActive = (path: string) => {
             <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-block btn-success m-b-5">
               <i class="fa fa-phone"></i> {lang === 'th' ? 'โทรศัพท์' : 'Call'} 081-514-4783
             </a>
-            <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-block btn-complete">
-              <i class="fa fa-comments"></i> LINE Chat
+            <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-block btn-complete m-b-10" style="display: flex; align-items: center; justify-content: center;">
+              <img src="/assets/images/line-logo.png" alt="LINE" style="width: 24px; height: 24px;" />
             </a>
+
+            <!-- Mobile Language Toggle -->
+            <div class="text-center p-t-10">
+              <div class="language-toggle-mobile">
+                {lang === 'th' ? (
+                  <div>
+                    <span class="text-primary font-montserrat bold fs-14">🇹🇭 ไทย</span>
+                    <span class="hint-text p-l-10 p-r-10">|</span>
+                    <a href={currentPath === '/' ? '/en/' : `/en${currentPath}`} class="text-black fs-14">
+                      🇺🇸 English
+                    </a>
+                  </div>
+                ) : (
+                  <div>
+                    <a href={currentPath === '/en/' ? '/' : currentPath.replace('/en', '')} class="text-black fs-14">
+                      🇹🇭 ไทย
+                    </a>
+                    <span class="hint-text p-l-10 p-r-10">|</span>
+                    <span class="text-primary font-montserrat bold fs-14">🇺🇸 English</span>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -141,8 +187,8 @@ const isActive = (path: string) => {
       </a>
     </div>
     <div class="col-xs-6 no-padding p-l-5">
-      <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-complete btn-block">
-        <i class="fa fa-comments"></i> LINE
+      <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-complete btn-block" style="display: flex; align-items: center; justify-content: center;">
+        <img src="/assets/images/line-logo.png" alt="LINE" style="width: 20px; height: 20px;" />
       </a>
     </div>
   </div>
