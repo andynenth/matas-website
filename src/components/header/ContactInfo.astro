@@ -27,6 +27,14 @@ const responsiveClasses = {
 };
 ---
 
+<style>
+.logo-sizing {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  vertical-align: middle;
+}
+</style>
+
 <div class={`${responsiveClasses[size]} ${containerClasses[size]}`}>
   {showPhone && (
     <a

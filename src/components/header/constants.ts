@@ -44,7 +44,7 @@ export const CONTACT_CONFIG: ContactInfo = {
   line: {
     url: 'https://line.me/ti/p/~Matas.s',
     trackingFunction: 'trackLineClick()',
-    logo: '/assets/images/line-logo.png'
+    logo: '/assets/images/line-logo-48.png'
   }
 } as const;
 
