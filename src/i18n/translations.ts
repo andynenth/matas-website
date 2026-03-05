@@ -56,37 +56,44 @@ export const translations = {
       {
         title: 'การระงับข้อพิพาททางศาล',
         description: 'ให้คำปรึกษาและดำเนินคดีในศาลทุกชั้นด้วยความเชียวชาญและประสบการณ์',
-        icon: 'fa-balance-scale'
+        icon: '/assets/images/icons/court-litigation.png',
+        isImage: true
       },
       {
         title: 'การให้คำปรึกษากฎหมาย',
         description: 'คำปรึกษาทางกฎหมายในหลากหลายสาขา ด้วยความรู้และประสบการณ์จริง',
-        icon: 'fa-briefcase'
+        icon: '/assets/images/icons/legal-consultation.png',
+        isImage: true
       },
       {
         title: 'การจัดทำพินัยกรรม',
         description: 'ร่างและจัดทำพินัยกรรมที่ถูกต้องตามกฎหมายเพื่อความมั่นใจของครอบครัว',
-        icon: 'fa-file-text'
+        icon: '/assets/images/icons/will-preparation.png',
+        isImage: true
       },
       {
         title: 'การแต่งตั้งผู้จัดการมรดก',
         description: 'ช่วยเหลือในการแต่งตั้งผู้จัดการมรดกและดำเนินการตามกฎหมาย',
-        icon: 'fa-users'
+        icon: '/assets/images/icons/estate-administration.png',
+        isImage: true
       },
       {
         title: 'การจดทะเบียนบริษัท',
         description: 'บริการจดทะเบียนบริษัทครบวงจร รวดเร็ว ถูกต้อง และเป็นไปตามกฎหมาย',
-        icon: 'fa-building'
+        icon: '/assets/images/icons/company-registration.png',
+        isImage: true
       },
       {
         title: 'การแปลเอกสาร (เร่งด่วน)',
         description: 'บริการแปลเอกสารทางกฎหมายและเอกสารราชการ พร้อมรับรองความถูกต้อง',
-        icon: 'fa-language'
+        icon: '/assets/images/icons/document-translation.png',
+        isImage: true
       },
       {
         title: 'การรับรองเอกสารโดยทนายความ',
         description: 'รับรองเอกสารและลายมือชื่อโดยทนายความผู้รับรองเอกสารและลายมือชื่อ',
-        icon: 'fa-certificate'
+        icon: '/assets/images/icons/document-certification.png',
+        isImage: true
       }
     ],
 
@@ -113,16 +120,25 @@ export const translations = {
           description: 'ด้วยประสบการณ์และความเชี่ยวชาญ เราพร้อมให้บริการที่โปร่งใส เข้าถึงได้ และเป็นมืออาชีพ',
           features: [
             {
-              title: 'ประสบการณ์ยาวนาน',
-              description: 'มากกว่า 10 ปีในการให้บริการ<br>ด้านกฎหมาย'
+              title: 'การศึกษาระดับสูง',
+              description: 'นิติศาสตร์บัณฑิต<br>มหาวิทยาลัยธรรมศาสตร์',
+              icon: '/assets/images/icons/education.png',
+              bgColor: 'bg-primary',
+              isImage: true
             },
             {
-              title: 'ความเชี่ยวชาญ',
-              description: 'ทนายความผู้เชี่ยวชาญ<br>หลากหลายสาขา'
+              title: 'ใบอนุญาตครบถ้วน',
+              description: 'ทนายความและทนายความ<br>ผู้รับรองเอกสาร',
+              icon: '/assets/images/icons/license.png',
+              bgColor: 'bg-success',
+              isImage: true
             },
             {
               title: 'บริการเป็นมิตร',
-              description: 'เข้าใจปัญหา ให้คำปรึกษา<br>ด้วยความเป็นมิตร'
+              description: 'เข้าใจปัญหา ให้คำปรึกษา<br>ด้วยความเป็นมิตร',
+              icon: '/assets/images/icons/friendly-service.png',
+              bgColor: 'bg-complete',
+              isImage: true
             }
           ]
         },
@@ -320,37 +336,44 @@ export const translations = {
       {
         title: 'Court Litigation Services',
         description: 'Legal consultation and litigation in all court levels with expertise and experience',
-        icon: 'fa-balance-scale'
+        icon: '/assets/images/icons/court-litigation.png',
+        isImage: true
       },
       {
         title: 'Legal Consultation',
         description: 'Legal advice in various fields with knowledge and real experience',
-        icon: 'fa-briefcase'
+        icon: '/assets/images/icons/legal-consultation.png',
+        isImage: true
       },
       {
         title: 'Will Preparation',
         description: 'Draft and prepare legal wills for family peace of mind',
-        icon: 'fa-file-text'
+        icon: '/assets/images/icons/will-preparation.png',
+        isImage: true
       },
       {
         title: 'Estate Administration',
         description: 'Assistance in estate administrator appointment and legal procedures',
-        icon: 'fa-users'
+        icon: '/assets/images/icons/estate-administration.png',
+        isImage: true
       },
       {
         title: 'Company Registration',
         description: 'Complete company registration services, fast, accurate, and legal',
-        icon: 'fa-building'
+        icon: '/assets/images/icons/company-registration.png',
+        isImage: true
       },
       {
         title: 'Document Translation (Express)',
         description: 'Legal and official document translation with accuracy certification',
-        icon: 'fa-language'
+        icon: '/assets/images/icons/document-translation.png',
+        isImage: true
       },
       {
         title: 'Document Certification by Attorney',
         description: 'Document and signature certification by certified attorney',
-        icon: 'fa-certificate'
+        icon: '/assets/images/icons/document-certification.png',
+        isImage: true
       }
     ],
 
@@ -377,16 +400,25 @@ export const translations = {
           description: 'With experience and expertise, we are ready to provide services that are transparent, accessible, and professional',
           features: [
             {
-              title: 'Long Experience',
-              description: 'More than 10 years of providing<br>legal services'
+              title: 'Advanced Education',
+              description: 'Bachelor of Laws<br>Thammasat University',
+              icon: '/assets/images/icons/education.png',
+              bgColor: 'bg-primary',
+              isImage: true
             },
             {
-              title: 'Expertise',
-              description: 'Specialized attorneys in<br>various fields'
+              title: 'Complete Licenses',
+              description: 'Licensed attorney and<br>document certification attorney',
+              icon: '/assets/images/icons/license.png',
+              bgColor: 'bg-success',
+              isImage: true
             },
             {
               title: 'Friendly Service',
-              description: 'Understanding problems, providing advice<br>with friendliness'
+              description: 'Understanding problems, providing advice<br>with friendliness',
+              icon: '/assets/images/icons/friendly-service.png',
+              bgColor: 'bg-complete',
+              isImage: true
             }
           ]
         },

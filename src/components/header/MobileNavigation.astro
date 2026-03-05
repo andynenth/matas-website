@@ -13,11 +13,20 @@ const { navigation, currentPath, isActive, contact, lang, languageToggle } = Ast
 ---
 
 <style>
-/* Mobile navigation text sizing */
+/* Mobile navigation font size override - scoped to this component */
 @media (max-width: 767px) {
-  nav.header.bg-master-darker .menu li a {
-    font-size: 20px !important;
+  .menu li a {
+    font-size: 18px !important;
   }
+
+  .menu li {
+    font-size: 18px !important;
+  }
+}
+
+/* Target elements directly within this component */
+.menu li a {
+  font-size: 18px;
 }
 
 .hidden-element {

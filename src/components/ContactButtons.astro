@@ -39,15 +39,15 @@ const buttonSize = sizeClasses[size];
 // Layout classes
 const containerClasses = layout === 'horizontal' ? 'row' : '';
 const phoneColClasses = layout === 'horizontal'
-  ? showLine ? 'col-sm-6' : 'col-sm-12'
+  ? showLine ? 'col-sm-6 col-md-4' : 'col-sm-12'
   : 'col-12';
 const lineColClasses = layout === 'horizontal'
-  ? showPhone ? 'col-sm-6' : 'col-sm-12'
+  ? showPhone ? 'col-sm-6 col-md-4' : 'col-sm-12'
   : 'col-12';
 
 // Responsive offset for horizontal layout
 const phoneOffset = layout === 'horizontal' && showLine && showPhone
-  ? 'col-sm-offset-2'
+  ? 'col-sm-offset-2 col-md-offset-2'
   : showPhone && !showLine
     ? 'col-sm-offset-4'
     : '';

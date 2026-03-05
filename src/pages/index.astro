@@ -161,15 +161,15 @@ const services = [
           {whyChooseFeatures.map((feature, index) => (
             <div class="col-md-4 text-center m-b-40">
               <div class="bg-white padding-40 hover-lift">
-                <div class={`${feature.bgColor} hover-lift`} style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                <div style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; background-color: transparent; border: 2px solid #000;">
                   {feature.isImage ? (
                     <img
                       src={feature.icon}
                       alt={feature.title}
-                      style="width: 36px; height: 36px;"
+                      style="width: 36px; height: 36px; filter: brightness(0);"
                     />
                   ) : (
-                    <i class={`fa ${feature.icon} text-white`} style="font-size: 36px;"></i>
+                    <i class={`fa ${feature.icon}`} style="font-size: 36px; color: #000;"></i>
                   )}
                 </div>
                 <h4 class="text-black m-b-15">{feature.title}</h4>
