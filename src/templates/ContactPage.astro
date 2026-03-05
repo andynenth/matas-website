@@ -1,0 +1,101 @@
+---
+// ===============================
+// CONTACT PAGE TEMPLATE v1.0
+// Single template supporting both languages
+// ===============================
+
+import type { Language } from '../i18n/translations';
+import { t, getContactConfig } from '../i18n/utils.js';
+
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactButtons from '../components/ContactButtons.astro';
+
+export interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+
+// Get translated content
+const pageTitle = t('pages.contact.title', lang);
+const pageDescription = t('pages.contact.description', lang);
+const contact = getContactConfig(lang);
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <Header lang={lang} currentPath={lang === 'en' ? '/en/contact' : '/contact'} />
+
+  <div class="m-t-60">
+    <!-- Hero Section -->
+    <section class="bg-master-lightest p-t-85 p-b-85">
+      <div class="container text-center">
+        <h5 class="block-title hint-text no-margin">{t('footer.contact.title', lang)}</h5>
+        <h1 class="light m-t-5 m-b-30">{t('site.name', lang)}</h1>
+        <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
+          {t('pages.home.cta.description', lang)}
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="container container-fixed-lg p-t-75 p-b-85">
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="m-b-30">{t('footer.contact.title', lang)}</h3>
+
+          <div class="m-b-30">
+            <h5 class="text-black m-b-15">{t('footer.contact.phone', lang)}</h5>
+            <p class="fs-16">
+              <a href={`tel:${contact.phone.number}`} onclick={contact.phone.trackingFunction} class="text-primary">
+                <i class="fa fa-phone p-r-10"></i> {contact.phone.display}
+              </a>
+            </p>
+          </div>
+
+          <div class="m-b-30">
+            <h5 class="text-black m-b-15">{t('footer.contact.line', lang)}</h5>
+            <p class="fs-16">
+              <a href={contact.line.url} onclick={contact.line.trackingFunction} target="_blank" rel="noopener noreferrer" class="text-success">
+                <i class="fa fa-comments p-r-10"></i> {contact.line.text}
+              </a>
+            </p>
+          </div>
+
+          <div class="m-b-30">
+            <h5 class="text-black m-b-15">{t('footer.contact.email', lang)}</h5>
+            <p class="fs-16">
+              <a href="mailto:info@mitsansuklaw.com" class="text-primary">
+                <i class="fa fa-envelope p-r-10"></i> info@mitsansuklaw.com
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h3 class="m-b-30">{t('footer.address.title', lang)}</h3>
+          <address class="fs-16 m-b-30">
+            52/4 {t('footer.address.street', lang)}<br>
+            {t('footer.address.subdistrict', lang)}<br>
+            {t('footer.address.province', lang)}<br>
+            {t('footer.address.country', lang)}
+          </address>
+
+          <div class="m-b-30">
+            <h5 class="text-black m-b-15">{t('footer.address.hours', lang)}</h5>
+            <p class="fs-16">{t('footer.address.hoursDetail', lang)}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call-to-Action -->
+      <div class="text-center m-t-60 p-t-60 b-t b-grey-light">
+        <h2 class="m-b-30">{t('pages.home.cta.title', lang)}</h2>
+        <ContactButtons lang={lang} size="large" layout="horizontal" />
+      </div>
+    </section>
+  </div>
+
+  <Footer lang={lang} />
+</Layout>

@@ -1,6 +1,7 @@
 ---
 import type { NavigationProps, ContactInfo, Language, LanguageToggleData } from './types';
 import LanguageToggle from './LanguageToggle.astro';
+import { t } from '../../i18n/utils.js';
 
 export interface Props extends NavigationProps {
   contact: ContactInfo;
@@ -48,7 +49,7 @@ const { navigation, currentPath, isActive, contact, lang, languageToggle } = Ast
     <div class="visible-xs-block visible-sm-block m-t-20">
       <div class="b-b b-grey-light p-b-10 m-b-10">
         <a href={`tel:${contact.phone.number}`} onclick={contact.phone.trackingFunction} class="btn btn-block btn-success m-b-5 hidden-element">
-          <i class="fa fa-phone"></i> {lang === 'th' ? 'โทรศัพท์' : 'Call'} {contact.phone.display}
+          <i class="fa fa-phone"></i> {t('contact.phone.text', lang)}
         </a>
         <a href={contact.line.url} onclick={contact.line.trackingFunction} target="_blank" rel="noopener noreferrer" class="btn btn-block btn-complete m-b-10 hidden-element">
           <img src={contact.line.logo} alt="LINE" style="width: 24px; height: 24px;" />

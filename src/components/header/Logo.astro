@@ -1,11 +1,13 @@
 ---
 import type { LogoProps } from './types';
+import { t, getLocalizedUrl } from '../../i18n/utils.js';
 
 export interface Props extends LogoProps {}
 
-const { lang, siteName } = Astro.props;
+const { lang } = Astro.props;
 
-const logoUrl = lang === 'en' ? '/en/' : '/';
+const siteName = t('site.name', lang);
+const logoUrl = getLocalizedUrl('', lang);
 ---
 
 <style>

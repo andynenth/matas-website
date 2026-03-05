@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ContactButtons from '../components/ContactButtons.astro';
 
 const pageTitle = 'หน้าแรก';
 const pageDescription = 'สำนักกฎหมายมิตรแสนสุข - บริการด้านกฎหมายในจังหวัดชลบุรี ด้วยมาตรฐานการทำงานที่โปร่งใสและเป็นมืออาชีพ';
@@ -178,18 +179,7 @@ const services = [
           ติดต่อเราวันนี้เพื่อรับคำปรึกษาเบื้องต้นฟรี และแผนการดำเนินงานที่เหมาะสมกับคุณ
         </p>
 
-        <div class="row">
-          <div class="col-sm-4 col-sm-offset-2 m-b-15">
-            <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-call btn-lg btn-block">
-              <i class="fa fa-phone p-r-10"></i> โทร 081-514-4783
-            </a>
-          </div>
-          <div class="col-sm-4 m-b-15">
-            <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-line btn-lg btn-block">
-              <img src="/assets/images/line-logo-48.png" alt="LINE" style="width: 24px; height: 24px; margin-right: 10px; vertical-align: middle;"> แชท LINE
-            </a>
-          </div>
-        </div>
+        <ContactButtons lang="th" size="large" layout="horizontal" />
       </div>
     </section>
   </div>

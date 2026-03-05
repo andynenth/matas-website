@@ -1,0 +1,59 @@
+---
+// ===============================
+// DYNAMIC ROUTE HANDLER v1.0
+// Single file handling all language routes
+// ===============================
+
+import type { Language } from '../i18n/translations';
+import { detectLanguageFromPath, getLocalizedUrl } from '../i18n/utils.js';
+
+// Import page templates
+import HomePage from '../templates/HomePage.astro';
+import AboutPage from '../templates/AboutPage.astro';
+import ServicesPage from '../templates/ServicesPage.astro';
+import ContactPage from '../templates/ContactPage.astro';
+import FAQPage from '../templates/FAQPage.astro';
+
+export async function getStaticPaths() {
+  // Define all routes for both languages
+  const routes = [
+    // Thai routes (no prefix)
+    { params: { path: undefined }, props: { route: 'home', lang: 'th' as Language } },
+    { params: { path: 'about' }, props: { route: 'about', lang: 'th' as Language } },
+    { params: { path: 'services' }, props: { route: 'services', lang: 'th' as Language } },
+    { params: { path: 'contact' }, props: { route: 'contact', lang: 'th' as Language } },
+    { params: { path: 'faq' }, props: { route: 'faq', lang: 'th' as Language } },
+
+    // English routes (en/ prefix)
+    { params: { path: 'en' }, props: { route: 'home', lang: 'en' as Language } },
+    { params: { path: 'en/about' }, props: { route: 'about', lang: 'en' as Language } },
+    { params: { path: 'en/services' }, props: { route: 'services', lang: 'en' as Language } },
+    { params: { path: 'en/contact' }, props: { route: 'contact', lang: 'en' as Language } },
+    { params: { path: 'en/faq' }, props: { route: 'faq', lang: 'en' as Language } },
+  ];
+
+  return routes;
+}
+
+// Get route props
+const { route, lang } = Astro.props;
+
+// Route to template mapping
+const templates = {
+  home: HomePage,
+  about: AboutPage,
+  services: ServicesPage,
+  contact: ContactPage,
+  faq: FAQPage
+} as const;
+
+// Get the appropriate template component
+const TemplateComponent = templates[route];
+
+if (!TemplateComponent) {
+  return new Response('Page not found', { status: 404 });
+}
+---
+
+<!-- Render the appropriate template with language -->
+<TemplateComponent lang={lang} />

@@ -1,0 +1,96 @@
+---
+// ===============================
+// FAQ PAGE TEMPLATE v1.0
+// Single template supporting both languages
+// ===============================
+
+import type { Language } from '../i18n/translations';
+import { t } from '../i18n/utils.js';
+
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactButtons from '../components/ContactButtons.astro';
+
+export interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+
+// Get translated content
+const pageTitle = t('pages.faq.title', lang);
+const pageDescription = t('pages.faq.description', lang);
+
+// Sample FAQ data (would normally come from translations)
+const faqs = [
+  {
+    question: lang === 'th' ? 'ค่าใช้จ่ายในการให้คำปรึกษาเป็นอย่างไร?' : 'What are the consultation fees?',
+    answer: lang === 'th'
+      ? 'เรามีการให้คำปรึกษาเบื้องต้นฟรี หลังจากนั้นจะมีการแจ้งค่าใช้จ่ายอย่างชัดเจนตามลักษณะของงาน'
+      : 'We offer free initial consultation. After that, fees will be clearly explained based on the nature of the work.'
+  },
+  {
+    question: lang === 'th' ? 'สามารถให้บริการในภาษาอังกฤษได้หรือไม่?' : 'Can you provide services in English?',
+    answer: lang === 'th'
+      ? 'ได้ครับ เรามีความชำนาญในการให้บริการลูกค้าชาวต่างชาติและสามารถสื่อสารภาษาอังกฤษได้'
+      : 'Yes, we specialize in serving foreign clients and can communicate in English.'
+  },
+  {
+    question: lang === 'th' ? 'ใช้เวลานานเท่าไรในการดำเนินการจดทะเบียนบริษัท?' : 'How long does company registration take?',
+    answer: lang === 'th'
+      ? 'โดยทั่วไปใช้เวลาประมาณ 3-7 วันทำการ ขึ้นอยู่กับความซับซ้อนของเอกสารและความพร้อมของลูกค้า'
+      : 'Generally takes about 3-7 working days, depending on document complexity and client readiness.'
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <Header lang={lang} currentPath={lang === 'en' ? '/en/faq' : '/faq'} />
+
+  <div class="m-t-60">
+    <!-- Hero Section -->
+    <section class="bg-master-lightest p-t-85 p-b-85">
+      <div class="container text-center">
+        <h5 class="block-title hint-text no-margin">{pageTitle}</h5>
+        <h1 class="light m-t-5 m-b-30">{lang === 'th' ? 'คำถามที่พบบ่อย' : 'Frequently Asked Questions'}</h1>
+        <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
+          {lang === 'th'
+            ? 'คำถามและคำตอบที่พบบ่อยเกี่ยวกับบริการทางด้านกฎหมาย'
+            : 'Common questions and answers about our legal services'
+          }
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="container container-fixed-lg p-t-75 p-b-85">
+      <div class="col-md-8 col-md-offset-2">
+        {faqs.map((faq, index) => (
+          <div class="bg-white padding-30 m-b-20">
+            <h4 class="text-black m-b-20">
+              <i class="fa fa-question-circle text-primary p-r-10"></i>
+              {faq.question}
+            </h4>
+            <p class="hint-text fs-16">
+              {faq.answer}
+            </p>
+          </div>
+        ))}
+
+        <div class="text-center m-t-60">
+          <h3 class="m-b-20">{lang === 'th' ? 'ยังมีคำถามอื่นๆ อีกหรือไม่?' : 'Have more questions?'}</h3>
+          <p class="fs-16 m-b-30">
+            {lang === 'th'
+              ? 'ติดต่อเราเพื่อรับคำปรึกษาโดยตรง'
+              : 'Contact us for direct consultation'
+            }
+          </p>
+          <ContactButtons lang={lang} size="large" layout="horizontal" />
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <Footer lang={lang} />
+</Layout>

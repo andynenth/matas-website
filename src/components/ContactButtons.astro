@@ -1,0 +1,115 @@
+---
+// ===============================
+// REUSABLE CONTACT BUTTONS COMPONENT
+// Replaces duplicate contact button code across pages
+// ===============================
+
+import type { Language } from '../i18n/translations';
+import { t, getContactConfig } from '../i18n/utils.js';
+
+export interface Props {
+  lang: Language;
+  size?: 'large' | 'medium' | 'small';
+  layout?: 'horizontal' | 'vertical';
+  showPhone?: boolean;
+  showLine?: boolean;
+  useLineImage?: boolean;
+}
+
+const {
+  lang,
+  size = 'large',
+  layout = 'horizontal',
+  showPhone = true,
+  showLine = true,
+  useLineImage = true
+} = Astro.props;
+
+const contact = getContactConfig(lang);
+
+// Size-specific classes
+const sizeClasses = {
+  large: 'btn-lg',
+  medium: 'btn',
+  small: 'btn-sm'
+};
+
+const buttonSize = sizeClasses[size];
+
+// Layout classes
+const containerClasses = layout === 'horizontal' ? 'row' : '';
+const phoneColClasses = layout === 'horizontal'
+  ? showLine ? 'col-sm-6' : 'col-sm-12'
+  : 'col-12';
+const lineColClasses = layout === 'horizontal'
+  ? showPhone ? 'col-sm-6' : 'col-sm-12'
+  : 'col-12';
+
+// Responsive offset for horizontal layout
+const phoneOffset = layout === 'horizontal' && showLine && showPhone
+  ? 'col-sm-offset-2'
+  : showPhone && !showLine
+    ? 'col-sm-offset-4'
+    : '';
+
+const lineOffset = showPhone ? '' : 'col-sm-offset-4';
+---
+
+<style>
+  .contact-buttons-container {
+    text-align: center;
+  }
+
+  .contact-button {
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .line-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  @media (max-width: 767px) {
+    .contact-button {
+      margin-bottom: 10px;
+    }
+  }
+</style>
+
+<div class="contact-buttons-container">
+  <div class={containerClasses}>
+    {showPhone && (
+      <div class={`${phoneColClasses} ${phoneOffset} m-b-15`}>
+        <a
+          href={`tel:${contact.phone.number}`}
+          onclick={contact.phone.trackingFunction}
+          class={`btn btn-call ${buttonSize} btn-block contact-button`}
+        >
+          <i class="fa fa-phone p-r-10"></i> {contact.phone.text}
+        </a>
+      </div>
+    )}
+
+    {showLine && (
+      <div class={`${lineColClasses} ${lineOffset} m-b-15`}>
+        <a
+          href={contact.line.url}
+          onclick={contact.line.trackingFunction}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`btn btn-line ${buttonSize} btn-block contact-button`}
+        >
+          {useLineImage ? (
+            <img src="/assets/images/line-logo-48.png" alt="LINE" class="line-logo" />
+          ) : (
+            <i class="fa fa-comments p-r-10"></i>
+          )}
+          {contact.line.text}
+        </a>
+      </div>
+    )}
+  </div>
+</div>

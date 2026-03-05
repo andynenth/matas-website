@@ -1,0 +1,153 @@
+---
+// ===============================
+// HOMEPAGE TEMPLATE v1.0
+// Single template supporting both languages
+// ===============================
+
+import type { Language } from '../i18n/translations';
+import { t } from '../i18n/utils.js';
+import { translations } from '../i18n/translations.js';
+
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactButtons from '../components/ContactButtons.astro';
+
+export interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+
+// Get translated content
+const pageTitle = t('pages.home.title', lang);
+const pageDescription = t('pages.home.description', lang);
+const services = translations[lang].services;
+const heroContent = translations[lang].pages.home.hero;
+const servicesContent = translations[lang].pages.home.services;
+const whyChooseContent = translations[lang].pages.home.whyChoose;
+const testimonialsContent = translations[lang].pages.home.testimonials;
+const ctaContent = translations[lang].pages.home.cta;
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <Header lang={lang} currentPath={lang === 'en' ? '/en/' : '/'} />
+
+  <div class="m-t-60">
+
+    <!-- Hero Section -->
+    <section class="p-t-85 p-b-85" style="position: relative; background-image: url('/assets/images/lawyer-hero-bg.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+      <!-- Blur overlay -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); background: rgba(255,255,255,0.8);"></div>
+      <div class="container" style="position: relative; z-index: 1;">
+        <div class="text-center">
+          <h5 class="block-title hint-text no-margin hero-subtitle" style="font-size: 18px; font-weight: bold;">{heroContent.subtitle}</h5>
+          <h1 class="light">{heroContent.title}</h1>
+          <p class="fs-16 m-t-30 m-b-30" set:html={heroContent.description}></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="container container-fixed-lg p-t-75 p-b-85">
+      <div class="text-center m-b-60">
+        <h5 class="block-title hint-text no-margin">{servicesContent.title}</h5>
+        <h1 class="m-t-5 m-b-30">{servicesContent.subtitle}</h1>
+        <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
+          {servicesContent.description}
+        </p>
+        <p class="hint-text col-md-6 col-md-offset-3 no-padding m-t-15">
+          {servicesContent.note}
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="container p-t-40">
+        <div class="row">
+          {services.map((service, index) => (
+            <div class="col-md-4 col-sm-6 m-b-30">
+              <div class="bg-white padding-20 text-center hover-lift">
+                <div class="m-b-20">
+                  <i class={`fa ${service.icon} text-primary`} style="font-size: 48px;"></i>
+                </div>
+                <h4 class="text-black m-b-15">{service.title}</h4>
+                <p class="hint-text">{service.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center m-t-40" style="display: none;">
+          <a href={lang === 'en' ? '/en/services' : '/services'} class="btn btn-primary btn-lg">
+            {t('buttons.viewAllServices', lang)}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="bg-master-lightest p-t-75 p-b-85">
+      <div class="container">
+        <div class="text-center m-b-60">
+          <h5 class="block-title hint-text no-margin">{whyChooseContent.title}</h5>
+          <h1 class="m-t-5 m-b-30">{whyChooseContent.subtitle}</h1>
+          <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
+            {whyChooseContent.description}
+          </p>
+        </div>
+
+        <div class="row">
+          {whyChooseContent.features.map((feature, index) => {
+            const colors = ['bg-primary', 'bg-success', 'bg-complete'];
+            const icons = ['fa-university', 'fa-certificate', 'fa-users'];
+            return (
+              <div class="col-md-4 text-center m-b-40">
+                <div class="bg-white padding-40 hover-lift">
+                  <div class={`${colors[index % 3]} hover-lift`} style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+                    <i class={`fa ${icons[index % 3]} text-white`} style="font-size: 36px;"></i>
+                  </div>
+                  <h4 class="text-black m-b-15">{feature.title}</h4>
+                  <p class="hint-text" set:html={feature.description}></p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div class="text-center m-t-40">
+          <a href={lang === 'en' ? '/en/about' : '/about'} class="btn btn-primary btn-lg">
+            <i class="fa fa-user p-r-10"></i> {t('buttons.learnAboutLawyer', lang)}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="container container-fixed-lg p-t-75 p-b-85">
+      <div class="text-center">
+        <h5 class="block-title hint-text no-margin">{testimonialsContent.title}</h5>
+        <h1 class="m-t-5 m-b-40">{testimonialsContent.subtitle}</h1>
+
+        <div class="bg-master-lightest padding-40">
+          <p class="fs-16 hint-text">
+            {testimonialsContent.placeholder}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="bg-master-lightest p-t-75 p-b-85">
+      <div class="container text-center">
+        <h1 class="light text-black m-b-20">{ctaContent.title}</h1>
+        <p class="fs-16 text-black m-b-40 col-md-8 col-md-offset-2 no-padding">
+          {ctaContent.description}
+        </p>
+
+        <ContactButtons lang={lang} size="large" layout="horizontal" />
+      </div>
+    </section>
+  </div>
+
+  <Footer lang={lang} />
+</Layout>
