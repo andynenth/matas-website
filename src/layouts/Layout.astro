@@ -106,7 +106,7 @@ const imageURL = ogImage || `${Astro.site}favicon.svg`;
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&family=Pridi:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Global Language-Aware Styling -->
-    <style>
+    <style is:global>
       /* Font system based on language - comprehensive coverage */
       html[lang="th"] .block-title,
       html[lang="th"] h1, html[lang="th"] h2, html[lang="th"] h3, html[lang="th"] h4, html[lang="th"] h5, html[lang="th"] h6,
@@ -128,6 +128,29 @@ const imageURL = ogImage || `${Astro.site}favicon.svg`;
       .hero-subtitle {
         font-size: 18px !important;
         font-weight: bold !important;
+      }
+
+      /* Global button styles - override Pages CSS framework */
+      .btn.btn-call,
+      .btn.btn-call:hover,
+      .btn.btn-call:focus,
+      .btn.btn-call:active {
+        background-color: #0ed41d !important;
+        border-color: #0ed41d !important;
+        color: white !important;
+        background-image: none !important;
+        box-shadow: none !important;
+      }
+
+      .btn.btn-line,
+      .btn.btn-line:hover,
+      .btn.btn-line:focus,
+      .btn.btn-line:active {
+        background-color: white !important;
+        border-color: #6BCA3D !important;
+        color: #6BCA3D !important;
+        background-image: none !important;
+        box-shadow: none !important;
       }
     </style>
 
