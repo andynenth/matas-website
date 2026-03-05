@@ -43,6 +43,59 @@ nav.header.bg-master-darker div a:hover {
   transform: none !important;
 }
 
+/* Desktop Navigation Menu Styles */
+.desktop-menu {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.desktop-menu > li {
+  margin-right: 25px;
+  display: inline-block;
+}
+
+.desktop-menu > li:last-child {
+  margin-right: 0;
+}
+
+.desktop-menu > li > a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'Noto Sans Thai';
+  text-transform: uppercase;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+  position: relative;
+}
+
+.desktop-menu > li > a:hover {
+  color: #ffffff !important;
+  opacity: 1;
+  text-decoration: none;
+  transform: none;
+}
+
+.desktop-menu > li > a.active {
+  opacity: 1;
+  color: #ffffff;
+}
+
+/* Active state underline */
+.desktop-menu > li > a.active:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ffffff;
+}
+
 /* Desktop Responsive Styles (min-width: 992px) */
 @media (min-width: 992px) {
   /* Hide hamburger button on desktop - force hide with multiple selectors */
@@ -150,6 +203,17 @@ nav.header.bg-master-darker .menu-toggler .three {
     <!-- BEGIN HEADER TOGGLE FOR MOBILE & TABLET -->
     <div class="pull-right">
       <div class="header-inner header-inner-flex">
+        <!-- Desktop Navigation Menu (hidden on mobile) -->
+        <div class="hidden-xs hidden-sm p-l-30 m-r-20">
+          <ul class="menu desktop-menu">
+            {navigation.map((item) => (
+              <li>
+                <a href={item.href} class={isActive(item.href) ? 'active' : ''}>{item.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <!-- Contact Info for Large Desktop (1200px+) -->
         <ContactInfo contact={contact} size="large" />
 
