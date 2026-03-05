@@ -3,7 +3,7 @@ import type { ContactInfoProps } from './types';
 
 export interface Props extends ContactInfoProps {}
 
-const { contact, size = 'large', showPhone = true, showLine = true } = Astro.props;
+const { contact, size = 'large', showPhone = true, showLine = true, noResponsive = false } = Astro.props;
 
 // Size-specific classes
 const containerClasses = {
@@ -35,7 +35,7 @@ const responsiveClasses = {
 }
 </style>
 
-<div class={`${responsiveClasses[size]} ${containerClasses[size]}`}>
+<div class={`${noResponsive ? '' : responsiveClasses[size]} ${containerClasses[size]}`}>
   {showPhone && (
     <a
       href={`tel:${contact.phone.number}`}

@@ -1,0 +1,15 @@
+# Astro bilingual routing for Cloudflare Pages
+
+# English routes
+/en/about /en/about/index.html 200
+/en/services /en/services/index.html 200
+/en/contact /en/contact/index.html 200
+/en/* /en/:splat 200
+
+# Thai routes (default)
+/about /about/index.html 200
+/services /services/index.html 200
+/contact /contact/index.html 200
+
+# Fallback to index for SPA-like behavior
+/* /index.html 200
