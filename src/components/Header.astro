@@ -64,7 +64,7 @@ nav.header.bg-master-darker div a:hover {
 .desktop-menu > li > a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 14px !important;
   font-family: 'Noto Sans Thai';
   text-transform: uppercase;
   opacity: 0.8;
@@ -73,6 +73,15 @@ nav.header.bg-master-darker div a:hover {
   position: relative;
 }
 
+/* Force desktop menu font size - match Astro scoped CSS specificity */
+nav.header.bg-master-darker .desktop-menu li a {
+  font-size: 14px !important;
+}
+
+/* Additional specificity with attribute selector to override Astro scoped styles */
+nav[data-pages="header"] .desktop-menu li a {
+  font-size: 14px !important;
+}
 .desktop-menu > li > a:hover {
   color: #ffffff !important;
   opacity: 1;
