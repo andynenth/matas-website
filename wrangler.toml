@@ -1,0 +1,18 @@
+name = "matas-website"
+compatibility_date = "2024-03-05"
+
+[env.production]
+account_id = "91cb378ba9983dc724f9898e779a55bc" # You'll need to fill this with your Cloudflare Account ID
+route = "mataslawoffice.com/*"
+
+# Pages configuration
+pages_build_output_dir = "dist"
+
+# Custom headers for proper routing
+[[env.production.routes]]
+pattern = "/en/*"
+custom_origin = "mataslawoffice.com/en"
+
+[[env.production.routes]]
+pattern = "/*"
+custom_origin = "mataslawoffice.com"

@@ -43,6 +43,69 @@ nav.header.bg-master-darker div a:hover {
   transform: none !important;
 }
 
+/* Desktop Navigation Menu Styles */
+.desktop-menu {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.desktop-menu > li {
+  margin-right: 25px;
+  display: inline-block;
+}
+
+.desktop-menu > li:last-child {
+  margin-right: 0;
+}
+
+.desktop-menu > li > a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px !important;
+  font-family: 'Noto Sans Thai';
+  text-transform: uppercase;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+  position: relative;
+}
+
+/* Force desktop menu font size - match Astro scoped CSS specificity */
+nav.header.bg-master-darker .desktop-menu li a {
+  font-size: 14px !important;
+}
+
+/* Additional specificity with attribute selector to override Astro scoped styles */
+nav[data-pages="header"] .desktop-menu li a {
+  font-size: 14px !important;
+}
+
+.desktop-menu > li > a:hover {
+  color: #ffffff !important;
+  opacity: 1;
+  text-decoration: none;
+  transform: none;
+}
+
+.desktop-menu > li > a.active {
+  opacity: 1;
+  color: #ffffff;
+}
+
+/* Active state underline */
+.desktop-menu > li > a.active:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ffffff;
+}
+
 /* Desktop Responsive Styles (min-width: 992px) */
 @media (min-width: 992px) {
   /* Hide hamburger button on desktop - force hide with multiple selectors */
