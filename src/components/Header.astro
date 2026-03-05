@@ -82,6 +82,7 @@ nav.header.bg-master-darker .desktop-menu li a {
 nav[data-pages="header"] .desktop-menu li a {
   font-size: 14px !important;
 }
+
 .desktop-menu > li > a:hover {
   color: #ffffff !important;
   opacity: 1;
@@ -118,27 +119,6 @@ nav[data-pages="header"] .desktop-menu li a {
   /* Desktop text optimizations */
   .visible-md-inline {
     white-space: nowrap !important;
-  }
-}
-
-/* Force responsive visibility rules with higher specificity - OUTSIDE media query */
-nav.header .visible-lg-inline.hidden-md {
-  display: none !important;
-}
-
-@media (min-width: 1200px) {
-  nav.header .visible-lg-inline.hidden-md {
-    display: inline !important;
-  }
-}
-
-nav.header .visible-md-inline.hidden-lg {
-  display: none !important;
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-  nav.header .visible-md-inline.hidden-lg {
-    display: inline !important;
   }
 }
 
@@ -233,31 +213,16 @@ nav.header.bg-master-darker .menu-toggler .three {
     <!-- BEGIN HEADER TOGGLE FOR MOBILE & TABLET -->
     <div class="pull-right">
       <div class="header-inner header-inner-flex">
-        <!-- Desktop Navigation Menu (hidden on mobile) -->
-        <div class="hidden-xs hidden-sm p-l-30 m-r-20">
-          <ul class="menu desktop-menu">
-            {navigation.map((item) => (
-              <li>
-                <a href={item.href} class={isActive(item.href) ? 'active' : ''}>{item.name}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         <!-- Contact Info for Large Desktop (1200px+) -->
-        <div class="visible-lg-inline hidden-md hidden-sm hidden-xs">
-          <ContactInfo contact={contact} size="large" noResponsive={true} />
-        </div>
+        <ContactInfo contact={contact} size="large" />
 
         <!-- Language Toggle for Large Desktop -->
-        <div class="visible-lg-inline hidden-md hidden-xs hidden-sm p-r-20">
+        <div class="visible-lg-inline hidden-xs hidden-sm p-r-20">
           <LanguageToggle languageToggle={languageToggle} size="large" />
         </div>
 
         <!-- Tablet-Optimized Contact (768-1199px) -->
-        <div class="visible-md-inline hidden-lg hidden-sm hidden-xs">
-          <ContactInfo contact={contact} size="medium" showLine={false} noResponsive={true} />
-        </div>
+        <ContactInfo contact={contact} size="medium" showLine={false} />
 
         <!-- Tablet Language Toggle -->
         <div class="visible-md-inline hidden-lg hidden-xs hidden-sm p-r-15">
