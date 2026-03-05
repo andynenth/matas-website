@@ -59,10 +59,19 @@ const lineText = lang === 'th' ? 'แชทไลน์' : 'LINE CHAT';
   border-color: #6BCA3D !important;
   color: #6BCA3D !important;
 }
+
+.mobile-sticky-bar {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.mobile-sticky-bar.hidden {
+  transform: translateY(100%);
+  opacity: 0;
+}
 </style>
 
 <!-- Mobile Sticky Contact Bar -->
-<div class="visible-xs-block visible-sm-block mobile-sticky-bar">
+<div class="visible-xs-block visible-sm-block mobile-sticky-bar" id="mobile-sticky">
   <div class="row no-padding">
     <div class="col-xs-6 no-padding p-r-5">
       <a href={`tel:${contact.phone.number}`} onclick={contact.phone.trackingFunction} class="btn btn-call btn-block">
@@ -77,3 +86,104 @@ const lineText = lang === 'th' ? 'แชทไลน์' : 'LINE CHAT';
     </div>
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Mobile sticky script loaded');
+
+  const stickyBar = document.getElementById('mobile-sticky');
+  console.log('Sticky bar found:', !!stickyBar);
+
+  // Try multiple selector patterns to find the target section
+  let targetSection = document.querySelector('body > div:nth-child(2) > section:nth-child(5)');
+
+  if (!targetSection) {
+    // Try alternative selectors
+    targetSection = document.querySelector('section:nth-child(5)');
+  }
+
+  if (!targetSection) {
+    // Try finding any section with index 4 (0-based)
+    const sections = document.querySelectorAll('section');
+    targetSection = sections[4]; // 5th section (0-based index)
+  }
+
+  console.log('Target section found:', !!targetSection);
+  console.log('Target section element:', targetSection);
+
+  if (!stickyBar) {
+    console.error('Sticky bar not found');
+    return;
+  }
+
+  if (!targetSection) {
+    console.error('Target section not found - using scroll-only behavior');
+    // Fallback: just hide on scroll down, show on scroll up
+    let lastScrollY = window.scrollY;
+    let isHidden = false;
+
+    function simpleScroll() {
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY;
+
+      if (scrollingDown && currentScrollY > 200 && !isHidden) {
+        stickyBar.classList.add('hidden');
+        isHidden = true;
+        console.log('Hiding sticky bar');
+      } else if (!scrollingDown && isHidden) {
+        stickyBar.classList.remove('hidden');
+        isHidden = false;
+        console.log('Showing sticky bar');
+      }
+
+      lastScrollY = currentScrollY;
+    }
+
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(simpleScroll, 10);
+    });
+    return;
+  }
+
+  let lastScrollY = window.scrollY;
+  let isHidden = false;
+
+  function handleScroll() {
+    const currentScrollY = window.scrollY;
+    const targetSectionTop = targetSection.offsetTop;
+    const targetSectionHeight = targetSection.offsetHeight;
+    const targetSectionBottom = targetSectionTop + targetSectionHeight;
+    const viewportBottom = currentScrollY + window.innerHeight;
+
+    // Check if target section is visible in viewport
+    const sectionVisible = (currentScrollY <= targetSectionBottom) && (viewportBottom >= targetSectionTop);
+
+    // Hide sticky bar when scrolling down and target section is visible
+    const shouldHide = currentScrollY > lastScrollY && sectionVisible && currentScrollY > 100;
+
+    // Show sticky bar when scrolling up or section not visible
+    const shouldShow = currentScrollY < lastScrollY || !sectionVisible;
+
+    if (shouldHide && !isHidden) {
+      stickyBar.classList.add('hidden');
+      isHidden = true;
+    } else if (shouldShow && isHidden) {
+      stickyBar.classList.remove('hidden');
+      isHidden = false;
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  // Throttle scroll events for better performance
+  let scrollTimeout;
+  window.addEventListener('scroll', function() {
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+    scrollTimeout = setTimeout(handleScroll, 10);
+  });
+});
+</script>
