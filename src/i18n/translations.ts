@@ -495,6 +495,40 @@ export const translations = {
         title: 'FAQ',
         description: 'Frequently asked questions about legal services'
       }
+    },
+
+    // Footer content
+    footer: {
+      copyright: 'All Rights Reserved',
+      description: 'Transparent, accessible, and professional legal services to ensure your confidence in every step of legal proceedings',
+      quickLinks: {
+        title: 'Quick Links',
+        items: [
+          { name: 'Home', href: '/' },
+          { name: 'About Us', href: '/about' },
+          { name: 'Services', href: '/services' },
+          { name: 'Contact Us', href: '/contact' }
+        ]
+      },
+      contact: {
+        title: 'Contact Us',
+        phone: 'Tel',
+        email: 'Email',
+        line: 'LINE'
+      },
+      address: {
+        title: 'Office Address',
+        street: 'Mit Samphan Road',
+        subdistrict: 'Ban Puek, Mueang Chonburi',
+        province: 'Chonburi 20130',
+        country: 'Thailand',
+        hours: 'Hours',
+        hoursDetail: 'Monday - Friday: 9:00 AM - 6:00 PM'
+      },
+      legal: {
+        privacy: 'Privacy Policy',
+        terms: 'Terms of Service'
+      }
     }
   }
 } as const;

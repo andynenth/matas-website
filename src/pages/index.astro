@@ -11,7 +11,8 @@ const services = [
   {
     title: 'การระงับข้อพิพาททางศาล',
     description: 'ให้คำปรึกษาและดำเนินคดีในศาลทุกชั้นด้วยความเชียวชาญและประสบการณ์',
-    icon: 'fa-balance-scale'
+    icon: '/assets/images/icons/court-litigation.png',
+    isImage: true
   },
   {
     title: 'การให้คำปรึกษากฎหมาย',
@@ -89,7 +90,16 @@ const services = [
             <div class="col-md-4 col-sm-6 m-b-30">
               <div class="bg-white padding-20 text-center hover-lift">
                 <div class="m-b-20">
-                  <i class={`fa ${service.icon} text-primary`} style="font-size: 48px;"></i>
+                  {service.isImage ? (
+                    <img
+                      src={service.icon}
+                      alt={service.title}
+                      style="width: 48px; height: 48px;"
+                      class="service-icon"
+                    />
+                  ) : (
+                    <i class={`fa ${service.icon} text-primary`} style="font-size: 48px;"></i>
+                  )}
                 </div>
                 <h4 class="text-black m-b-15">{service.title}</h4>
                 <p class="hint-text">{service.description}</p>
