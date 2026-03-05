@@ -5,7 +5,8 @@ export interface Props extends MobileStickyProps {}
 
 const { contact, lang } = Astro.props;
 
-const callText = lang === 'th' ? 'โทร' : 'Call';
+const callText = lang === 'th' ? '081-514-4783' : '081-514-4783';
+const lineText = lang === 'th' ? 'แชทไลน์' : 'LINE CHAT';
 ---
 
 <style>
@@ -16,6 +17,7 @@ const callText = lang === 'th' ? 'โทร' : 'Call';
   right: 0;
   z-index: var(--mobile-sticky-z);
   padding: var(--mobile-padding);
+  margin: 0 15px;
 }
 
 .button-flex-center {
@@ -25,8 +27,37 @@ const callText = lang === 'th' ? 'โทร' : 'Call';
 }
 
 .logo-sizing-mobile {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
+}
+
+.mobile-sticky-bar .btn {
+  padding: 15px 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.mobile-sticky-bar .btn i {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.mobile-sticky-bar .btn-complete {
+  background-color: white !important;
+  border-color: #6BCA3D !important;
+  color: #6BCA3D !important;
+}
+
+.btn-call {
+  background-color: #0ed41d !important;
+  border-color: #0ed41d !important;
+  color: white !important;
+}
+
+.btn-line {
+  background-color: white !important;
+  border-color: #6BCA3D !important;
+  color: #6BCA3D !important;
 }
 </style>
 
@@ -34,13 +65,14 @@ const callText = lang === 'th' ? 'โทร' : 'Call';
 <div class="visible-xs-block visible-sm-block mobile-sticky-bar">
   <div class="row no-padding">
     <div class="col-xs-6 no-padding p-r-5">
-      <a href={`tel:${contact.phone.number}`} onclick={contact.phone.trackingFunction} class="btn btn-success btn-block">
+      <a href={`tel:${contact.phone.number}`} onclick={contact.phone.trackingFunction} class="btn btn-call btn-block">
         <i class="fa fa-phone"></i> {callText}
       </a>
     </div>
     <div class="col-xs-6 no-padding p-l-5">
-      <a href={contact.line.url} onclick={contact.line.trackingFunction} target="_blank" rel="noopener noreferrer" class="btn btn-complete btn-block button-flex-center">
+      <a href={contact.line.url} onclick={contact.line.trackingFunction} target="_blank" rel="noopener noreferrer" class="btn btn-line btn-block button-flex-center">
         <img src={contact.line.logo} alt="LINE" class="logo-sizing-mobile" />
+        <span style="margin-left: 8px;">{lineText}</span>
       </a>
     </div>
   </div>
