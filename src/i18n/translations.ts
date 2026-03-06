@@ -238,7 +238,167 @@ export const translations = {
       // Services page content
       services: {
         title: 'บริการ',
-        description: 'บริการด้านกฎหมายครบวงจร จากสำนักกฎหมายมิตรแสนสุข'
+        description: 'บริการด้านกฎหมายครบวงจรจากสำนักกฎหมายมิตรแสนสุข - การระงับข้อพิพาท คำปรึกษากฎหมาย การจดทะเบียนบริษัท และบริการอื่นๆ',
+        hero: {
+          subtitle: 'บริการของเรา',
+          title: 'บริการด้านกฎหมายครบวงจร',
+          description: 'เรามีความเชี่ยวชาญและประสบการณ์ในการให้บริการด้านกฎหมายหลากหลายสาขา ด้วยความเป็นมืออาชีพและมาตรฐานการบริการที่เป็นเลิศ'
+        },
+        detailedServices: [
+          {
+            title: 'การระงับข้อพิพาททางศาล',
+            description: 'ให้คำปรึกษาและดำเนินคดีในศาลทุกชั้นด้วยความเชียวชาญและประสบการณ์',
+            details: [
+              'วิเคราะห์และประเมินคดีเบื้องต้น',
+              'เตรียมเอกสารและพยานหลักฐาน',
+              'ดำเนินคดีในศาลชั้นต้น อุทธรณ์ และฎีกา',
+              'เจรจาต่อรองและไกล่เกลี่ยข้อพิพาท'
+            ],
+            icon: 'fa-balance-scale',
+            bgColor: 'bg-primary'
+          },
+          {
+            title: 'การให้คำปรึกษากฎหมาย',
+            description: 'คำปรึกษาทางกฎหมายในหลากหลายสาขา ด้วยความรู้และประสบการณ์จริง',
+            details: [
+              'กฎหมายแพ่งและพาณิชย์',
+              'กฎหมายครอบครัวและมรดก',
+              'กฎหมายที่ดินและอสังหาริมทรัพย์',
+              'กฎหมายแรงงานและประกันสังคม'
+            ],
+            icon: 'fa-briefcase',
+            bgColor: 'bg-success'
+          },
+          {
+            title: 'การจัดทำพินัยกรรม',
+            description: 'ร่างและจัดทำพินัยกรรมที่ถูกต้องตามกฎหมายเพื่อความมั่นใจของครอบครัว',
+            details: [
+              'ให้คำปรึกษาเรื่องการจัดสรรทรัพย์สิน',
+              'ร่างพินัยกรรมตามความประสงค์',
+              'ตรวจสอบความถูกต้องตามกฎหมาย',
+              'เก็บรักษาพินัยกรรมอย่างปลอดภัย'
+            ],
+            icon: 'fa-file-text',
+            bgColor: 'bg-complete'
+          },
+          {
+            title: 'การแต่งตั้งผู้จัดการมรดก',
+            description: 'ช่วยเหลือในการแต่งตั้งผู้จัดการมรดกและดำเนินการตามกฎหมาย',
+            details: [
+              'ยื่นคำร้องต่อศาลเพื่อแต่งตั้งผู้จัดการมรดก',
+              'จัดทำบัญชีทรัพย์สินและหนี้สิน',
+              'ชำระหนี้และแจกจ่ายทรัพย์สิน',
+              'รายงานผลการดำเนินการต่อศาล'
+            ],
+            icon: 'fa-users',
+            bgColor: 'bg-primary'
+          },
+          {
+            title: 'การจดทะเบียนบริษัท',
+            description: 'บริการจดทะเบียนบริษัทครบวงจร รวดเร็ว ถูกต้อง และเป็นไปตามกฎหมาย',
+            details: [
+              'จดทะเบียนบริษัทจำกัด และห้างหุ้นส่วนจำกัด',
+              'จดทะเบียนเพิ่มทุน เปลี่ยนแปลงวัตถุประสงค์',
+              'จดทะเบียนโอนหุ้น และเปลี่ยนแปลงกรรมการ',
+              'ยกเลิกบริษัท และชำระบัญชี'
+            ],
+            icon: 'fa-building',
+            bgColor: 'bg-success'
+          },
+          {
+            title: 'การแปลเอกสาร (เร่งด่วน)',
+            description: 'บริการแปลเอกสารทางกฎหมายและเอกสารราชการ พร้อมรับรองความถูกต้อง',
+            details: [
+              'แปลเอกสารราชการและหลักฐานการศึกษา',
+              'แปลสัญญาและเอกสารทางธุรกิจ',
+              'แปลเอกสารสำหรับวีซ่าและการอพยพ',
+              'บริการแปลเร่งด่วนภายในวันเดียว'
+            ],
+            icon: 'fa-language',
+            bgColor: 'bg-complete'
+          },
+          {
+            title: 'การรับรองเอกสารโดยทนายความ',
+            description: 'รับรองเอกสารและลายมือชื่อโดยทนายความผู้รับรองเอกสารและลายมือชื่อ',
+            details: [
+              'รับรองสำเนาเอกสารให้เป็นจริง',
+              'รับรองลายมือชื่อและลิขิต',
+              'รับรองการแปลเอกสาร',
+              'เอกสารมีผลใช้ได้ทันที ไม่ต้องรอนาน'
+            ],
+            icon: 'fa-certificate',
+            bgColor: 'bg-primary'
+          }
+        ],
+        serviceDetailsLabel: 'รายละเอียดบริการ',
+        contactButtonText: 'ปรึกษา',
+        process: {
+          title: 'ขั้นตอนการทำงาน',
+          subtitle: 'วิธีการที่เราทำงานร่วมกับคุณ',
+          description: 'เราให้ความสำคัญกับความโปร่งใสและการสื่อสารที่ชัดเจนในทุกขั้นตอนของการทำงาน',
+          steps: [
+            {
+              title: 'ปรึกษาเบื้องต้น',
+              description: 'รับฟังปัญหาและให้คำแนะนำเบื้องต้นฟรี'
+            },
+            {
+              title: 'วิเคราะห์และวางแผน',
+              description: 'ศึกษารายละเอียดและจัดทำแผนการดำเนินงาน'
+            },
+            {
+              title: 'ดำเนินการ',
+              description: 'ปฏิบัติงานตามแผนพร้อมรายงานความคืบหน้า'
+            },
+            {
+              title: 'สรุปผล',
+              description: 'ส่งมอบผลงานและให้คำแนะนำติดตามผล'
+            }
+          ]
+        },
+        pricing: {
+          title: 'ค่าใช้จ่าย',
+          subtitle: 'อัตราค่าบริการที่โปร่งใส',
+          description: 'เราให้ความสำคัญกับความโปร่งใสในการเก็บค่าบริการ ไม่มีค่าใช้จ่ายแอบแฝง',
+          plans: [
+            {
+              title: 'คำปรึกษาทั่วไป',
+              price: 'ฟรี',
+              subtitle: 'คำปรึกษาเบื้องต้น 15-30 นาที',
+              features: [
+                'คำแนะนำเบื้องต้น',
+                'การประเมินปัญหา',
+                'แนวทางการแก้ไข'
+              ]
+            },
+            {
+              title: 'บริการทั่วไป',
+              price: 'ตกลงก่อน',
+              subtitle: 'ราคาขึ้นอยู่กับความซับซ้อน',
+              features: [
+                'ราคาชัดเจน ไม่มีค่าแอบแฝง',
+                'การันตีคุณภาพ',
+                'ติดตามผลหลังดำเนินการ'
+              ],
+              highlighted: true
+            },
+            {
+              title: 'บริการเร่งด่วน',
+              price: '+50%',
+              subtitle: 'เพิ่มจากราคามาตรฐาน',
+              features: [
+                'แปลเอกสารภายใน 1 วัน',
+                'รับรองเอกสารทันที',
+                'ความเร่งด่วนพิเศษ'
+              ]
+            }
+          ],
+          note: '* ค่าบริการขึ้นอยู่กับความซับซ้อนของงาน เราจะแจ้งราคาที่ชัดเจนก่อนเริ่มงานทุกครั้ง',
+          inquiryButton: 'สอบถามราคาและรายละเอียด'
+        },
+        cta: {
+          title: 'พร้อมแก้ไขปัญหากฎหมายให้คุณ',
+          description: 'ไม่ว่าปัญหาจะซับซ้อนหรือเร่งด่วนเพียงใด เรามีประสบการณ์และความเชี่ยวชาญที่จะช่วยหาทางออกที่ดีที่สุดให้คุณ'
+        }
       },
 
       // Contact page content
@@ -523,7 +683,167 @@ export const translations = {
       // Services page content
       services: {
         title: 'Services',
-        description: 'Comprehensive legal services from MS Law Office'
+        description: 'Comprehensive legal services from MS Law Office - litigation, legal consultation, company registration and more',
+        hero: {
+          subtitle: 'Our Services',
+          title: 'Comprehensive Legal Services',
+          description: 'We have expertise and experience in providing various legal services with professionalism and excellent service standards'
+        },
+        detailedServices: [
+          {
+            title: 'Court Litigation Services',
+            description: 'Legal consultation and litigation in all court levels with expertise and experience',
+            details: [
+              'Case analysis and preliminary assessment',
+              'Prepare documents and evidence',
+              'Court proceedings at trial, appellate, and supreme court levels',
+              'Negotiation and dispute mediation'
+            ],
+            icon: 'fa-balance-scale',
+            bgColor: 'bg-primary'
+          },
+          {
+            title: 'Legal Consultation',
+            description: 'Legal advice in various fields with knowledge and real experience',
+            details: [
+              'Civil and commercial law',
+              'Family law and inheritance',
+              'Property and real estate law',
+              'Labor law and social security'
+            ],
+            icon: 'fa-briefcase',
+            bgColor: 'bg-success'
+          },
+          {
+            title: 'Will Preparation',
+            description: 'Draft and prepare legal wills for family peace of mind',
+            details: [
+              'Consultation on asset allocation',
+              'Draft wills according to wishes',
+              'Legal compliance verification',
+              'Safe will storage'
+            ],
+            icon: 'fa-file-text',
+            bgColor: 'bg-complete'
+          },
+          {
+            title: 'Estate Administration',
+            description: 'Assistance in appointing estate administrators and legal proceedings',
+            details: [
+              'Court petition for estate administrator appointment',
+              'Asset and liability inventory preparation',
+              'Debt settlement and asset distribution',
+              'Court progress reporting'
+            ],
+            icon: 'fa-users',
+            bgColor: 'bg-primary'
+          },
+          {
+            title: 'Company Registration',
+            description: 'Comprehensive company registration services - fast, accurate, and legally compliant',
+            details: [
+              'Limited company and limited partnership registration',
+              'Capital increase and objective amendments registration',
+              'Share transfer and director change registration',
+              'Company dissolution and liquidation'
+            ],
+            icon: 'fa-building',
+            bgColor: 'bg-success'
+          },
+          {
+            title: 'Document Translation (Express)',
+            description: 'Legal and government document translation services with accuracy certification',
+            details: [
+              'Government documents and educational certificates translation',
+              'Contract and business document translation',
+              'Visa and immigration document translation',
+              'Same-day express translation service'
+            ],
+            icon: 'fa-language',
+            bgColor: 'bg-complete'
+          },
+          {
+            title: 'Notarial Services by Attorney',
+            description: 'Document and signature certification by certified notarial attorney',
+            details: [
+              'Document copy certification',
+              'Signature and handwriting certification',
+              'Document translation certification',
+              'Immediate effective documents - no waiting'
+            ],
+            icon: 'fa-certificate',
+            bgColor: 'bg-primary'
+          }
+        ],
+        serviceDetailsLabel: 'Service Details',
+        contactButtonText: 'Consult',
+        process: {
+          title: 'Work Process',
+          subtitle: 'How We Work With You',
+          description: 'We emphasize transparency and clear communication at every step of the work process',
+          steps: [
+            {
+              title: 'Initial Consultation',
+              description: 'Listen to problems and provide free preliminary advice'
+            },
+            {
+              title: 'Analysis and Planning',
+              description: 'Study details and develop action plan'
+            },
+            {
+              title: 'Implementation',
+              description: 'Execute according to plan with progress reporting'
+            },
+            {
+              title: 'Summary',
+              description: 'Deliver results and provide follow-up advice'
+            }
+          ]
+        },
+        pricing: {
+          title: 'Pricing',
+          subtitle: 'Transparent Service Rates',
+          description: 'We prioritize transparency in service pricing with no hidden charges',
+          plans: [
+            {
+              title: 'General Consultation',
+              price: 'Free',
+              subtitle: '15-30 minutes initial consultation',
+              features: [
+                'Preliminary advice',
+                'Problem assessment',
+                'Solution guidelines'
+              ]
+            },
+            {
+              title: 'General Services',
+              price: 'By Agreement',
+              subtitle: 'Price depends on complexity',
+              features: [
+                'Clear pricing, no hidden costs',
+                'Quality guarantee',
+                'Post-service follow-up'
+              ],
+              highlighted: true
+            },
+            {
+              title: 'Express Services',
+              price: '+50%',
+              subtitle: 'Additional from standard rate',
+              features: [
+                'Document translation within 1 day',
+                'Immediate document certification',
+                'Special urgency'
+              ]
+            }
+          ],
+          note: '* Service fees depend on work complexity. We will provide clear pricing before starting work every time',
+          inquiryButton: 'Inquire Pricing and Details'
+        },
+        cta: {
+          title: 'Ready to Solve Your Legal Problems',
+          description: 'No matter how complex or urgent the problem, we have the experience and expertise to help find the best solution for you'
+        }
       },
 
       // Contact page content
