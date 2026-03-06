@@ -11,24 +11,23 @@ import { detectLanguageFromPath, getLocalizedUrl } from '../i18n/utils.js';
 import HomePage from '../templates/HomePage.astro';
 import AboutPage from '../templates/AboutPage.astro';
 import ServicesPage from '../templates/ServicesPage.astro';
-import ContactPage from '../templates/ContactPage.astro';
+// ContactPage removed - now using consolidated contact page
 import FAQPage from '../templates/FAQPage.astro';
 
 export async function getStaticPaths() {
   // Define all routes for both languages
   const routes = [
-    // Thai routes (no prefix)
+    // Thai routes (no prefix) - contact now handled by consolidated page
     { params: { path: undefined }, props: { route: 'home', lang: 'th' as Language } },
     { params: { path: 'about' }, props: { route: 'about', lang: 'th' as Language } },
     { params: { path: 'services' }, props: { route: 'services', lang: 'th' as Language } },
-    { params: { path: 'contact' }, props: { route: 'contact', lang: 'th' as Language } },
     { params: { path: 'faq' }, props: { route: 'faq', lang: 'th' as Language } },
 
-    // English routes (en/ prefix)
+    // English routes (en/ prefix) - contact now handled by consolidated page
     { params: { path: 'en' }, props: { route: 'home', lang: 'en' as Language } },
     { params: { path: 'en/about' }, props: { route: 'about', lang: 'en' as Language } },
     { params: { path: 'en/services' }, props: { route: 'services', lang: 'en' as Language } },
-    { params: { path: 'en/contact' }, props: { route: 'contact', lang: 'en' as Language } },
+    // en/contact now handled by dedicated page in /en/contact.astro
     { params: { path: 'en/faq' }, props: { route: 'faq', lang: 'en' as Language } },
   ];
 
@@ -38,12 +37,13 @@ export async function getStaticPaths() {
 // Get route props
 const { route, lang } = Astro.props;
 
+// Contact redirect logic removed - now handled by dedicated pages
+
 // Route to template mapping
 const templates = {
   home: HomePage,
   about: AboutPage,
   services: ServicesPage,
-  contact: ContactPage,
   faq: FAQPage
 } as const;
 

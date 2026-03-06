@@ -1,14 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import ContactButtons from '../components/ContactButtons.astro';
-import { detectLanguageFromPath, t, getContactConfig } from '../i18n/utils.js';
-import { translations } from '../i18n/translations.js';
+// English contact page - uses consolidated contact with fixed English language
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactButtons from '../../components/ContactButtons.astro';
+import { getContactConfig, t } from '../../i18n/utils.js';
+import { translations } from '../../i18n/translations.js';
 
-// Detect language from URL path
-const lang = detectLanguageFromPath(Astro.url.pathname);
-const currentPath = lang === 'en' ? '/en/contact' : '/contact';
+// Force English language for this page
+const lang = 'en';
+const currentPath = '/en/contact';
 
 // Get translated content
 const contactContent = translations[lang].pages.contact;
@@ -122,45 +123,7 @@ const contact = getContactConfig(lang);
       </div>
     </section>
 
-    <!-- Google Maps Section (Thai only) -->
-    {lang === 'th' && (
-    <section class="container-fluid no-padding no-overflow">
-      <div class="container m-b-30">
-        <div class="text-center">
-          <h5 class="block-title hint-text no-margin">{contactContent.googleMaps.title}</h5>
-          <h2 class="m-t-5 m-b-20">{contactContent.googleMaps.subtitle}</h2>
-          <p class="hint-text">{contactContent.googleMaps.address}</p>
-        </div>
-      </div>
-
-      <!-- Full Width Google Maps -->
-      <div id="google-map" class="full-width no-overflow" style="height: 400px; position: relative;">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.5431234567!2d100.98420!3d13.36111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDIxJzQwLjAiTiAxMDDCsDU5JzAzLjEiRQ!5e0!3m2!1sen!2sth!4v1234567890123!5m2!1sen!2sth"
-          style="width: 100%; height: 100%; border: 0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="แผนที่สำนักงานกฎหมายมิตรแสนสุข">
-        </iframe>
-
-        <!-- Map Overlay -->
-        <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(255,255,255,0.95); padding: 15px; border-radius: 5px; max-width: 250px;">
-          <h6 class="text-black m-b-5"><strong>{contactContent.googleMaps.overlayTitle}</strong></h6>
-          <p class="fs-12 hint-text m-b-10">{contactContent.googleMaps.overlayAddress}</p>
-          <a href="https://maps.app.goo.gl/QwdyjZqbYySGo3JeA" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-            <i class="fa fa-external-link p-r-5"></i> {contactContent.googleMaps.openInMaps}
-          </a>
-        </div>
-      </div>
-
-      <div class="container p-t-30 text-center">
-        <a href="https://maps.app.goo.gl/QwdyjZqbYySGo3JeA" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-          <i class="fa fa-map-marker p-r-10"></i> {contactContent.googleMaps.viewLargeMap}
-        </a>
-      </div>
-    </section>
-    )}
+    <!-- Note: No Google Maps section for English version -->
 
     <!-- Call-to-Action Section -->
     <section class="bg-master-darker p-t-75 p-b-85">
