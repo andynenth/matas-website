@@ -1047,6 +1047,15 @@ export const translations = {
             }
           ]
         },
+        googleMaps: {
+          title: 'Office Map',
+          subtitle: 'Office Location',
+          address: '52/4 Mit Samphan Road, Ban Puek, Mueang Chonburi 20130',
+          overlayTitle: 'MS Law Office',
+          overlayAddress: '52/4 Mit Samphan Road, Ban Puek',
+          openInMaps: 'Open in Google Maps',
+          viewLargeMap: 'View Large Map'
+        },
         cta: {
           title: 'Ready to Serve You Today',
           description: 'Whatever legal problems you have, we are happy to provide consultation and find the best solution for you'
