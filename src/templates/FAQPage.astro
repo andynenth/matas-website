@@ -5,7 +5,7 @@
 // ===============================
 
 import type { Language } from '../i18n/translations';
-import { t } from '../i18n/utils.js';
+import { translations } from '../i18n/translations.js';
 
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
@@ -18,76 +18,153 @@ export interface Props {
 
 const { lang } = Astro.props;
 
-// Get translated content
-const pageTitle = t('pages.faq.title', lang);
-const pageDescription = t('pages.faq.description', lang);
-
-// Sample FAQ data (would normally come from translations)
-const faqs = [
-  {
-    question: lang === 'th' ? 'ค่าใช้จ่ายในการให้คำปรึกษาเป็นอย่างไร?' : 'What are the consultation fees?',
-    answer: lang === 'th'
-      ? 'เรามีการให้คำปรึกษาเบื้องต้นฟรี หลังจากนั้นจะมีการแจ้งค่าใช้จ่ายอย่างชัดเจนตามลักษณะของงาน'
-      : 'We offer free initial consultation. After that, fees will be clearly explained based on the nature of the work.'
-  },
-  {
-    question: lang === 'th' ? 'สามารถให้บริการในภาษาอังกฤษได้หรือไม่?' : 'Can you provide services in English?',
-    answer: lang === 'th'
-      ? 'ได้ครับ เรามีความชำนาญในการให้บริการลูกค้าชาวต่างชาติและสามารถสื่อสารภาษาอังกฤษได้'
-      : 'Yes, we specialize in serving foreign clients and can communicate in English.'
-  },
-  {
-    question: lang === 'th' ? 'ใช้เวลานานเท่าไรในการดำเนินการจดทะเบียนบริษัท?' : 'How long does company registration take?',
-    answer: lang === 'th'
-      ? 'โดยทั่วไปใช้เวลาประมาณ 3-7 วันทำการ ขึ้นอยู่กับความซับซ้อนของเอกสารและความพร้อมของลูกค้า'
-      : 'Generally takes about 3-7 working days, depending on document complexity and client readiness.'
-  }
-];
+// Get translated content from the full FAQ structure
+const faqContent = translations[lang].pages.faq;
+const pageTitle = faqContent.title;
+const pageDescription = faqContent.description;
 ---
 
 <Layout title={pageTitle} description={pageDescription} lang={lang}>
   <Header lang={lang} currentPath={lang === 'en' ? '/en/faq' : '/faq'} />
 
   <div class="m-t-60">
+
     <!-- Hero Section -->
     <section class="bg-master-lightest p-t-85 p-b-85">
       <div class="container text-center">
-        <h5 class="block-title hint-text no-margin">{pageTitle}</h5>
-        <h1 class="light m-t-5 m-b-30">{lang === 'th' ? 'คำถามที่พบบ่อย' : 'Frequently Asked Questions'}</h1>
+        <h5 class="block-title hint-text no-margin">{faqContent.hero.subtitle}</h5>
+        <h1 class="light m-t-5 m-b-30">{faqContent.hero.title}</h1>
         <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
-          {lang === 'th'
-            ? 'คำถามและคำตอบที่พบบ่อยเกี่ยวกับบริการทางด้านกฎหมาย'
-            : 'Common questions and answers about our legal services'
-          }
+          {faqContent.hero.description}
         </p>
       </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ Main Section -->
     <section class="container container-fixed-lg p-t-75 p-b-85">
-      <div class="col-md-8 col-md-offset-2">
-        {faqs.map((faq, index) => (
-          <div class="bg-white padding-30 m-b-20">
-            <h4 class="text-black m-b-20">
-              <i class="fa fa-question-circle text-primary p-r-10"></i>
-              {faq.question}
-            </h4>
-            <p class="hint-text fs-16">
-              {faq.answer}
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          {faqContent.faqs.map((faq, index) => (
+            <div class="bg-white padding-40 m-b-30" style="border-left: 4px solid #007bff;">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="m-b-15">
+                    <span class="bg-primary text-white fs-11 font-montserrat bold all-caps padding-5" style="border-radius: 3px;">
+                      {faq.category}
+                    </span>
+                  </div>
+                  <h3 class="text-black m-b-20 m-t-0">
+                    <i class="fa fa-question-circle text-primary p-r-10"></i>
+                    {faq.question}
+                  </h3>
+                  <div class="hint-text fs-15 line-height-20">
+                    {faq.answer.split('\n').map((paragraph) => (
+                      <p class="m-b-15">{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+
+          <!-- Contact CTA in FAQ -->
+          <div class="bg-master-lightest padding-40 text-center m-t-50">
+            <h4 class="text-black m-b-20">{faqContent.contactCta.title}</h4>
+            <p class="hint-text m-b-30">{faqContent.contactCta.description}</p>
+            <ContactButtons lang={lang} size="medium" layout="horizontal" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Topics Section -->
+    <section class="bg-master-lightest p-t-75 p-b-85">
+      <div class="container">
+        <div class="text-center m-b-60">
+          <h5 class="block-title hint-text no-margin">{faqContent.additionalTopics.title}</h5>
+          <h1 class="m-t-5 m-b-20">{faqContent.additionalTopics.subtitle}</h1>
+          <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
+            {faqContent.additionalTopics.description}
+          </p>
+        </div>
+
+        <div class="row">
+          {faqContent.additionalTopics.topics.map((topic) => (
+            <div class="col-md-4 m-b-40">
+              <div class="bg-white padding-30">
+                <h4 class="text-black m-b-20">
+                  <i class="fa fa-lightbulb-o text-primary p-r-10"></i>
+                  {topic.title}
+                </h4>
+                <ul class="no-style">
+                  {topic.items.map((item) => (
+                    <li class="m-b-10 no-padding">
+                      <i class="fa fa-circle-o text-success p-r-10" style="font-size: 10px; vertical-align: middle;"></i>
+                      <span class="fs-14">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div class="m-t-20">
+                  <ContactButtons lang={lang} size="small" layout="inline" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Contact Info Section -->
+    <section class="container container-fixed-lg p-t-75 p-b-85">
+      <div class="text-center m-b-50">
+        <h5 class="block-title hint-text no-margin">{faqContent.quickContact.title}</h5>
+        <h1 class="m-t-5 m-b-20">{faqContent.quickContact.subtitle}</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 m-b-30">
+          <div class="bg-white padding-40 text-center hover-lift">
+            <div class="bg-success" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+              <i class="fa fa-phone text-white" style="font-size: 36px;"></i>
+            </div>
+            <h4 class="text-black m-b-15">{faqContent.quickContact.phone.title}</h4>
+            <p class="hint-text m-b-20">{faqContent.quickContact.phone.description}</p>
+            <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-success btn-lg">
+              <i class="fa fa-phone p-r-10"></i> {faqContent.quickContact.phone.number}
+            </a>
+            <p class="fs-12 hint-text m-t-15">
+              {faqContent.quickContact.phone.hours}
             </p>
           </div>
-        ))}
-
-        <div class="text-center m-t-60">
-          <h3 class="m-b-20">{lang === 'th' ? 'ยังมีคำถามอื่นๆ อีกหรือไม่?' : 'Have more questions?'}</h3>
-          <p class="fs-16 m-b-30">
-            {lang === 'th'
-              ? 'ติดต่อเราเพื่อรับคำปรึกษาโดยตรง'
-              : 'Contact us for direct consultation'
-            }
-          </p>
-          <ContactButtons lang={lang} size="large" layout="horizontal" />
         </div>
+
+        <div class="col-md-6 m-b-30">
+          <div class="bg-white padding-40 text-center hover-lift">
+            <div class="bg-complete" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+              <i class="fa fa-comments text-white" style="font-size: 36px;"></i>
+            </div>
+            <h4 class="text-black m-b-15">{faqContent.quickContact.line.title}</h4>
+            <p class="hint-text m-b-20">{faqContent.quickContact.line.description}</p>
+            <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-complete btn-lg">
+              <i class="fa fa-comments p-r-10"></i> {faqContent.quickContact.line.id}
+            </a>
+            <p class="fs-12 hint-text m-t-15">
+              {faqContent.quickContact.line.hours}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="bg-master-darker p-t-75 p-b-85">
+      <div class="container text-center">
+        <h1 class="light text-white m-b-20">{faqContent.cta.title}</h1>
+        <p class="fs-16 text-white m-b-40 col-md-8 col-md-offset-2 no-padding">
+          {faqContent.cta.description}
+        </p>
+
+        <ContactButtons lang={lang} size="large" layout="horizontal" />
       </div>
     </section>
   </div>

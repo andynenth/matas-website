@@ -2,72 +2,33 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ContactButtons from '../components/ContactButtons.astro';
+import { detectLanguageFromPath } from '../i18n/utils.js';
+import { translations } from '../i18n/translations.js';
 
-const pageTitle = 'คำถามที่พบบ่อย';
-const pageDescription = 'คำตอบสำหรับคำถามที่พบบ่อยเกี่ยวกับบริการทางกฎหมายของสำนักกฎหมายมิตรแสนสุข - ค่าใช้จ่าย การดำเนินงาน และข้อมูลทั่วไป';
+// Detect language from URL path
+const lang = detectLanguageFromPath(Astro.url.pathname);
+const currentPath = lang === 'en' ? '/en/faq' : '/faq';
 
-const faqs = [
-  {
-    question: 'ค่าใช้จ่ายในการใช้บริการทนายความเป็นอย่างไร มีค่าใช้จ่ายแอบแฝงหรือไม่?',
-    answer: 'เราให้ความสำคัญกับความโปร่งใสในการเก็บค่าบริการ ก่อนเริ่มงานจะมีการแจ้งค่าใช้จ่ายที่ชัดเจน โดยค่าบริการขึ้นอยู่กับความซับซ้อนของงานแต่ละประเภท สำหรับคำปรึกษาเบื้องต้น 15-30 นาทีแรกนั้นฟรี ไม่มีค่าใช้จ่าย ส่วนบริการอื่นๆ จะมีการตกลงราคาล่วงหน้าก่อนดำเนินการทุกครั้ง ไม่มีค่าใช้จ่ายแอบแฝงใดๆ',
-    category: 'ค่าใช้จ่าย'
-  },
-  {
-    question: 'การดำเนินคดีในศาลใช้เวลานานเพียงใด และมีขั้นตอนอย่างไร?',
-    answer: 'ระยะเวลาการดำเนินคดีขึ้นอยู่กับประเภทคดีและความซับซ้อน โดยทั่วไปคดีแพ่งอาจใช้เวลา 6-18 เดือน ขั้นตอนการดำเนินงาน ได้แก่ 1) การยื่นฟ้อง 2) การพิจารณาของศาล 3) การสืบพยาน 4) การพิพากษา เราจะคอยแจ้งความคืบหน้าและให้คำปรึกษาตลอดกระบวนการ รวมทั้งเตรียมเอกสารและพยานหลักฐานให้ครบถ้วน',
-    category: 'การดำเนินคดี'
-  },
-  {
-    question: 'บริการแปลเอกสารและการรับรองเอกสารใช้เวลานานเพียงใด?',
-    answer: 'บริการแปลเอกสารปกติใช้เวลา 2-3 วันทำการ ขึ้นอยู่กับปริมาณและความซับซ้อนของเอกสาร สำหรับงานเร่งด่วนสามารถเสร็จภายใน 1 วัน (เสียค่าบริการเพิ่มขึ้น 50%) การรับรองเอกสารโดยทนายความสามารถทำได้ทันที ไม่ต้องรอนาน เอกสารที่รับรองแล้วจะมีผลใช้ได้ทันทีและได้รับการยอมรับจากหน่วยงานราชการ',
-    category: 'เอกสาร'
-  }
-];
+// Get translated content
+const faqContent = translations[lang].pages.faq;
+const pageTitle = faqContent.title;
+const pageDescription = faqContent.description;
 
-const additionalTopics = [
-  {
-    title: 'การจดทะเบียนบริษัท',
-    items: [
-      'ขั้นตอนการจดทะเบียนบริษัทจำกัด',
-      'เงินทุนจดทะเบียนขั้นต่ำ',
-      'ระยะเวลาการดำเนินการ',
-      'เอกสารที่ใช้ในการจดทะเบียน'
-    ]
-  },
-  {
-    title: 'พินัยกรรมและมรดก',
-    items: [
-      'วิธีการทำพินัยกรรมให้ถูกต้อง',
-      'ความแตกต่างระหว่างพินัยกรรมและใบเสนอหน้า',
-      'การแต่งตั้งผู้จัดการมรดก',
-      'ขั้นตอนการรับมรดก'
-    ]
-  },
-  {
-    title: 'บริการสำหรับชาวต่างชาติ',
-    items: [
-      'การขอวีซ่าประเภทต่างๆ',
-      'การแปลและรับรองเอกสารภาษาอังกฤษ',
-      'การจดทะเบียนสมรสกับคนไทย',
-      'การซื้อที่ดินและอสังหาริมทรัพย์'
-    ]
-  }
-];
 ---
 
-<Layout title={pageTitle} description={pageDescription} lang="th">
-  <Header lang="th" currentPath="/faq" />
+<Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <Header lang={lang} currentPath={currentPath} />
 
   <div class="m-t-60">
 
     <!-- Hero Section -->
     <section class="bg-master-lightest p-t-85 p-b-85">
       <div class="container text-center">
-        <h5 class="block-title hint-text no-margin">คำถามที่พบบ่อย</h5>
-        <h1 class="light m-t-5 m-b-30">คำตอบสำหรับคำถามทั่วไป</h1>
+        <h5 class="block-title hint-text no-margin">{faqContent.hero.subtitle}</h5>
+        <h1 class="light m-t-5 m-b-30">{faqContent.hero.title}</h1>
         <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
-          รวบรวมคำถามและคำตอบที่ลูกค้าสนใจมากที่สุด
-          หากไม่พบคำตอบที่ต้องการ สามารถติดต่อสอบถามได้โดยตรง
+          {faqContent.hero.description}
         </p>
       </div>
     </section>
@@ -76,7 +37,7 @@ const additionalTopics = [
     <section class="container container-fixed-lg p-t-75 p-b-85">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          {faqs.map((faq, index) => (
+          {faqContent.faqs.map((faq, index) => (
             <div class="bg-white padding-40 m-b-30" style="border-left: 4px solid #007bff;">
               <div class="row">
                 <div class="col-xs-12">
@@ -101,20 +62,9 @@ const additionalTopics = [
 
           <!-- Contact CTA in FAQ -->
           <div class="bg-master-lightest padding-40 text-center m-t-50">
-            <h4 class="text-black m-b-20">ไม่พบคำตอบที่ต้องการ?</h4>
-            <p class="hint-text m-b-30">ติดต่อเราโดยตรงเพื่อรับคำปรึกษาที่ตรงกับปัญหาของคุณ</p>
-            <div class="row">
-              <div class="col-sm-6 m-b-15">
-                <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-primary btn-block">
-                  <i class="fa fa-phone p-r-10"></i> โทรสอบถาม
-                </a>
-              </div>
-              <div class="col-sm-6 m-b-15">
-                <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block">
-                  <i class="fa fa-comments p-r-10"></i> แชท LINE
-                </a>
-              </div>
-            </div>
+            <h4 class="text-black m-b-20">{faqContent.contactCta.title}</h4>
+            <p class="hint-text m-b-30">{faqContent.contactCta.description}</p>
+            <ContactButtons lang={lang} size="medium" layout="horizontal" />
           </div>
         </div>
       </div>
@@ -124,15 +74,15 @@ const additionalTopics = [
     <section class="bg-master-lightest p-t-75 p-b-85">
       <div class="container">
         <div class="text-center m-b-60">
-          <h5 class="block-title hint-text no-margin">หัวข้อที่น่าสนใจ</h5>
-          <h1 class="m-t-5 m-b-20">ข้อมูลเพิ่มเติมที่อาจเป็นประโยชน์</h1>
+          <h5 class="block-title hint-text no-margin">{faqContent.additionalTopics.title}</h5>
+          <h1 class="m-t-5 m-b-20">{faqContent.additionalTopics.subtitle}</h1>
           <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
-            หัวข้อต่างๆ ที่ลูกค้าสนใจและสอบถามบ่อย รวบรวมไว้เพื่อความสะดวกของท่าน
+            {faqContent.additionalTopics.description}
           </p>
         </div>
 
         <div class="row">
-          {additionalTopics.map((topic) => (
+          {faqContent.additionalTopics.topics.map((topic) => (
             <div class="col-md-4 m-b-40">
               <div class="bg-white padding-30">
                 <h4 class="text-black m-b-20">
@@ -148,9 +98,7 @@ const additionalTopics = [
                   ))}
                 </ul>
                 <div class="m-t-20">
-                  <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-white btn-sm">
-                    <i class="fa fa-phone p-r-5"></i> สอบถาม
-                  </a>
+                  <ContactButtons lang={lang} size="small" layout="inline" />
                 </div>
               </div>
             </div>
@@ -162,8 +110,8 @@ const additionalTopics = [
     <!-- Quick Contact Info Section -->
     <section class="container container-fixed-lg p-t-75 p-b-85">
       <div class="text-center m-b-50">
-        <h5 class="block-title hint-text no-margin">ช่องทางการติดต่อ</h5>
-        <h1 class="m-t-5 m-b-20">วิธีการติดต่อเรา</h1>
+        <h5 class="block-title hint-text no-margin">{faqContent.quickContact.title}</h5>
+        <h1 class="m-t-5 m-b-20">{faqContent.quickContact.subtitle}</h1>
       </div>
 
       <div class="row">
@@ -172,13 +120,13 @@ const additionalTopics = [
             <div class="bg-success" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
               <i class="fa fa-phone text-white" style="font-size: 36px;"></i>
             </div>
-            <h4 class="text-black m-b-15">โทรศัพท์โดยตรง</h4>
-            <p class="hint-text m-b-20">สำหรับการปรึกษาเร่งด่วนและการนัดหมาย</p>
+            <h4 class="text-black m-b-15">{faqContent.quickContact.phone.title}</h4>
+            <p class="hint-text m-b-20">{faqContent.quickContact.phone.description}</p>
             <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-success btn-lg">
-              <i class="fa fa-phone p-r-10"></i> 081-514-4783
+              <i class="fa fa-phone p-r-10"></i> {faqContent.quickContact.phone.number}
             </a>
             <p class="fs-12 hint-text m-t-15">
-              เวลาทำการ: จันทร์ - ศุกร์ 9:00 - 18:00 น.
+              {faqContent.quickContact.phone.hours}
             </p>
           </div>
         </div>
@@ -188,13 +136,13 @@ const additionalTopics = [
             <div class="bg-complete" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
               <i class="fa fa-comments text-white" style="font-size: 36px;"></i>
             </div>
-            <h4 class="text-black m-b-15">LINE Official</h4>
-            <p class="hint-text m-b-20">สะดวกสำหรับการสอบถามและส่งเอกสาร</p>
+            <h4 class="text-black m-b-15">{faqContent.quickContact.line.title}</h4>
+            <p class="hint-text m-b-20">{faqContent.quickContact.line.description}</p>
             <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-complete btn-lg">
-              <i class="fa fa-comments p-r-10"></i> @Matas.s
+              <i class="fa fa-comments p-r-10"></i> {faqContent.quickContact.line.id}
             </a>
             <p class="fs-12 hint-text m-t-15">
-              ตอบกลับ 24/7 กรณีเร่งด่วน
+              {faqContent.quickContact.line.hours}
             </p>
           </div>
         </div>
@@ -204,26 +152,15 @@ const additionalTopics = [
     <!-- Call-to-Action Section -->
     <section class="bg-master-darker p-t-75 p-b-85">
       <div class="container text-center">
-        <h1 class="light text-white m-b-20">พร้อมตอบทุกคำถามของคุณ</h1>
+        <h1 class="light text-white m-b-20">{faqContent.cta.title}</h1>
         <p class="fs-16 text-white m-b-40 col-md-8 col-md-offset-2 no-padding">
-          ไม่ว่าจะเป็นคำถามง่ายๆ หรือปัญหาที่ซับซ้อน เรายินดีให้คำปรึกษาและช่วยหาทางออกที่ดีที่สุดสำหรับคุณ
+          {faqContent.cta.description}
         </p>
 
-        <div class="row">
-          <div class="col-sm-4 col-sm-offset-2 m-b-15">
-            <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-white btn-lg btn-block">
-              <i class="fa fa-phone p-r-10"></i> โทร 081-514-4783
-            </a>
-          </div>
-          <div class="col-sm-4 m-b-15">
-            <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg btn-block">
-              <i class="fa fa-comments p-r-10"></i> แชท LINE
-            </a>
-          </div>
-        </div>
+        <ContactButtons lang={lang} size="large" layout="horizontal" />
       </div>
     </section>
   </div>
 
-  <Footer lang="th" />
+  <Footer lang={lang} />
 </Layout>
