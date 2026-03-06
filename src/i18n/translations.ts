@@ -408,6 +408,8 @@ export const translations = {
         hero: {
           subtitle: 'ติดต่อเรา',
           title: 'ติดต่อสำนักงานกฎหมาย',
+          mobileButtontext: '',
+          lineButtonText: 'LINE แชท',
           description: 'เรายินดีให้คำปรึกษาทางกฎหมายและช่วยเหลือแก้ไขปัญหาต่างๆ ด้วยความเป็นมิตรและมาตรฐานการบริการที่เป็นเลิศ'
         },
         mainContact: {
@@ -999,6 +1001,7 @@ export const translations = {
         hero: {
           subtitle: 'Contact Us',
           title: 'Contact Our Law Office',
+          mobileButtontext: '',
           description: 'We are happy to provide legal consultation and help solve various problems with friendliness and excellent service standards'
         },
         mainContact: {

@@ -1,17 +1,26 @@
 ---
-// English contact page - uses consolidated contact with fixed English language
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import ContactButtons from '../../components/ContactButtons.astro';
-import { getContactConfig, t } from '../../i18n/utils.js';
-import { translations } from '../../i18n/translations.js';
+// ===============================
+// CONTACT PAGE TEMPLATE v2.0
+// Single template supporting both languages
+// Matches architecture of other page templates
+// ===============================
 
-// Force English language for this page
-const lang = 'en';
-const currentPath = '/en/contact';
+import type { Language } from '../i18n/translations';
+import { translations } from '../i18n/translations.js';
+import { getContactConfig, t } from '../i18n/utils.js';
 
-// Get translated content
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactButtons from '../components/ContactButtons.astro';
+
+export interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+
+// Get translated content from the full contact structure
 const contactContent = translations[lang].pages.contact;
 const pageTitle = contactContent.title;
 const pageDescription = contactContent.description;
@@ -19,7 +28,7 @@ const contact = getContactConfig(lang);
 ---
 
 <Layout title={pageTitle} description={pageDescription} lang={lang}>
-  <Header lang={lang} currentPath={currentPath} />
+  <Header lang={lang} currentPath={lang === 'en' ? '/en/contact' : '/contact'} />
 
   <div class="m-t-60">
     <!-- Hero Section -->
@@ -43,7 +52,21 @@ const contact = getContactConfig(lang);
             <br>
 
             <!-- Prominent Contact Buttons -->
-            <ContactButtons lang={lang} size="large" layout="horizontal" />
+            <div class="contact-buttons-container">
+              <div class="row">
+                <div class="col-sm-6 col-md-4 col-sm-offset-2 col-md-offset-2 m-b-15">
+                  <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-call btn-lg btn-block contact-button">
+                    <i class="fa fa-phone p-r-10"></i> {contactContent.hero.mobileButtontext} 081-514-4783
+                  </a>
+                </div>
+                <div class="col-sm-6 col-md-4 m-b-15">
+                  <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-line btn-lg btn-block contact-button">
+                    <img src="/assets/images/line-logo-48.png" alt="LINE" class="line-logo" style="width: 24px; height: 24px; margin-right: 10px; vertical-align: middle;">
+                    {contactContent.hero.mobileButtontext} LINE
+                  </a>
+                </div>
+              </div>
+            </div>
 
             <br>
             <div class="panel bg-master-lightest" id="contact-panel">
@@ -141,7 +164,7 @@ const contact = getContactConfig(lang);
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="MS Law Office Map">
+          title={lang === 'th' ? 'แผนที่สำนักงานกฎหมายมิตรแสนสุข' : 'MS Law Office Map'}>
         </iframe>
 
         <!-- Map Overlay -->
@@ -169,7 +192,21 @@ const contact = getContactConfig(lang);
           {contactContent.cta.description}
         </p>
 
-        <ContactButtons lang={lang} size="large" layout="horizontal" />
+        <div class="contact-buttons-container">
+          <div class="row">
+            <div class="col-sm-6 col-md-4 col-sm-offset-2 col-md-offset-2 m-b-15">
+              <a href="tel:+66815144783" onclick="trackPhoneClick()" class="btn btn-call btn-lg btn-block contact-button">
+                <i class="fa fa-phone p-r-10"></i> {contactContent.hero.mobileButtontext} 081-514-4783
+              </a>
+            </div>
+            <div class="col-sm-6 col-md-4 m-b-15">
+              <a href="https://line.me/ti/p/~Matas.s" onclick="trackLineClick()" target="_blank" rel="noopener noreferrer" class="btn btn-line btn-lg btn-block contact-button">
+                <img src="/assets/images/line-logo-48.png" alt="LINE" class="line-logo" style="width: 24px; height: 24px; margin-right: 10px; vertical-align: middle;">
+                {contactContent.hero.mobileButtontext} LINE
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </div>

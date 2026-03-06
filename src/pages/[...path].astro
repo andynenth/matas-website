@@ -11,7 +11,7 @@ import { detectLanguageFromPath, getLocalizedUrl } from '../i18n/utils.js';
 import HomePage from '../templates/HomePage.astro';
 import AboutPage from '../templates/AboutPage.astro';
 import ServicesPage from '../templates/ServicesPage.astro';
-// ContactPage removed - now using consolidated contact page
+import ContactPage from '../templates/ContactPage.astro';
 import FAQPage from '../templates/FAQPage.astro';
 
 export async function getStaticPaths() {
@@ -23,11 +23,11 @@ export async function getStaticPaths() {
     { params: { path: 'services' }, props: { route: 'services', lang: 'th' as Language } },
     { params: { path: 'faq' }, props: { route: 'faq', lang: 'th' as Language } },
 
-    // English routes (en/ prefix) - contact now handled by consolidated page
+    // English routes (en/ prefix)
     { params: { path: 'en' }, props: { route: 'home', lang: 'en' as Language } },
     { params: { path: 'en/about' }, props: { route: 'about', lang: 'en' as Language } },
     { params: { path: 'en/services' }, props: { route: 'services', lang: 'en' as Language } },
-    // en/contact now handled by dedicated page in /en/contact.astro
+    { params: { path: 'en/contact' }, props: { route: 'contact', lang: 'en' as Language } },
     { params: { path: 'en/faq' }, props: { route: 'faq', lang: 'en' as Language } },
   ];
 
@@ -37,13 +37,12 @@ export async function getStaticPaths() {
 // Get route props
 const { route, lang } = Astro.props;
 
-// Contact redirect logic removed - now handled by dedicated pages
-
 // Route to template mapping
 const templates = {
   home: HomePage,
   about: AboutPage,
   services: ServicesPage,
+  contact: ContactPage,
   faq: FAQPage
 } as const;
 
