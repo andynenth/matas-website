@@ -19,14 +19,12 @@ export async function getStaticPaths() {
   const routes = [
     // Thai routes (no prefix)
     { params: { path: undefined }, props: { route: 'home', lang: 'th' as Language } },
-    { params: { path: 'about' }, props: { route: 'about', lang: 'th' as Language } },
     { params: { path: 'services' }, props: { route: 'services', lang: 'th' as Language } },
     { params: { path: 'contact' }, props: { route: 'contact', lang: 'th' as Language } },
     { params: { path: 'faq' }, props: { route: 'faq', lang: 'th' as Language } },
 
     // English routes (en/ prefix)
     { params: { path: 'en' }, props: { route: 'home', lang: 'en' as Language } },
-    { params: { path: 'en/about' }, props: { route: 'about', lang: 'en' as Language } },
     { params: { path: 'en/services' }, props: { route: 'services', lang: 'en' as Language } },
     { params: { path: 'en/contact' }, props: { route: 'contact', lang: 'en' as Language } },
     { params: { path: 'en/faq' }, props: { route: 'faq', lang: 'en' as Language } },

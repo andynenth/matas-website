@@ -209,8 +209,13 @@ export function getContactConfig(lang: Language) {
     line: {
       url: contact.line.url,
       text: contact.line.text,
+      id: contact.line.id,
       trackingFunction: 'trackLineClick()',
       logo: '/assets/images/line-logo-48.png'
+    },
+    email: {
+      address: contact.email.address,
+      text: contact.email.text
     }
   };
 }

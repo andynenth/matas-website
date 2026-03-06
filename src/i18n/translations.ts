@@ -47,7 +47,12 @@ export const translations = {
       },
       line: {
         text: 'LINE แชท',
-        url: 'https://line.me/ti/p/~Matas.s'
+        url: 'https://line.me/ti/p/~Matas.s',
+        id: 'Matas.s'
+      },
+      email: {
+        address: 'info@mitsansuklaw.com',
+        text: 'อีเมล info@mitsansuklaw.com'
       }
     },
 
@@ -327,7 +332,12 @@ export const translations = {
       },
       line: {
         text: 'LINE Chat',
-        url: 'https://line.me/ti/p/~Matas.s'
+        url: 'https://line.me/ti/p/~Matas.s',
+        id: 'Matas.s'
+      },
+      email: {
+        address: 'info@mitsansuklaw.com',
+        text: 'Email info@mitsansuklaw.com'
       }
     },
 

@@ -23,7 +23,7 @@ const defaultDescription = lang === 'th'
 const fullTitle = `${title} | ${siteName}`;
 const metaDescription = description || defaultDescription;
 const currentURL = canonicalURL || Astro.url;
-const imageURL = ogImage || `${Astro.site}favicon.svg`;
+const imageURL = ogImage || `${Astro.site}favicon.png`;
 ---
 
 <!doctype html>
@@ -32,7 +32,7 @@ const imageURL = ogImage || `${Astro.site}favicon.svg`;
     <meta charset="UTF-8" />
     <meta name="description" content={metaDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO Meta Tags -->

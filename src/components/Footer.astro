@@ -62,11 +62,11 @@ const legalLinks = [
           </li>
           <li class="m-b-5 no-padding">
             <span class="fs-12 font-montserrat bold all-caps p-r-10 text-white">{t('footer.contact.line', lang)}</span>
-            <a href={contact.line.url} onclick={contact.line.trackingFunction} target="_blank" rel="noopener noreferrer" class="fs-14 text-white link">Matas.s</a>
+            <a href={contact.line.url} onclick={contact.line.trackingFunction} target="_blank" rel="noopener noreferrer" class="fs-14 text-white link">{contact.line.id}</a>
           </li>
           <li class="m-b-5 no-padding">
             <span class="fs-12 font-montserrat bold all-caps p-r-10 text-white">{t('footer.contact.email', lang)}</span>
-            <a href="mailto:info@mitsansuklaw.com" class="fs-14 text-white link">info@mitsansuklaw.com</a>
+            <a href={`mailto:${contact.email.address}`} class="fs-14 text-white link">{contact.email.address}</a>
           </li>
         </ul>
       </div>

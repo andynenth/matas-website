@@ -3,82 +3,27 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactButtons from '../components/ContactButtons.astro';
+import { detectLanguageFromPath } from '../i18n/utils.js';
+import { translations } from '../i18n/translations.js';
 
-const pageTitle = 'หน้าแรก';
-const pageDescription = 'สำนักกฎหมายมิตรแสนสุข - บริการด้านกฎหมายในจังหวัดชลบุรี ด้วยมาตรฐานการทำงานที่โปร่งใสและเป็นมืออาชีพ';
+// Detect language from URL
+const lang = detectLanguageFromPath(Astro.url.pathname);
+const currentPath = lang === 'en' ? '/en/' : '/';
 
-const whyChooseFeatures = [
-  {
-    title: 'การศึกษาระดับสูง',
-    description: 'นิติศาสตร์บัณฑิต<br>มหาวิทยาลัยธรรมศาสตร์',
-    icon: '/assets/images/icons/education.png',
-    bgColor: 'bg-primary',
-    isImage: true
-  },
-  {
-    title: 'ใบอนุญาตครบถ้วน',
-    description: 'ทนายความและทนายความ<br>ผู้รับรองเอกสาร',
-    icon: '/assets/images/icons/license.png',
-    bgColor: 'bg-success',
-    isImage: true
-  },
-  {
-    title: 'บริการเป็นมิตร',
-    description: 'เข้าใจปัญหา ให้คำปรึกษา<br>ด้วยความเป็นมิตร',
-    icon: '/assets/images/icons/friendly-service.png',
-    bgColor: 'bg-complete',
-    isImage: true
-  }
-];
+// Get page data from translations
+const pageData = translations[lang].pages.home;
+const pageTitle = pageData.title;
+const pageDescription = pageData.description;
 
-const services = [
-  {
-    title: 'การระงับข้อพิพาททางศาล',
-    description: 'ให้คำปรึกษาและดำเนินคดีในศาลทุกชั้นด้วยความเชียวชาญและประสบการณ์',
-    icon: '/assets/images/icons/court-litigation.png',
-    isImage: true
-  },
-  {
-    title: 'การให้คำปรึกษากฎหมาย',
-    description: 'คำปรึกษาทางกฎหมายในหลากหลายสาขา ด้วยความรู้และประสบการณ์จริง',
-    icon: '/assets/images/icons/legal-consultation.png',
-    isImage: true
-  },
-  {
-    title: 'การจัดทำพินัยกรรม',
-    description: 'ร่างและจัดทำพินัยกรรมที่ถูกต้องตามกฎหมายเพื่อความมั่นใจของครอบครัว',
-    icon: '/assets/images/icons/will-preparation.png',
-    isImage: true
-  },
-  {
-    title: 'การแต่งตั้งผู้จัดการมรดก',
-    description: 'ช่วยเหลือในการแต่งตั้งผู้จัดการมรดกและดำเนินการตามกฎหมาย',
-    icon: '/assets/images/icons/estate-administration.png',
-    isImage: true
-  },
-  {
-    title: 'การจดทะเบียนบริษัท',
-    description: 'บริการจดทะเบียนบริษัทครบวงจร รวดเร็ว ถูกต้อง และเป็นไปตามกฎหมาย',
-    icon: '/assets/images/icons/company-registration.png',
-    isImage: true
-  },
-  {
-    title: 'การแปลเอกสาร (เร่งด่วน)',
-    description: 'บริการแปลเอกสารทางกฎหมายและเอกสารราชการ พร้อมรับรองความถูกต้อง',
-    icon: '/assets/images/icons/document-translation.png',
-    isImage: true
-  },
-  {
-    title: 'การรับรองเอกสารโดยทนายความ',
-    description: 'รับรองเอกสารและลายมือชื่อโดยทนายความผู้รับรองเอกสารและลายมือชื่อ',
-    icon: '/assets/images/icons/document-certification.png',
-    isImage: true
-  }
-];
+// Get features from translations
+const whyChooseFeatures = pageData.whyChoose.features;
+
+// Get services from translations
+const services = translations[lang].services;
 ---
 
-<Layout title={pageTitle} description={pageDescription} lang="th">
-  <Header lang="th" currentPath="/" />
+<Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <Header lang={lang} currentPath={currentPath} />
 
   <div class="m-t-60">
 
@@ -88,12 +33,9 @@ const services = [
       <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); background: rgba(255,255,255,0.8);"></div>
       <div class="container" style="position: relative; z-index: 1;">
         <div class="text-center">
-          <h5 class="block-title hint-text no-margin hero-subtitle" style="font-size: 18px; font-weight: bold;">สำนักกฎหมาย</h5>
-          <h1 class="light">สำนักกฎหมายมิตรแสนสุข</h1>
-          <p class="fs-16 m-t-30 m-b-30">
-            ยินดีต้อนรับสู่ สำนักกฎหมายมิตรแสนสุข (MS Law Office)<br>
-            เรามุ่งมั่นให้บริการด้านกฎหมายแก่ประชาชนในจังหวัดชลบุรีและชาวต่างชาติที่อาศัยอยู่ในประเทศไทย<br>
-            ด้วยมาตรฐานการทำงานที่โปร่งใสและเป็นมืออาชีพ เพื่อให้คุณมั่นใจได้ในทุกขั้นตอนของการดำเนินงานทางกฎหมาย
+          <h5 class="block-title hint-text no-margin hero-subtitle" style="font-size: 18px; font-weight: bold;">{pageData.hero.subtitle}</h5>
+          <h1 class="light">{pageData.hero.title}</h1>
+          <p class="fs-16 m-t-30 m-b-30" set:html={pageData.hero.description}>
           </p>
         </div>
       </div>
@@ -102,14 +44,13 @@ const services = [
     <!-- Services Section -->
     <section class="container container-fixed-lg p-t-75 p-b-85">
       <div class="text-center m-b-60">
-        <h5 class="block-title hint-text no-margin">บริการของเรา</h5>
-        <h1 class="m-t-5 m-b-30">บริการด้านกฎหมายครบวงจร</h1>
+        <h5 class="block-title hint-text no-margin">{pageData.services.title}</h5>
+        <h1 class="m-t-5 m-b-30">{pageData.services.subtitle}</h1>
         <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
-          ให้บริการด้านกฎหมายครบวงจร ด้วยความเชียวชาญและประสบการณ์มากกว่า 10 ปี
-          พร้อมให้คำปรึกษาที่โปร่งใสและเป็นมืออาชีพ
+          {pageData.services.description}
         </p>
         <p class="hint-text col-md-6 col-md-offset-3 no-padding m-t-15">
-          เราให้ความสำคัญกับความเป็นมิตรและความเข้าใจในปัญหาของลูกค้าเป็นสำคัญ
+          {pageData.services.note}
         </p>
       </div>
 
@@ -139,8 +80,8 @@ const services = [
         </div>
 
         <div class="text-center m-t-40" style="display: none;">
-          <a href="/services" class="btn btn-primary btn-lg">
-            ดูบริการทั้งหมด
+          <a href={lang === 'en' ? '/en/services' : '/services'} class="btn btn-primary btn-lg">
+            {translations[lang].buttons.viewAllServices}
           </a>
         </div>
       </div>
@@ -150,10 +91,10 @@ const services = [
     <section class="bg-master-lightest p-t-75 p-b-85">
       <div class="container">
         <div class="text-center m-b-60">
-          <h5 class="block-title hint-text no-margin">ทำไมต้องเลือกเรา</h5>
-          <h1 class="m-t-5 m-b-30">ความเชี่ยวชาญที่คุณไว้วางใจได้</h1>
+          <h5 class="block-title hint-text no-margin">{pageData.whyChoose.title}</h5>
+          <h1 class="m-t-5 m-b-30">{pageData.whyChoose.subtitle}</h1>
           <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
-            ด้วยประสบการณ์และความเชี่ยวชาญ เราพร้อมให้บริการที่โปร่งใส เข้าถึงได้ และเป็นมืออาชีพ
+            {pageData.whyChoose.description}
           </p>
         </div>
 
@@ -180,8 +121,8 @@ const services = [
         </div>
 
         <div class="text-center m-t-40">
-          <a href="/about" class="btn btn-primary btn-lg">
-            <i class="fa fa-user p-r-10"></i> เรียนรู้เกี่ยวกับทนายความ
+          <a href={lang === 'en' ? '/en/about' : '/about'} class="btn btn-primary btn-lg">
+            <i class="fa fa-user p-r-10"></i> {translations[lang].buttons.learnAboutLawyer}
           </a>
         </div>
       </div>
@@ -190,12 +131,12 @@ const services = [
     <!-- Testimonials Section -->
     <section class="container container-fixed-lg p-t-75 p-b-85">
       <div class="text-center">
-        <h5 class="block-title hint-text no-margin">ความเห็นจากลูกค้า</h5>
-        <h1 class="m-t-5 m-b-40">ประสบการณ์และความพึงพอใจจากผู้ใช้บริการ</h1>
+        <h5 class="block-title hint-text no-margin">{pageData.testimonials.title}</h5>
+        <h1 class="m-t-5 m-b-40">{pageData.testimonials.subtitle}</h1>
 
         <div class="bg-master-lightest padding-40">
           <p class="fs-16 hint-text">
-            ส่วนนี้พร้อมสำหรับเพิ่มความเห็นและประสบการณ์จากลูกค้าในอนาคต
+            {pageData.testimonials.placeholder}
           </p>
         </div>
       </div>
@@ -204,15 +145,15 @@ const services = [
     <!-- Call-to-Action Section -->
     <section class="bg-master-lightest p-t-75 p-b-85">
       <div class="container text-center">
-        <h1 class="light text-black m-b-20">ต้องการคำปรึกษาทางกฎหมาย?</h1>
+        <h1 class="light text-black m-b-20">{pageData.cta.title}</h1>
         <p class="fs-16 text-black m-b-40 col-md-8 col-md-offset-2 no-padding">
-          ติดต่อเราวันนี้เพื่อรับคำปรึกษาเบื้องต้นฟรี และแผนการดำเนินงานที่เหมาะสมกับคุณ
+          {pageData.cta.description}
         </p>
 
-        <ContactButtons lang="th" size="large" layout="horizontal" />
+        <ContactButtons lang={lang} size="large" layout="horizontal" />
       </div>
     </section>
   </div>
 
-  <Footer lang="th" />
+  <Footer lang={lang} />
 </Layout>
