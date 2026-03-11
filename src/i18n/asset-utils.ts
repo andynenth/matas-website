@@ -18,9 +18,14 @@ import {
 export class AssetResolver {
   /**
    * Get background image and settings by key
+   * Returns object with property names that match HeroSection component expectations
    */
-  static getBackground(key: BackgroundKey): HeroBackground {
-    return sharedAssets.backgrounds[key];
+  static getBackground(key: BackgroundKey) {
+    const bg = sharedAssets.backgrounds[key];
+    return {
+      backgroundImage: bg.image,
+      backgroundSettings: bg.settings
+    };
   }
 
   /**
