@@ -12,6 +12,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactButtons from '../components/ContactButtons.astro';
+import HeroSection from '../components/HeroSection.astro';
 
 export interface Props {
   lang: Language;
@@ -36,17 +37,7 @@ const ctaContent = translations[lang].pages.home.cta;
   <div class="m-t-60">
 
     <!-- Hero Section -->
-    <section class="p-t-85 p-b-85" style="position: relative; background-image: url('/assets/images/lawyer-hero-bg.png'); background-size: cover; background-position: center; background-attachment: fixed;">
-      <!-- Blur overlay -->
-      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); background: rgba(255,255,255,0.8);"></div>
-      <div class="container" style="position: relative; z-index: 1;">
-        <div class="text-center">
-          <h5 class="block-title hint-text no-margin hero-subtitle" style="font-size: 18px; font-weight: bold;">{heroContent.subtitle}</h5>
-          <h1 class="light">{heroContent.title}</h1>
-          <p class="fs-16 m-t-30 m-b-30" set:html={heroContent.description}></p>
-        </div>
-      </div>
-    </section>
+    <HeroSection heroData={heroContent} />
 
     <!-- Services Section -->
     <section class="container container-fixed-lg p-t-75 p-b-85">

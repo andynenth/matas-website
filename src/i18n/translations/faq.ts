@@ -10,7 +10,15 @@ export const faqTranslations = {
         hero: {
           subtitle: 'คำถามที่พบบ่อย',
           title: 'คำตอบสำหรับคำถามทั่วไป',
-          description: 'รวบรวมคำถามและคำตอบที่ลูกค้าสนใจมากที่สุด หากไม่พบคำตอบที่ต้องการ สามารถติดต่อสอบถามได้โดยตรง'
+          description: 'รวบรวมคำถามและคำตอบที่ลูกค้าสนใจมากที่สุด หากไม่พบคำตอบที่ต้องการ สามารถติดต่อสอบถามได้โดยตรง',
+          backgroundImage: '/assets/images/faq-hero-bg.png',
+          backgroundSettings: {
+            blur: '3px',
+            overlayColor: 'rgba(255,255,255,0.8)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }
         },
         faqs: [
           {
@@ -101,7 +109,15 @@ export const faqTranslations = {
         hero: {
           subtitle: 'FAQ',
           title: 'Answers to Common Questions',
-          description: 'Compilation of the most frequently asked questions and answers. If you cannot find the answer you need, feel free to contact us directly.'
+          description: 'Compilation of the most frequently asked questions and answers. If you cannot find the answer you need, feel free to contact us directly.',
+          backgroundImage: '/assets/images/faq-hero-bg.png',
+          backgroundSettings: {
+            blur: '3px',
+            overlayColor: 'rgba(255,255,255,0.8)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }
         },
         faqs: [
           {

@@ -10,7 +10,15 @@ export const aboutTranslations = {
         hero: {
           subtitle: 'เกี่ยวกับเรา',
           title: 'สำนักกฎหมายมิตรแสนสุข',
-          description: 'ก่อตั้งขึ้นเพื่อให้บริการทางด้านกฎหมายแก่ประชาชนทั่วไปและชาวต่างชาติที่อาศัยอยู่ในประเทศไทย ด้วยความเป็นมืออาชีพและมาตรฐานการบริการที่เป็นเลิศ'
+          description: 'ก่อตั้งขึ้นเพื่อให้บริการทางด้านกฎหมายแก่ประชาชนทั่วไปและชาวต่างชาติที่อาศัยอยู่ในประเทศไทย ด้วยความเป็นมืออาชีพและมาตรฐานการบริการที่เป็นเลิศ',
+          backgroundImage: '/assets/images/about-hero-bg.jpg',
+          backgroundSettings: {
+            blur: '3px',
+            overlayColor: 'rgba(255,255,255,0.8)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }
         },
         attorney: {
           title: 'ทนายความหลัก',
@@ -90,7 +98,15 @@ export const aboutTranslations = {
         hero: {
           subtitle: 'About Us',
           title: 'MS Law Office',
-          description: 'Established to provide legal services to the general public and foreigners residing in Thailand with professionalism and excellent service standards'
+          description: 'Established to provide legal services to the general public and foreigners residing in Thailand with professionalism and excellent service standards',
+          backgroundImage: '/assets/images/about-hero-bg.jpg',
+          backgroundSettings: {
+            blur: '3px',
+            overlayColor: 'rgba(255,255,255,0.8)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }
         },
         attorney: {
           title: 'Lead Attorney',

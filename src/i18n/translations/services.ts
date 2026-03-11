@@ -51,10 +51,21 @@ export const servicesTranslations = {
 
     pages: {
       services: {
-        // Services page content will be added here
         title: 'บริการ',
-        description: 'บริการด้านกฎหมายครบวงจรจากสำนักกฎหมายมิตรแสนสุข - การระงับข้อพิพาท คำปรึกษากฎหมาย การจดทะเบียนบริษัท และบริการอื่นๆ'
-        // More content to be added...
+        description: 'บริการด้านกฎหมายครบวงจรจากสำนักกฎหมายมิตรแสนสุข - การระงับข้อพิพาท คำปรึกษากฎหมาย การจดทะเบียนบริษัท และบริการอื่นๆ',
+        hero: {
+          subtitle: 'บริการของเรา',
+          title: 'บริการด้านกฎหมายครบวงจร',
+          description: 'ให้บริการด้านกฎหมายครบวงจร ด้วยความเชียวชาญและประสบการณ์มากกว่า 10 ปี พร้อมให้คำปรึกษาที่โปร่งใสและเป็นมืออาชีพ',
+          backgroundImage: '/assets/images/services-hero.png',
+          backgroundSettings: {
+            blur: '3px',
+            overlayColor: 'rgba(255,255,255,0.8)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }
+        }
       }
     }
   },
@@ -108,10 +119,21 @@ export const servicesTranslations = {
 
     pages: {
       services: {
-        // Services page content will be added here
         title: 'Services',
-        description: 'Comprehensive legal services from MS Law Office - litigation, legal consultation, company registration and more'
-        // More content to be added...
+        description: 'Comprehensive legal services from MS Law Office - litigation, legal consultation, company registration and more',
+        hero: {
+          subtitle: 'Our Services',
+          title: 'Comprehensive Legal Services',
+          description: 'Providing comprehensive legal services with more than 10 years of expertise and experience, ready to provide transparent and professional consultation',
+          backgroundImage: '/assets/images/services-hero.png',
+          backgroundSettings: {
+            blur: '3px',
+            overlayColor: 'rgba(255,255,255,0.8)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }
+        }
       }
     }
   }

@@ -12,6 +12,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactButtons from '../components/ContactButtons.astro';
+import HeroSection from '../components/HeroSection.astro';
 
 export interface Props {
   lang: Language;
@@ -23,6 +24,7 @@ const { lang } = Astro.props;
 const pageTitle = t('pages.services.title', lang);
 const pageDescription = t('pages.services.description', lang);
 const services = translations[lang].services;
+const servicesContent = translations[lang].pages.services;
 ---
 
 <Layout title={pageTitle} description={pageDescription} lang={lang}>
@@ -30,15 +32,7 @@ const services = translations[lang].services;
 
   <div class="m-t-60">
     <!-- Hero Section -->
-    <section class="bg-master-lightest p-t-85 p-b-85">
-      <div class="container text-center">
-        <h5 class="block-title hint-text no-margin">{t('pages.home.services.title', lang)}</h5>
-        <h1 class="light m-t-5 m-b-30">{t('pages.home.services.subtitle', lang)}</h1>
-        <p class="fs-16 col-md-8 col-md-offset-2 no-padding">
-          {t('pages.home.services.description', lang)}
-        </p>
-      </div>
-    </section>
+    <HeroSection heroData={servicesContent.hero} />
 
     <!-- Services Grid -->
     <section class="container container-fixed-lg p-t-75 p-b-85">
@@ -47,7 +41,16 @@ const services = translations[lang].services;
           <div class="col-md-4 col-sm-6 m-b-40">
             <div class="bg-white padding-30 text-center hover-lift">
               <div class="m-b-20">
-                <i class={`fa ${service.icon} text-primary`} style="font-size: 64px;"></i>
+                {service.isImage ? (
+                  <img
+                    src={service.icon}
+                    alt={service.title}
+                    style="width: 64px; height: 64px;"
+                    class="service-icon"
+                  />
+                ) : (
+                  <i class={`fa ${service.icon} text-primary`} style="font-size: 64px;"></i>
+                )}
               </div>
               <h3 class="text-black m-b-20">{service.title}</h3>
               <p class="hint-text">{service.description}</p>

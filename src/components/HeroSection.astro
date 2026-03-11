@@ -1,0 +1,84 @@
+---
+// ===============================
+// HERO SECTION COMPONENT v1.0
+// Reusable hero section with background image support
+// ===============================
+
+export interface Props {
+  heroData: {
+    subtitle: string;
+    title: string;
+    description: string;
+    backgroundImage?: string;
+    backgroundSettings?: {
+      blur: string;
+      overlayColor: string;
+      backgroundSize: string;
+      backgroundPosition: string;
+      backgroundAttachment: string;
+    };
+    // Contact page specific props
+    mobileButtonText?: string;
+    lineButtonText?: string;
+  };
+  showContactButtons?: boolean;
+  contactButtonsSize?: 'small' | 'medium' | 'large';
+}
+
+const { heroData, showContactButtons = false, contactButtonsSize = 'medium' } = Astro.props;
+
+// Import ContactButtons if needed
+let ContactButtons: any = null;
+if (showContactButtons) {
+  ContactButtons = (await import('./ContactButtons.astro')).default;
+}
+---
+
+{heroData.backgroundImage ? (
+  <!-- Hero Section with Background Image -->
+  <section
+    class="p-t-85 p-b-85"
+    style={`position: relative; background-image: url('${heroData.backgroundImage}'); background-size: ${heroData.backgroundSettings?.backgroundSize || 'cover'}; background-position: ${heroData.backgroundSettings?.backgroundPosition || 'center'}; background-attachment: ${heroData.backgroundSettings?.backgroundAttachment || 'fixed'};`}
+  >
+    <!-- Blur overlay -->
+    <div
+      style={`position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(${heroData.backgroundSettings?.blur || '3px'}); background: ${heroData.backgroundSettings?.overlayColor || 'rgba(255,255,255,0.8)'};`}
+    ></div>
+
+    <!-- Content -->
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="text-center">
+        <h5 class="block-title hint-text no-margin hero-subtitle" style="font-size: 18px; font-weight: bold;">{heroData.subtitle}</h5>
+        <h1 class="light">{heroData.title}</h1>
+        <p class="fs-16 m-t-30 m-b-30" set:html={heroData.description}></p>
+
+        {showContactButtons && ContactButtons && (
+          <ContactButtons
+            lang={heroData.mobileButtonText?.includes('081') ? 'th' : 'en'}
+            size={contactButtonsSize}
+            layout="horizontal"
+          />
+        )}
+      </div>
+    </div>
+  </section>
+) : (
+  <!-- Fallback Hero Section without Background Image -->
+  <section class="bg-master-lightest p-t-85 p-b-85">
+    <div class="container text-center">
+      <h5 class="block-title hint-text no-margin">{heroData.subtitle}</h5>
+      <h1 class="light m-t-5 m-b-30">{heroData.title}</h1>
+      <p class="fs-16 col-md-8 col-md-offset-2 no-padding" set:html={heroData.description}></p>
+
+      {showContactButtons && ContactButtons && (
+        <div class="m-t-30">
+          <ContactButtons
+            lang={heroData.mobileButtonText?.includes('081') ? 'th' : 'en'}
+            size={contactButtonsSize}
+            layout="horizontal"
+          />
+        </div>
+      )}
+    </div>
+  </section>
+)}

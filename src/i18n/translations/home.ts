@@ -10,7 +10,15 @@ export const homeTranslations = {
         hero: {
           subtitle: 'สำนักกฎหมาย',
           title: 'สำนักกฎหมายมิตรแสนสุข',
-          description: 'ยินดีต้อนรับสู่ สำนักกฎหมายมิตรแสนสุข (MS Law Office)<br>เรามุ่งมั่นให้บริการด้านกฎหมายแก่ประชาชนในจังหวัดชลบุรีและชาวต่างชาติที่อาศัยอยู่ในประเทศไทย<br>ด้วยมาตรฐานการทำงานที่โปร่งใสและเป็นมืออาชีพ เพื่อให้คุณมั่นใจได้ในทุกขั้นตอนของการดำเนินงานทางกฎหมาย'
+          description: 'ยินดีต้อนรับสู่ สำนักกฎหมายมิตรแสนสุข (MS Law Office)<br>เรามุ่งมั่นให้บริการด้านกฎหมายแก่ประชาชนในจังหวัดชลบุรีและชาวต่างชาติที่อาศัยอยู่ในประเทศไทย<br>ด้วยมาตรฐานการทำงานที่โปร่งใสและเป็นมืออาชีพ เพื่อให้คุณมั่นใจได้ในทุกขั้นตอนของการดำเนินงานทางกฎหมาย',
+          backgroundImage: '/assets/images/lawyer-hero-bg.png',
+          backgroundSettings: {
+            blur: '3px',
+            overlayColor: 'rgba(255,255,255,0.8)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }
         },
         services: {
           title: 'บริการของเรา',
@@ -67,7 +75,15 @@ export const homeTranslations = {
         hero: {
           subtitle: 'Law Office',
           title: 'MS Law Office',
-          description: 'Welcome to MS Law Office<br>We are committed to providing legal services to people in Chonburi and foreigners residing in Thailand<br>With transparent and professional work standards to ensure your confidence in every step of legal proceedings'
+          description: 'Welcome to MS Law Office<br>We are committed to providing legal services to people in Chonburi and foreigners residing in Thailand<br>With transparent and professional work standards to ensure your confidence in every step of legal proceedings',
+          backgroundImage: '/assets/images/lawyer-hero-bg.png',
+          backgroundSettings: {
+            blur: '3px',
+            overlayColor: 'rgba(255,255,255,0.8)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }
         },
         services: {
           title: 'Our Services',
