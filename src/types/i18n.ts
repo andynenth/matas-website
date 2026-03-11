@@ -3,7 +3,7 @@
 // TypeScript type definitions for the translation system
 // ===============================
 
-import type { translations } from '../i18n/translations.js';
+import type { translations } from '../i18n/index.js';
 
 // Basic language types
 export type Language = 'th' | 'en';

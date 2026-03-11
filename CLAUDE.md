@@ -57,6 +57,28 @@ npm install          # Clean install after changes
 - **i18n routing**: No prefix for Thai (default), `/en/` prefix for English
 - **Language switching**: Automatic path conversion in Header.astro
 
+### 1.1 Translations Architecture (Reorganized)
+- **Modular structure**: Translations split into 7 organized files for better maintainability
+- **Location**: `src/i18n/translations/` directory
+- **Central export**: `src/i18n/index.ts` combines all modules maintaining exact same API
+- **File structure**:
+  ```
+  src/i18n/
+  ├── translations/
+  │   ├── common.ts     # Site-wide elements (nav, buttons, contact)
+  │   ├── home.ts       # Homepage content (hero, services, features, CTA)
+  │   ├── about.ts      # About page content (attorney info, philosophy, expertise)
+  │   ├── services.ts   # Services page + services array (7 service items)
+  │   ├── contact.ts    # Contact page content (office info, maps, CTAs)
+  │   ├── faq.ts        # FAQ page content (questions, topics, quick contact)
+  │   └── footer.ts     # Footer content (copyright, links, legal)
+  ├── index.ts          # Central export combining all modules
+  ├── types.ts          # TypeScript type definitions
+  └── utils.ts          # Translation utility functions
+  ```
+- **Usage**: Templates continue using same syntax: `translations.th.pages.home.hero.title`
+- **Benefits**: Easy to find/edit content, team collaboration, 50-200 lines per file vs 1,199-line monolith
+
 ### 2. Styling Consolidation
 - **Global CSS** in `src/layouts/Layout.astro` using `html[lang="th"]` and `html[lang="en"]` selectors
 - **No duplicate styles** across pages - everything inherits from Layout

@@ -3,7 +3,7 @@
 // Helper functions for managing translations and language detection
 // ===============================
 
-import { translations, type Language, type TranslationLang } from './translations.js';
+import { translations, type Language, type TranslationLang } from './index.js';
 
 /**
  * Get translation by dot notation key
