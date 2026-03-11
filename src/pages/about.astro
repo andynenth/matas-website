@@ -144,11 +144,18 @@ const pageDescription = aboutContent.description;
 
       <div class="row">
         {aboutContent.expertise.areas.map((area, index) => {
-          const colors = ['text-primary', 'text-success', 'text-complete'];
           return (
-            <div class="col-md-4 text-center m-b-40">
+            <div class="col-md-4 text-center m-b-40" key={index}>
               <div class="bg-master-lightest padding-30">
-                <i class={`fa ${area.icon} ${colors[index]}`} style="font-size: 48px;"></i>
+                
+                {/* เปลี่ยนจาก <i> เป็น <img> */}
+                <img 
+                  src={area.icon} 
+                  alt={area.title} 
+                  style={{ width: '60px', height: '60px', objectFit: 'contain' }} 
+                  class="m-b-20"
+                />
+
                 <h4 class="text-black m-t-20 m-b-15">{area.title}</h4>
                 <p class="hint-text">{area.description}</p>
               </div>

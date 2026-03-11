@@ -43,7 +43,7 @@ export const translations = {
       phone: {
         number: '+66815144783',
         display: '081-514-4783',
-        text: 'โทรศัพท์ 081-514-4783'
+        text: 'โทร 081-514-4783'
       },
       line: {
         text: 'LINE แชท',
@@ -215,17 +215,17 @@ export const translations = {
             {
               title: 'กฎหมายแพ่งและพาณิชย์',
               description: 'สัญญา ข้อพิพาท และธุรกรรมทางการค้า',
-              icon: 'fa-balance-scale'
+              icon: '/assets/images/icons/commercial-law.png'
             },
             {
               title: 'กฎหมายครอบครัว',
               description: 'การสมรส การหย่า และมรดก',
-              icon: 'fa-users'
+              icon: '/assets/images/icons/family-law.png'
             },
             {
               title: 'การรับรองเอกสาร',
               description: 'เอกสารสำหรับชาวต่างชาติและธุรกรรมระหว่างประเทศ',
-              icon: 'fa-certificate'
+              icon: '/assets/images/icons/stamp-image.png'
             }
           ]
         },
@@ -254,7 +254,7 @@ export const translations = {
               'ดำเนินคดีในศาลชั้นต้น อุทธรณ์ และฎีกา',
               'เจรจาต่อรองและไกล่เกลี่ยข้อพิพาท'
             ],
-            icon: 'fa-balance-scale',
+            icon: '/assets/images/icons/family-law.png',
             bgColor: 'bg-primary'
           },
           {
@@ -266,7 +266,7 @@ export const translations = {
               'กฎหมายที่ดินและอสังหาริมทรัพย์',
               'กฎหมายแรงงานและประกันสังคม'
             ],
-            icon: 'fa-briefcase',
+            icon: '/assets/images/icons/family-law.png',
             bgColor: 'bg-success'
           },
           {
@@ -278,7 +278,7 @@ export const translations = {
               'ตรวจสอบความถูกต้องตามกฎหมาย',
               'เก็บรักษาพินัยกรรมอย่างปลอดภัย'
             ],
-            icon: 'fa-file-text',
+            icon: '/assets/images/icons/family-law.png',
             bgColor: 'bg-complete'
           },
           {
@@ -290,7 +290,7 @@ export const translations = {
               'ชำระหนี้และแจกจ่ายทรัพย์สิน',
               'รายงานผลการดำเนินการต่อศาล'
             ],
-            icon: 'fa-users',
+            icon: '/assets/images/icons/family-law.png',
             bgColor: 'bg-primary'
           },
           {
@@ -302,7 +302,7 @@ export const translations = {
               'จดทะเบียนโอนหุ้น และเปลี่ยนแปลงกรรมการ',
               'ยกเลิกบริษัท และชำระบัญชี'
             ],
-            icon: 'fa-building',
+            icon: '/assets/images/icons/family-law.png',
             bgColor: 'bg-success'
           },
           {
@@ -314,7 +314,7 @@ export const translations = {
               'แปลเอกสารสำหรับวีซ่าและการอพยพ',
               'บริการแปลเร่งด่วนภายในวันเดียว'
             ],
-            icon: 'fa-language',
+            icon: '/assets/images/icons/family-law.png',
             bgColor: 'bg-complete'
           },
           {
@@ -326,7 +326,7 @@ export const translations = {
               'รับรองการแปลเอกสาร',
               'เอกสารมีผลใช้ได้ทันที ไม่ต้องรอนาน'
             ],
-            icon: 'fa-certificate',
+            icon: '/assets/images/icons/family-law.png',
             bgColor: 'bg-primary'
           }
         ],
@@ -408,7 +408,7 @@ export const translations = {
         hero: {
           subtitle: 'ติดต่อเรา',
           title: 'ติดต่อสำนักงานกฎหมาย',
-          mobileButtontext: '',
+          mobileButtonText: '081-514-4783',
           lineButtonText: 'LINE แชท',
           description: 'เรายินดีให้คำปรึกษาทางกฎหมายและช่วยเหลือแก้ไขปัญหาต่างๆ ด้วยความเป็นมิตรและมาตรฐานการบริการที่เป็นเลิศ'
         },
@@ -1001,7 +1001,8 @@ export const translations = {
         hero: {
           subtitle: 'Contact Us',
           title: 'Contact Our Law Office',
-          mobileButtontext: '',
+          mobileButtonText: '',
+          lineButtonText: 'LINE Chat',
           description: 'We are happy to provide legal consultation and help solve various problems with friendliness and excellent service standards'
         },
         mainContact: {

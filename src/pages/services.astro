@@ -44,7 +44,11 @@ const processStepColors = ['bg-primary', 'bg-success', 'bg-complete', 'bg-warnin
               <div class="row">
                 <div class="col-xs-3">
                   <div class={`${service.bgColor} text-center padding-20`} style="border-radius: 10px;">
-                    <i class={`fa ${service.icon} text-white`} style="font-size: 48px;"></i>
+                    <img 
+                  src={service.icon} 
+                  alt={service.title} 
+                  style={{ width: '48px', height: '48px', objectFit: 'contain' }} 
+                />
                   </div>
                 </div>
                 <div class="col-xs-9 p-l-20">
