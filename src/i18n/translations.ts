@@ -1001,7 +1001,7 @@ export const translations = {
         hero: {
           subtitle: 'Contact Us',
           title: 'Contact Our Law Office',
-          mobileButtonText: '',
+          mobileButtonText: '081-514-4783',
           lineButtonText: 'LINE Chat',
           description: 'We are happy to provide legal consultation and help solve various problems with friendliness and excellent service standards'
         },
