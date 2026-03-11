@@ -17,10 +17,11 @@ import FAQPage from '../templates/FAQPage.astro';
 export async function getStaticPaths() {
   // Define all routes for both languages
   const routes = [
-    // Thai routes (no prefix) - contact now handled by consolidated page
+    // Thai routes (no prefix)
     { params: { path: undefined }, props: { route: 'home', lang: 'th' as Language } },
     { params: { path: 'about' }, props: { route: 'about', lang: 'th' as Language } },
     { params: { path: 'services' }, props: { route: 'services', lang: 'th' as Language } },
+    { params: { path: 'contact' }, props: { route: 'contact', lang: 'th' as Language } },
     { params: { path: 'faq' }, props: { route: 'faq', lang: 'th' as Language } },
 
     // English routes (en/ prefix)
