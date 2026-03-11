@@ -1,5 +1,8 @@
 // About page translations
 // Contains: pages.about
+// Visual assets moved to shared-assets.ts to eliminate duplication
+
+import { AssetResolver } from '../asset-utils.js';
 
 export const aboutTranslations = {
   th: {
@@ -11,14 +14,7 @@ export const aboutTranslations = {
           subtitle: 'เกี่ยวกับเรา',
           title: 'สำนักกฎหมายมิตรแสนสุข',
           description: 'ก่อตั้งขึ้นเพื่อให้บริการทางด้านกฎหมายแก่ประชาชนทั่วไปและชาวต่างชาติที่อาศัยอยู่ในประเทศไทย ด้วยความเป็นมืออาชีพและมาตรฐานการบริการที่เป็นเลิศ',
-          backgroundImage: '/assets/images/about-hero-bg.jpg',
-          backgroundSettings: {
-            blur: '3px',
-            overlayColor: 'rgba(255,255,255,0.8)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }
+          ...AssetResolver.getBackground('about')
         },
         attorney: {
           title: 'ทนายความหลัก',
@@ -68,17 +64,17 @@ export const aboutTranslations = {
             {
               title: 'กฎหมายแพ่งและพาณิชย์',
               description: 'สัญญา ข้อพิพาท และธุรกรรมทางการค้า',
-              icon: '/assets/images/icons/commercial-law.png'
+              icon: AssetResolver.getExpertiseIcon(0)
             },
             {
               title: 'กฎหมายครอบครัว',
               description: 'การสมรส การหย่า และมรดก',
-              icon: '/assets/images/icons/family-law.png'
+              icon: AssetResolver.getExpertiseIcon(1)
             },
             {
               title: 'การรับรองเอกสาร',
               description: 'เอกสารสำหรับชาวต่างชาติและธุรกรรมระหว่างประเทศ',
-              icon: '/assets/images/icons/stamp-image.png'
+              icon: AssetResolver.getExpertiseIcon(2)
             }
           ]
         },
@@ -99,14 +95,7 @@ export const aboutTranslations = {
           subtitle: 'About Us',
           title: 'MS Law Office',
           description: 'Established to provide legal services to the general public and foreigners residing in Thailand with professionalism and excellent service standards',
-          backgroundImage: '/assets/images/about-hero-bg.jpg',
-          backgroundSettings: {
-            blur: '3px',
-            overlayColor: 'rgba(255,255,255,0.8)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }
+          ...AssetResolver.getBackground('about')
         },
         attorney: {
           title: 'Lead Attorney',
@@ -156,17 +145,17 @@ export const aboutTranslations = {
             {
               title: 'Civil and Commercial Law',
               description: 'Contracts, disputes, and commercial transactions',
-              icon: 'fa-balance-scale'
+              icon: AssetResolver.getExpertiseIcon(0)
             },
             {
               title: 'Family Law',
               description: 'Marriage, divorce, and inheritance',
-              icon: 'fa-users'
+              icon: AssetResolver.getExpertiseIcon(1)
             },
             {
               title: 'Document Certification',
               description: 'Documents for foreigners and international transactions',
-              icon: 'fa-certificate'
+              icon: AssetResolver.getExpertiseIcon(2)
             }
           ]
         },

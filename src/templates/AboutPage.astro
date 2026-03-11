@@ -154,7 +154,12 @@ const pageDescription = aboutContent.description;
           return (
             <div class="col-md-4 text-center m-b-40">
               <div class="bg-master-lightest padding-30">
-                <i class={`fa ${area.icon} ${colors[index]}`} style="font-size: 48px;"></i>
+                <img
+                  src={area.icon}
+                  alt={area.title}
+                  style="width: 48px; height: 48px;"
+                  class="expertise-icon"
+                />
                 <h4 class="text-black m-t-20 m-b-15">{area.title}</h4>
                 <p class="hint-text">{area.description}</p>
               </div>

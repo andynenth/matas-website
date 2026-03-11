@@ -1,5 +1,8 @@
 // Contact page translations
 // Contains: pages.contact
+// Visual assets moved to shared-assets.ts to eliminate duplication
+
+import { AssetResolver } from '../asset-utils.js';
 
 export const contactTranslations = {
   th: {
@@ -13,14 +16,7 @@ export const contactTranslations = {
           mobileButtonText: '081-514-4783',
           lineButtonText: 'LINE แชท',
           description: 'เรายินดีให้คำปรึกษาทางกฎหมายและช่วยเหลือแก้ไขปัญหาต่างๆ ด้วยความเป็นมิตรและมาตรฐานการบริการที่เป็นเลิศ',
-          backgroundImage: '/assets/images/contact-hero-bg.png',
-          backgroundSettings: {
-            blur: '3px',
-            overlayColor: 'rgba(255,255,255,0.8)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }
+          ...AssetResolver.getBackground('contact')
         },
         mainContact: {
           title: 'ติดต่อสำนักงานกฎหมาย',
@@ -96,14 +92,7 @@ export const contactTranslations = {
           mobileButtonText: '081-514-4783',
           lineButtonText: 'LINE Chat',
           description: 'We are happy to provide legal consultation and help solve various problems with friendliness and excellent service standards',
-          backgroundImage: '/assets/images/contact-hero-bg.png',
-          backgroundSettings: {
-            blur: '3px',
-            overlayColor: 'rgba(255,255,255,0.8)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }
+          ...AssetResolver.getBackground('contact')
         },
         mainContact: {
           title: 'Contact Our Law Office',

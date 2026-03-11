@@ -1,5 +1,8 @@
 // FAQ page translations
 // Contains: pages.faq
+// Visual assets moved to shared-assets.ts to eliminate duplication
+
+import { AssetResolver } from '../asset-utils.js';
 
 export const faqTranslations = {
   th: {
@@ -11,14 +14,7 @@ export const faqTranslations = {
           subtitle: 'คำถามที่พบบ่อย',
           title: 'คำตอบสำหรับคำถามทั่วไป',
           description: 'รวบรวมคำถามและคำตอบที่ลูกค้าสนใจมากที่สุด หากไม่พบคำตอบที่ต้องการ สามารถติดต่อสอบถามได้โดยตรง',
-          backgroundImage: '/assets/images/faq-hero-bg.png',
-          backgroundSettings: {
-            blur: '3px',
-            overlayColor: 'rgba(255,255,255,0.8)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }
+          ...AssetResolver.getBackground('faq')
         },
         faqs: [
           {
@@ -110,14 +106,7 @@ export const faqTranslations = {
           subtitle: 'FAQ',
           title: 'Answers to Common Questions',
           description: 'Compilation of the most frequently asked questions and answers. If you cannot find the answer you need, feel free to contact us directly.',
-          backgroundImage: '/assets/images/faq-hero-bg.png',
-          backgroundSettings: {
-            blur: '3px',
-            overlayColor: 'rgba(255,255,255,0.8)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }
+          ...AssetResolver.getBackground('faq')
         },
         faqs: [
           {
