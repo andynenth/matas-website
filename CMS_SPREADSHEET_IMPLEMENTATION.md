@@ -1,5 +1,9 @@
 # CMS Spreadsheet Implementation Progress
 
+> **Status: Deferred future plan — not implemented**
+>
+> This document is a planning reference only. The current production website does not depend on a Google Sheets CMS, and no CMS implementation has been shipped. Do not begin this work automatically during onboarding or maintenance. Start implementation only after a separate explicit owner decision.
+
 ## Project Overview
 Implementing Google Sheets as CMS for dynamic content in MS Law Office website (Astro 5.18.0 + TypeScript + bilingual support).
 
